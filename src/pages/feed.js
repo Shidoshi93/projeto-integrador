@@ -1,0 +1,1 @@
+// Arquivo responsável por renderizar o feed

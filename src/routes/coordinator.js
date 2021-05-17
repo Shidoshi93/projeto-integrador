@@ -1,0 +1,1 @@
+// Onde ficarão as funções para direcionar as rotas
