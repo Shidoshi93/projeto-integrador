@@ -1,30 +1,29 @@
-// Página de cadastro// Página de login
-import {useState} from 'react'
+import { useState } from 'react'
 
-function Login() {
-    const [valuemail, setvaluemail] = useState()
-    const [valuesenha, setvaluesenha] = useState()
-    const [valuesenhaconfirma, setvaluesenhaconfirma] = useState()
+function Cadastro() {
+    const [valuemail, setvaluemail] = useState('')
+    const [valuesenha, setvaluesenha] = useState('')
+    const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
 
     const onchangeemail = (event) => {
 
-            setvaluemail(event.target.value)
-            console.log(valuemail)
-    } 
-    
+        setvaluemail(event.target.value)
+        console.log(valuemail)
+    }
+
     const onchangesenha = (event) => {
 
         setvaluesenha(event.target.value)
         console.log(valuesenha)
-} 
-const onchangesenhaconfirma = (event) => {
+    }
+    const onchangesenhaconfirma = (event) => {
 
-    setvaluesenhaconfirma(event.target.value)
-    console.log(valuesenhaconfirma)
-
-    return(
+        setvaluesenhaconfirma(event.target.value)
+        console.log(valuesenhaconfirma)
+    }
+    return (
         <div>
-            Cadastro do Usuário 
+            Cadastro do Usuário
             <form >
                 <label>
                     Email:
@@ -34,7 +33,7 @@ const onchangesenhaconfirma = (event) => {
                     Senha:
                 </label>
                 <input type='password' onChange={onchangesenha} value={valuesenha}></input>
-                
+
                 <label>
                     Confirme a Senha:
                 </label>
@@ -47,4 +46,4 @@ const onchangesenhaconfirma = (event) => {
         </div>
     )
 
-} export default Login
+} export default Cadastro;
