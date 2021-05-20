@@ -1,7 +1,11 @@
 import './App.css';
-import Login from './pages/login';
+import Titulo from './components/Titulo'
+import CadastroDoacao from './pages/singup2'
 
-function App() {
+
+
+/*import Login from './pages/login';*/
+/*function App() {
   return (
     <div className="App">
       Projeto integrador - Grupo 03
@@ -10,6 +14,18 @@ function App() {
       </Login>
     </div>
   );
-}
+} export default App;*/
 
-export default App;
+function App() {
+  return (
+    <div className="App">
+      <Titulo>
+        
+      </Titulo>
+      <CadastroDoacao> 
+
+      </CadastroDoacao>
+    </div>
+  );
+} export default App;
+
