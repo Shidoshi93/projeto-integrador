@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import Cep from '../components/cep'
+
 
 function Cadastro() {
     const [valuemail, setvaluemail] = useState('')
     const [valuesenha, setvaluesenha] = useState('')
     const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
+   
 
     const onchangeemail = (event) => {
 
@@ -21,10 +24,30 @@ function Cadastro() {
         setvaluesenhaconfirma(event.target.value)
         console.log(valuesenhaconfirma)
     }
+
+        
+        
     return (
         <div>
             Cadastro do Usuário
             <form >
+                <label>
+                    Nome:
+                </label>
+                <input type={Text}></input>
+
+                <label>
+                    Sobrenome:
+                </label>
+                <input type={Text}></input>
+
+                <label>
+                    CPF:
+                </label>
+                <input type={Text} placeholder={"insira seu CPF (somente números)"} pattern={"[0-9]{11}"}></input>
+
+                <Cep></Cep>
+
                 <label>
                     Email:
                 </label>
@@ -43,6 +66,7 @@ function Cadastro() {
                     Cadastrar
                 </button>
             </form>
+
         </div>
     )
 
