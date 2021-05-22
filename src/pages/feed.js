@@ -1,11 +1,9 @@
-import Cards from "../components/cardFeed";
+import Cards from "../components/CardFeed/cardFeed";
 
 function Feed() {
             
  return (
-        <Cards>
- 
-        </Cards>
+        <Cards />
     )
 }
 
