@@ -2,8 +2,6 @@
 import local from '../../images/local.png';
 import userImg from '../../images/user.png';
 import {
-    ImagemUser,
-    ImagemLocal,
     CardContent,
     CardContainer,
     CardItemContent,
@@ -17,6 +15,7 @@ import CardItem from './CardItem';
 import cestabasica from '../../images/cestabasica.png'
 import higiene from '../../images/higiene.png'
 import vestuario from '../../images/vestuario.png'
+import { useState } from 'react';
 
 const imgDonation = [
     { src: cestabasica },
@@ -25,6 +24,7 @@ const imgDonation = [
 ];
 
 function Cards() {
+    const [valueInputFilter, setValueInputFilter] = useState('')
 
     const donationPosts = [
         {
@@ -72,12 +72,31 @@ function Cards() {
         }
     ];
 
+    const onChangeFilter = (e) =>{
+        setValueInputFilter(e.target.value)
+    }
+    
+    let filteredPosts = donationPosts.filter(post =>{
+        if(valueInputFilter.length === 0) {
+            return donationPosts
+        } else {
+            return post.userStatus === valueInputFilter
+        }
+    })
+
     return (
         <MotherBox>
             {/* recebe informações do formulário de doação */}
+            <div>
+                <select onChange={onChangeFilter} defaultValue='0'>
+                    <option disabled value='0'>Selecione um tipo</option>
+                    <option value='Doador'>Quero Receber</option>
+                    <option value='Beneficiário'>Quero Ajudar</option>
+                </select>
+            </div>
             <CardContainer className='cardContainer'>
-                {donationPosts.map((donation) => (
-                    <CardContent className='cardContent'>
+                {filteredPosts.map((donation) => (
+                    <CardContent className='cardContent' key={donation.key}>
                         <Title>{donation.userStatus === "Doador" ? "Para doação" : "Preciso de ajuda"}</Title>
                         <CardItemContent>
                             <CardItem
@@ -106,7 +125,7 @@ function Cards() {
 
                         {/* abre janela de contato com usuário */}
                         <Btn>
-                            {donation.userStatus === "Doador" ? "Quero receber" : "Quero doar"}
+                            {donation.userStatus === "Doador" ? "Aceitar" : "Doar"}
                         </Btn>
                     </CardContent>
                 ))}
