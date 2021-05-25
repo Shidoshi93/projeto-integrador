@@ -1,1 +1,7 @@
-// Onde ficarão as funções para direcionar as rotas
+export const goTo = (history, path) => {
+    history.push(path)
+}
+
+export const goToBack = (history) => {
+    history.goBack()
+}
