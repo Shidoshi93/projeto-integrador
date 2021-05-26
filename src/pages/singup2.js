@@ -1,8 +1,7 @@
-import React from 'react';
 /* Tela de Cadastro de Doações */
-
+import React from 'react';
 import Titulo from '../components/Titulo';
-// import { useState } from 'react'
+import '../signup2.css'
 
 function CadastroDoacao() {
    const valueCategoria= ["Beneficiário", "Doador"]
@@ -17,42 +16,55 @@ function CadastroDoacao() {
 
    const arrayOptions = criaOption();
  
-   return (  
-      <div>
-         <Titulo/>  
-         <form>
-        
-            <label> Tipo de Usuário </label> 
-            <select> 
-               {
-                  valueCategoria.map(estado=>{
-                  return(<option>{estado} </option>)})
-               } 
-            </select>
-      
-            <label>Tipo de Doação</label>
-            <select>
-               {
-                  valueTipo.map(tipo=>{
-                  return(<option>{tipo} </option>)})
-               } 
-            </select>
+   return (
 
-            <label>Quantidade</label>
-            <select>
-               {
-                  arrayOptions.map(option => {
-                  return ( <option>{option}</option>)}) 
-               }
-            </select>
+      <section>
+         <Titulo title="Peça ou Ofereça Doação"/>
+
+         <form>
+            <div className="div__form">
+               <div className="div__label">
+                  <label> Tipo de Usuário </label> 
+                  <select> 
+                     <option selected disabled>Selecione</option>
+                     {
+                        valueCategoria.map(estado=>{
+                        return(<option>{estado} </option>)})
+                     } 
+                  </select>
+               </div>
+               <div className="div__label">
+
+                  <label>Tipo de Doação</label>
+                  <select>
+                     <option selected disabled>Selecione</option>
+                     {
+                        valueTipo.map(tipo=>{
+                        return(<option>{tipo} </option>)})
+                     } 
+                  </select>
+               </div>
+               <div className="div__label">
+
+                  <label>Quantidade (Máx. 10)</label>
+                  <select>
+                     <option selected disabled>Selecione</option>
+                     {
+                        arrayOptions.map(option => {
+                        return ( <option>{option}</option>)}) 
+                     }
+                  </select>
+               </div>
       
-            <label>Observação</label>
-            <textarea placeholder="Campo destinado ao registro de informações complementares"></textarea>
+               <label>Descrição</label>
+               <textarea placeholder="Campo destinado ao registro de informações complementares"></textarea>
       
-            <span>*Realize um post para cada solicitação*</span>
-            <button type="submit"> Enviar </button>
+               <span>Obs.: Realize um post para cada pedido/oferta de ajuda</span>
+            </div>
+            <button className="botao botao__limpar">LIMPAR</button>
+            <button className="botao botao__enviar" type="submit"> ENVIAR </button>
          </form>
-      </div>)
+      </section>)
 
 } export default CadastroDoacao;
 
