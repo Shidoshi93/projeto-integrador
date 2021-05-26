@@ -1,15 +1,11 @@
 import React from 'react'
 import './App.css';
-// import CadastroDoacao from './pages/singup2'
-import Cadastro from './pages/singup';
+import Router from './routes/router';
 
 function App() {
   return (
     <div className="App">
-      {/* <CadastroDoacao> 
-
-      </CadastroDoacao> */}
-      <Cadastro></Cadastro>
+      <Router />
     </div>
   );
 } export default App;
