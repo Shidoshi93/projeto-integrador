@@ -1,156 +1,167 @@
 import styled from 'styled-components';
 import '../../../src/fonts.css';
+import px2vw from '../../hooks/px2vw';
 
 export const MotherBox = styled.div`
-    display:flex;
-    width: 100vw;
-    height: 50vh;
+    position: absolute;
+    width: ${px2vw(1440)};
+    height: ${px2vw(800)};
+    left: 0;
+    right: 0;
+`
+export const HeadContainer = styled.div`
+    width: 70%;
+    height: 20%;
+    position: relative;
     margin: auto;
-    margin-top: 100px;
-    align-items: center;
-    flex-direction: column;
+    margin-top: 5%;
+    margin-bottom: 0%;    
 `
-export const ContainerHead = styled.div`
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    width: 55vw;
-    height: 20vh;
+export const HeadUserContainer = styled.div`
+    position: relative;
+    margin: 0;
+    margin-top: 1%;
+    margin-bottom: 2%; 
+    float: center;
 `
-export const ContainerUserHead = styled.div`
-    display: inline-flex;
-    align-items: center;
-`
-export const ContainerImg = styled.img`
-    display: inline;
-    width: 100px;
-    height: 100px;
-    border: 1px solid #F38D68;
-    border-radius: 15px;
+export const ImgContainer = styled.img`
+    width: ${px2vw(120)};
+    height: ${px2vw(120)};
+    position: relative;
+    margin: ${px2vw(5)} ${px2vw(0)} ${px2vw(5)} ${px2vw(0)};
+    float: left;
+    border: ${px2vw(1)} solid #F38D68;
+    border-radius: ${px2vw(30)};
     background: #F4F3F3;
-    border-radius: 15px;
 `
 export const Title = styled.h3`
-    display: inline;
+    position: relative;
+    margin: ${px2vw(10)} ${px2vw(0)} ${px2vw(5)} ${px2vw(20)};
+    float: left;
     font-family: Lato;
     font-style: normal;
     font-weight: 700;
-    font-size: 1.6rem;
-    line-height: 29px;
+    font-size: ${px2vw(24)};
+    line-height: ${px2vw(24)};
     text-align: center;
-    margin-left: 40px;
-    color: #F38D68;    
+    color: #F38D68; 
 `
-export const ContainerBtnHead = styled.div`
+export const HeadBtnContainer = styled.div`
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
-    align-items: flex-end;
+    align-content: flex-end;
     justify-content: space-between;
-    align-content: space-between;
+    align-items: flex-end;
+    row-gap: ${px2vw(30)};    
 `
 export const BtnHead = styled.button`
-    width: 150px;
-    height: 38px;
+    width: ${px2vw(150)};
+    height: ${px2vw(38)};
     background-color: #F38D68;
     border: none;
-    border-radius: 15px;
-    box-shadow: 5px 5px 0px rgba(243, 141, 104, 0.5);
+    border-radius: ${px2vw(15)};
+    box-shadow: ${px2vw(5)} ${px2vw(5)} ${px2vw(0)} rgba(243, 141, 104, 0.5);
     font-family: Lato;
     font-style: normal;
     font-weight: 800;
-    font-size: .8rem;
-    line-height: .8rem;
+    font-size: ${px2vw(14)};
+    line-height: ${px2vw(14)};
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
 
     &:active{
         outline: none;
-        border: 1px solid lightgrey;
+        border: ${px2vw(1)} solid lightgrey;
     }
 
     &:hover{
         background-color: #e66e42;
     }
 `
-export const ContainerForm = styled.form`
-    width: 35vw;
-    height: 30vh;    
-    border: 1px solid #F38D68;
-    border-right-width: 15px;
-    background-color: #F4F3F3;
-    box-shadow: 15px 10px 0px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 6px 0px 10px 0px;   
+export const MainContainer = styled.div`
+    width: 100%;
+    height: ${px2vw(200)};    
+    position: relative;
+    margin: ${px2vw(20)} auto ${px2vw(5)} auto;
 `
-export const ContainerBox = styled.div`
-    width: 90%; 
+export const CardContainer = styled.div`
+    width: ${px2vw(700)};
+    height: ${px2vw(300)};    
+    position: relative;
+    margin: ${px2vw(0)} auto ${px2vw(5)} auto;
+    border: ${px2vw(1)} solid #F38D68;
+    border-right-width: ${px2vw(15)};
+    background-color: #F4F3F3;
+    box-shadow: ${px2vw(15)} ${px2vw(10)} ${px2vw(0)} rgba(0, 0, 0, 0.2);
+    border-radius: ${px2vw(5)};
+`
+export const FormContainer = styled.form`
+    width: ${px2vw(700)};
+    height: ${px2vw(300)};    
+    position: absolute;
+    top: ${px2vw(18)};
+    
+`
+export const FormDataContainer = styled.div`
+    width: ${px2vw(600)};
+    position: absolute;
     display:flex; 
     flex-direction: row; 
     flex-wrap: wrap;
-    justify-content: flex-start; 
-    align-items: left;
-    margin-rigth: 100px; 
-    padding: 5px 0px 0px 120px;
+    top: 0;
+    left: ${px2vw(200)};
 `
 export const Label = styled.label`
-    width: 200px;
-    height: 12px;
+    width: ${px2vw(200)};
+    height: ${px2vw(18)};
     font-family: Lato;
     font-style: normal;
     font-weight: 300;
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: ${px2vw(18)};
+    line-height: ${px2vw(18)};
     text-align: left;
     float:left;
-    margin-top:10px;
+    margin-top:${px2vw(15)};
      
 `
 export const Input = styled.input`
-    width: 204px;
-    height: 18px;
+    width: ${px2vw(300)};
+    height: ${px2vw(18)};
     background-color: #F4F3F3;
     border: none;
     box-sizing: border-box;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: ${px2vw(18)};
+    line-height: ${px2vw(18)};
     clear: both;
-    float:left;
-    margin-top:10px;
+    float: left;
+    margin-top:${px2vw(15)};
      
 `
-export const ContainerBtnForm = styled.div`
+export const FormBtnContainer = styled.div`
+    width: 100%;    
+    position: absolute;
+    top: ${px2vw(340)};
+    left: ${px2vw(350)};
+    right: 0;
     display: inline-flex;
-    align-items: flex-end;
-    justify-content: space-around;
-    align-content: space-between;
-    padding: 0px 60px 0px 30px;
+    justify-content: space-evenly;
 `
 export const BtnForm = styled.button`
-    width: 110px;
-    height: 30px;
+    width: ${px2vw(130)};
+    height: ${px2vw(32)};
     margin: 0;
     border: none;
-    border-radius: 5px;
+    border-radius: ${px2vw(5)};
     background-color: #F38D68;
-    align-items: center;
-    display: inline-block;
-    align-content: center;
-    justify-content: center;
     font-family: Lato;
     font-style: normal;
     font-weight: 700;
-    font-size: .8rem;
-    line-height: .8rem;
+    font-size: ${px2vw(14)};
+    line-height: ${px2vw(14)};
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
