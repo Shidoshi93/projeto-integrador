@@ -17,22 +17,22 @@ function Nav() {
         <div>
             <Header>
                 <div>
-                    <a className='logo' alt='logo do projeto' onClick={() => goToBack(history)}>
+                    <button className='logo' alt='logo do projeto' onClick={() => goToBack(history)}>
                         LOGO
-                    </a>
+                    </button>
                 </div>
 
                 <nav>
                     <ul className='nav-ul'>
                         <li>
-                            <a onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
+                            <button onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
                                 Posts
-                            </a>
+                            </button>
                         </li>
                         <li>
-                            <a alt='botão com opções de conta do usuário' onClick={() => click(!HideMenu)}>
+                            <button alt='botão com opções de conta do usuário' onClick={() => click(!HideMenu)}>
                                 Conta
-                            </a>
+                            </button>
                         </li>
                     </ul>
 

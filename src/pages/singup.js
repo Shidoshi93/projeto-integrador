@@ -1,5 +1,16 @@
-import { useState } from 'react'
-import Cep from '../components/cep'
+import React from 'react';
+import { useState } from 'react';
+import Cep from '../components/singup/cep';
+import {
+    MotherBox,
+    ContainerTitle,
+    ContainerForm,
+    Btn,
+    BtnClear,
+    Title,
+    Label,
+    Input
+} from '../components/singup/signupStyle'
 
 
 function Cadastro() {
@@ -28,46 +39,49 @@ function Cadastro() {
         
         
     return (
-        <div>
-            Cadastro do Usuário
-            <form >
-                <label>
+        <MotherBox>
+            <ContainerTitle><Title>Cadastre-se</Title></ContainerTitle>
+            <ContainerForm >
+                <Label>
                     Nome:
-                </label>
-                <input type={Text}></input>
+                </Label>
+                <Input type={Text}></Input><br />
 
-                <label>
+                <Label>
                     Sobrenome:
-                </label>
-                <input type={Text}></input>
+                </Label>
+                <Input type={Text}></Input><br />
 
-                <label>
+                <Label>
                     CPF:
-                </label>
-                <input type={Text} placeholder={"insira seu CPF (somente números)"} pattern={"[0-9]{11}"}></input>
+                </Label>
+                <Input type={Text} placeholder={"insira seu CPF (somente números)"} pattern={"[0-9]{11}"}></Input><br />
 
                 <Cep></Cep>
 
-                <label>
+                <Label>
                     Email:
-                </label>
-                <input onChange={onchangeemail} value={valuemail}></input>
-                <label>
+                </Label>
+                <Input onChange={onchangeemail} value={valuemail}></Input> <br />
+                <Label>
                     Senha:
-                </label>
-                <input type='password' onChange={onchangesenha} value={valuesenha}></input>
+                </Label>
+                <Input type='password' onChange={onchangesenha} value={valuesenha}></Input><br />
 
-                <label>
-                    Confirme a Senha:
-                </label>
-                <input type='password' onChange={onchangesenhaconfirma} value={valuesenhaconfirma}></input>
+                <Label>
+                    Confirme sua senha:
+                </Label>
+                <Input type='password' onChange={onchangesenhaconfirma} value={valuesenhaconfirma}></Input><br />
 
-                <button type='submit'>
+                <BtnClear type='submit'>
+                    Limpar
+                </BtnClear>
+                <Btn type='submit'>
                     Cadastrar
-                </button>
-            </form>
+                </Btn>
+            </ContainerForm>
 
-        </div>
+        </MotherBox>
     )
 
 } export default Cadastro;

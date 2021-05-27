@@ -9,19 +9,24 @@ function CardOptionAcount(props) {
             <nav className='hide-nav'>
                 <ul className='hide-ul'>
                     <li>
-                        <a onClick={() => goTo(history, '/login')} alt='botão que leva para página dos posts'>
+                        <button onClick={() => goTo(history, '/login')} alt='botão que leva para página dos posts'>
                             Login
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a onClick={() => goTo(history, '/signup')} alt='botão com opções de conta'>
+                        <button onClick={() => goTo(history, '/signup')} alt='botão com opções de conta'>
                             Signup
-                        </a>
+                        </button>
                     </li>
                     <li>
-                        <a href='#' alt='botão com opções de conta'>
+                        <button onClick={() => goTo(history, '/profile')} alt='botão com opções de conta'>
+                            Profile
+                        </button>
+                    </li>
+                    <li>
+                        <button href='#' alt='botão com opções de conta'>
                             Logout
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </nav>
