@@ -82,7 +82,13 @@ export const HideSpan = styled.span`
     div {
         background-color: #fff3db9e;
         width: 100px;
-        height: 125px;
+        height: 100%;
         border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    li {
+        margin: 5px 0;
     }
 `

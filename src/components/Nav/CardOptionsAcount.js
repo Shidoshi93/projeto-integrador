@@ -30,6 +30,24 @@ function CardOptionAcount(props) {
                         </li>
                         <li>
                             <button 
+                                className='btn-nav' 
+                                onClick={() => goTo(history, '/donation', props.togleMiniMenu)} 
+                                alt='botão com opções de conta'
+                            >
+                                Postar
+                            </button>
+                        </li>
+                        <li>
+                            <button 
+                                className='btn-nav' 
+                                onClick={() => goTo(history, '/profile', props.togleMiniMenu)} 
+                                alt='botão com opções de conta'
+                            >
+                                Profile
+                            </button>
+                        </li>
+                        <li>
+                            <button 
                                 className='btn-nav'  
                                 alt='botão com opções de conta'>
                                 Logout
