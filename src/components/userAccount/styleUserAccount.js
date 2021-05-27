@@ -2,22 +2,26 @@ import styled from 'styled-components';
 import '../../../src/fonts.css';
 
 export const MotherBox = styled.div`
-    position: absolute;
+    display:flex;
     width: 100vw;
-    height: 70vh;
+    height: 50vh;
+    margin: auto;
+    margin-top: 100px;
+    align-items: center;
+    flex-direction: column;
 `
 export const ContainerHead = styled.div`
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 80vw;
+    margin-bottom: 50px;
+    width: 55vw;
     height: 20vh;
 `
 export const ContainerUserHead = styled.div`
     display: inline-flex;
     align-items: center;
-    
 `
 export const ContainerImg = styled.img`
     display: inline;
@@ -27,15 +31,14 @@ export const ContainerImg = styled.img`
     border-radius: 15px;
     background: #F4F3F3;
     border-radius: 15px;
-    
 `
 export const Title = styled.h3`
     display: inline;
-    font-family: Playfair Display;
+    font-family: Lato;
     font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 32px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    line-height: 29px;
     text-align: center;
     margin-left: 40px;
     color: #F38D68;    
@@ -58,8 +61,8 @@ export const BtnHead = styled.button`
     font-family: Lato;
     font-style: normal;
     font-weight: 800;
-    font-size: 10px;
-    line-height: 12px;
+    font-size: .8rem;
+    line-height: .8rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
@@ -73,53 +76,81 @@ export const BtnHead = styled.button`
         background-color: #e66e42;
     }
 `
-export const ContainerBox = styled.div`
-    width: 60vw;
-    height: 40vh;    
-    display: inline-flex;
-    flex-direction: column;
-    // justify-content: center;
-    // align-items: flex-start;
-    // align-content: space-between;
-    // // row-gap: 1px;
-    
+export const ContainerForm = styled.form`
+    width: 35vw;
+    height: 30vh;    
     border: 1px solid #F38D68;
-    border-top-width: 10px;
-    padding: 15px;
-    // margin: auto;
+    border-right-width: 15px;
     background-color: #F4F3F3;
     box-shadow: 15px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    `
-export const ContainerPBox = styled.div`
-    display: inline-flex;
-    margin-left: 15px;
-    // align-items: flex-end;
-    // justify-content: space-between;
-    // align-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6px 0px 10px 0px;   
 `
-export const ContainerBtnBox = styled.div`
+export const ContainerBox = styled.div`
+    width: 90%; 
+    display:flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-items: left;
+    margin-rigth: 100px; 
+    padding: 5px 0px 0px 120px;
+`
+export const Label = styled.label`
+    width: 200px;
+    height: 12px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: left;
+    float:left;
+    margin-top:10px;
+     
+`
+export const Input = styled.input`
+    width: 204px;
+    height: 18px;
+    background-color: #F4F3F3;
+    border: none;
+    box-sizing: border-box;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    clear: both;
+    float:left;
+    margin-top:10px;
+     
+`
+export const ContainerBtnForm = styled.div`
     display: inline-flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-around;
     align-content: space-between;
+    padding: 0px 60px 0px 30px;
 `
-export const BtnBox = styled.button`
+export const BtnForm = styled.button`
     width: 110px;
     height: 30px;
     margin: 0;
     border: none;
-    border-radius: 15px;
-    background-color: #F08080;
+    border-radius: 5px;
+    background-color: #F38D68;
     align-items: center;
     display: inline-block;
     align-content: center;
     justify-content: center;
     font-family: Lato;
     font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 14px;
+    font-weight: 700;
+    font-size: .8rem;
+    line-height: .8rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
@@ -130,29 +161,6 @@ export const BtnBox = styled.button`
     }
 
     &:hover{
-        background-color: #008000db;
+        background-color: #F08080;
     }
 `
-// export const Label = styled.label`
-//     width: 27px;
-//     height: 12px;
-//     // display: inline;
-//     font-family: Lato;
-//     font-style: normal;
-//     font-weight: 300;
-//     font-size: .8rem;
-//     line-height: .8rem;
-//     // margin: 1% 15% 1% 0;
-// `
-// export const Input = styled.input`
-//     width: 244px;
-//     height: 18px;
-//     // display: inline;
-//     background-color: #FFFFFF;
-//     border: 1px solid #F38D68;
-//     border-radius: 5px;
-//     padding: 2%;
-//     box-sizing: border-box;
-//     // margin: 1% 0 1% 5%;
-
-// `

@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../src/fonts.css';
 import {
     MotherBox,
     ContainerHead,
@@ -8,9 +9,11 @@ import {
     ContainerBtnHead,
     BtnHead,
     ContainerBox,
-    ContainerPBox,
-    ContainerBtnBox,
-    BtnBox
+    Label,
+    Input,
+    ContainerForm,
+    ContainerBtnForm,
+    BtnForm
 } from './styleUserAccount'
 
 function UserAccount() {
@@ -43,43 +46,30 @@ function UserAccount() {
                             <BtnHead>PEDIR DOAÇÃO</BtnHead>
                         </ContainerBtnHead>
                     </ContainerHead>
-                    <div>
-                        <ContainerBox>
-                            <ContainerPBox>
-                                <p>Nome completo: </p>
-                                <p>{user.userFullName}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>CPF: </p>
-                                <p>{user.cpf}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>E-mail: </p>
-                                <p>{user.email}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>CEP: </p>
-                                <p> {user.cep}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>Cidade: </p>
-                                <p> {user.localidade}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>Estado: </p>
-                                <p>{user.uf}</p>
-                            </ContainerPBox>
-                            <ContainerPBox>
-                                <p>Bairro: </p>
-                                <p>{user.bairro}</p>
-                            </ContainerPBox>
-                            <ContainerBtnBox>
-                                <BtnBox>Alterar cadastro</BtnBox>
-                                <BtnBox>Alterar senha</BtnBox>
-                            </ContainerBtnBox>
-                        </ContainerBox>
-
-                    </div>
+                   
+                        <ContainerForm>
+                            <ContainerBox>
+                            <Label>Nome completo: </Label>
+                                <Input value={user.userFullName}/>
+                            <Label>CPF: </Label>
+                                <Input value={user.cpf}/>
+                            <Label>E-mail: </Label>
+                            <Input value={user.email}/>
+                            <Label>CEP: </Label>
+                            <Input value={user.cep}/>
+                            <Label>Cidade: </Label>
+                            <Input value={user.localidade}/>
+                            <Label>Estado: </Label>
+                            <Input value={user.uf}/>
+                            <Label>Bairro: </Label>
+                            <Input value={user.bairro}/>
+                            </ContainerBox>
+                            <ContainerBtnForm>
+                                <BtnForm>Alterar cadastro</BtnForm>
+                                <BtnForm>Alterar senha</BtnForm>
+                            </ContainerBtnForm>
+                        </ContainerForm>
+                    
                 </MotherBox>
             )
             )}
