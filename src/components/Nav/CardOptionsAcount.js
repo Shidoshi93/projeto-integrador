@@ -13,7 +13,7 @@ function CardOptionAcount(props) {
                         <li>
                             <button 
                                 className='btn-nav' 
-                                onClick={() => goTo(history, '/login', props.togleMiniMenu)}  
+                                onClick={() => goTo(history, '/login', props.toggleMiniMenu)}  
                                 alt='botão que leva para página dos posts'
                             >
                                 Login
@@ -22,7 +22,7 @@ function CardOptionAcount(props) {
                         <li>
                             <button 
                                 className='btn-nav' 
-                                onClick={() => goTo(history, '/signup', props.togleMiniMenu)} 
+                                onClick={() => goTo(history, '/signup', props.toggleMiniMenu)} 
                                 alt='botão com opções de conta'
                             >
                                 Signup
@@ -31,7 +31,7 @@ function CardOptionAcount(props) {
                         <li>
                             <button 
                                 className='btn-nav' 
-                                onClick={() => goTo(history, '/donation', props.togleMiniMenu)} 
+                                onClick={() => goTo(history, '/donation', props.toggleMiniMenu)} 
                                 alt='botão com opções de conta'
                             >
                                 Postar
@@ -40,7 +40,7 @@ function CardOptionAcount(props) {
                         <li>
                             <button 
                                 className='btn-nav' 
-                                onClick={() => goTo(history, '/profile', props.togleMiniMenu)} 
+                                onClick={() => goTo(history, '/profile', props.toggleMiniMenu)} 
                                 alt='botão com opções de conta'
                             >
                                 Profile

@@ -14,7 +14,7 @@ function Nav() {
     const history = useHistory()
     const [HideMenu, setHideMenu] = useState(false)
 
-    const click = (param) => {
+    const toggleMiniMenu = (param) => {
         setHideMenu(param)
     }
 
@@ -23,7 +23,7 @@ function Nav() {
             <Header className='flex'>
                 <ContainerNav className='flex'>
                     <div>
-                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history)}>
+                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history, toggleMiniMenu)}>
                             LOGO
                         </button>
                     </div>
@@ -31,12 +31,12 @@ function Nav() {
                     <nav>
                         <ul className='nav-ul'>
                             <li>
-                                <button className='btn-nav' onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
+                                <button className='btn-nav' onClick={() => goTo(history, '/feed', toggleMiniMenu)} alt='botão que leva para página dos posts'>
                                     Posts
                                 </button>
                             </li>
                             <li>
-                                <button className='btn-nav' alt='botão com opções de conta do usuário' onClick={() => click(!HideMenu)}>
+                                <button className='btn-nav' alt='botão com opções de conta do usuário' onClick={() => toggleMiniMenu(!HideMenu)}>
                                     Conta
                                 </button>
                             </li>
@@ -47,7 +47,7 @@ function Nav() {
                 
             </Header>
             {HideMenu && <CardOptionAcount
-                togleMiniMenu ={click}
+                toggleMiniMenu ={toggleMiniMenu}
             />}
         </ContainerHeader>
     )
