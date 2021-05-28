@@ -69,5 +69,21 @@ export const Header = styled.header`
     .hide-nav{
 
     }
+
+    .minha-conta{ 
+        position: relative;
+        display: inline-block;
+    }
+
+    .login{
+        display: none;
+        position: absolute;
+        padding: 12px 16px;
+        z-index: 1;
+    }
+
+    .minha-conta:hover .login {
+        display: block;
+    }
 `
 
