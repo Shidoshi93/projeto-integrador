@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato';
+    font-weight: 300;
+    outline: none;
+}
+
+.header {
+    display: flex;
+}
+
+.header div {
+    width: 50%;
+    height: 100vh;
+}
+
+.div_header-img img {
+    width: 100%;
+}
+
+.header_titulo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFEDCB;
+    padding: 5%;
+}
+
+.header_titulo h1 {
+    font-size: 3rem;
+    color: #F38D68;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.header_titulo p {
+    font-size: 2rem;
+}
+
+.div_botoes {
+    display: flex;
+}
+
+.div_botoes div {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_botao-doar {
+    background-color: #F9DFAC;
+}
+
+.div_botao-doar button {
+    background-color: #F38D68;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 50%;
+    height: 20%;
+    border: none;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 400;
+}
+
+.div_botao-doar button:hover {
+    cursor: pointer;
+    background-color: #f5794c;
+}
+
+.div_botao-receber {
+    background-color: #F38D68;
+}
+
+.div_botao-receber button {
+    background-color: #F9DFAC;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 50%;
+    height: 20%;
+    font-size: 2.5rem;
+    font-weight: 400;
+    border: none;
+    color: #444444;
+}
+
+.div_botao-receber button:hover {
+    cursor: pointer;
+    background-color: #ffd175;
+}
+
+.sobre {
+    height: 100vh;
+}
+
+.div_sobre {
+    display: flex;
+    padding: 50px;
+}
+
+.div_sobre h2 {
+    background-color: #F38D68;
+    border-radius: 15px;
+    width: 40%;
+    height: 30%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 5%;
+}
+
+.div_texto {
+    background: #F4F3F3;
+    border: 1px solid #F38D68;
+    border-radius: 15px;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.div_texto p {
+    width: 50%;
+    font-size: 1.2rem;
+}
+
+.sobre h3 {
+    font-weight: bold;
+    color: #F38D68;
+    font-size: 2rem;
+}
+
+.container_imgs {
+    display: flex;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.div_img {
+    width: 13%;
+    box-shadow: 10px 10px 0px rgba(243, 141, 104, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(243, 141, 104, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div_img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.div_img p {
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
