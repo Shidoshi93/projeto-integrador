@@ -1,89 +1,94 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-export const Header = styled.header`
-    background-color: #bfbbbb;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 10vh;
-
-    div {
-        margin-left: 50px;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 100%;
-        margin: 0;
-    }
-
-    .logo {
-        background-color: #bfbbbb !important; 
-    }
-
-    a {
+export const ContainerHeader = styled.div`
+    .btn-nav {
+        border: none;
+        background-color: transparent;
+        padding: 5px 15px;
         text-decoration: none;
         color: black;
         cursor: pointer;
-        transition: 0.2s;
+        transition: 1s;
+        width: 70px;
 
         &:hover {
-            background-color: #fff;
+            background-color: #F38D68;
             border-radius: 5px;
         }
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        list-style: none;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+`
+
+export const ContainerNav = styled.div`
+    width: 85vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+export const Header = styled.header`
+    background-color: #FFF3DB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 8vh;
+
+    .logo {
+        padding: 5px 15px; 
     }
 
     .nav-ul {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
         align-items: center;
-        width: 250px;
-
-        li > a {
-            padding: 5px 15px;
-        }
-        
+        gap: 15px;
     }
 
     span {
-        position: absolute;
-        right: 40px;
-        top: 80px;
-        z-index: 1000;
-        background-color: #bfbbbb;
-        width: 70px;
-        height: 100px;
+        background-color: #FFF3DB;
+        height: 150px;
         border-radius: 5px;
     }
 
-    nav {
+    .hide-nav {
         height: 100%;
-    }
-
-    .hide-nav{
-
-    }
-
-    .minha-conta{ 
-        position: relative;
-        display: inline-block;
-    }
-
-    .login{
-        display: none;
-        position: absolute;
-        padding: 12px 16px;
-        z-index: 1;
-    }
-
-    .minha-conta:hover .login {
-        display: block;
     }
 `
 
+export const HideSpan = styled.span`
+    position: absolute;
+    right: 0;
+    top: 70px;
+    width: 100vw;
+
+    nav {
+        width: 87.5vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    div {
+        background-color: #fff3db9e;
+        width: 100px;
+        height: 100%;
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+`

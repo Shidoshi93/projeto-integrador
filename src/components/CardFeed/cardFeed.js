@@ -1,4 +1,4 @@
-
+import React from 'react';
 import local from '../../images/local.png';
 import userImg from '../../images/user.png';
 import {
