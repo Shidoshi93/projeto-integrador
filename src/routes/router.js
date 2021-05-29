@@ -6,6 +6,7 @@ import Login from '../pages/login'
 import Signup from '../pages/singup'
 import CadastroDoacao from '../pages/singup2'
 import Profile from '../pages/profile'
+import PostDetail from "../pages/postDetail";
 
 function Router() {
     return (
@@ -14,6 +15,10 @@ function Router() {
             <Switch>
                 <Route exact path='/feed'>
                     <Feed />
+                </Route>
+
+                <Route exact path='/detail/:id'>
+                    <PostDetail />
                 </Route>
 
                 <Route exact path='/login'>

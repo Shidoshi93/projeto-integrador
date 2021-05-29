@@ -6,9 +6,9 @@ import {
     CardContainer,
     CardItemContent,
     Btn,
-    ContainerDescription,
     MotherBox,
-    Title
+    TitleContainer,
+    SearchContainer
 } from './style'
 import CardItem from './CardItem';
 
@@ -16,6 +16,8 @@ import cestabasica from '../../images/cestabasica.png'
 import higiene from '../../images/higiene.png'
 import vestuario from '../../images/vestuario.png'
 import { useState } from 'react';
+import { goTo } from '../../routes/coordinator';
+import { useHistory } from 'react-router';
 
 const imgDonation = [
     { src: cestabasica },
@@ -25,9 +27,12 @@ const imgDonation = [
 
 function Cards() {
     const [valueInputFilter, setValueInputFilter] = useState('')
+    const history = useHistory()
+    
 
     const donationPosts = [
-        {
+        {   
+            id: 1,
             item: "Cesta Básica",
             key: "Rachel123",
             qty: "2",
@@ -39,6 +44,7 @@ function Cards() {
         },
 
         {
+            id: 2,
             item: "Kit higiene",
             key: "Daniel123",
             qty: "1",
@@ -50,6 +56,7 @@ function Cards() {
         },
 
         {
+            id: 3,
             item: "Vestuário",
             key: "Monique123",
             qty: "3",
@@ -61,6 +68,7 @@ function Cards() {
         },
 
         {
+            id: 4,
             item: "Cesta Básica",
             key: "Marina123",
             qty: "1",
@@ -72,12 +80,12 @@ function Cards() {
         }
     ];
 
-    const onChangeFilter = (e) =>{
+    const onChangeFilter = (e) => {
         setValueInputFilter(e.target.value)
     }
-    
-    let filteredPosts = donationPosts.filter(post =>{
-        if(valueInputFilter.length === 0) {
+
+    let filteredPostsByType = donationPosts.filter((post) => {
+        if (valueInputFilter.length === 0 || valueInputFilter === '0') {
             return donationPosts
         } else {
             return post.userStatus === valueInputFilter
@@ -87,17 +95,33 @@ function Cards() {
     return (
         <MotherBox>
             {/* recebe informações do formulário de doação */}
-            <div>
+            <SearchContainer>
                 <select onChange={onChangeFilter} defaultValue='0'>
                     <option disabled value='0'>Selecione um tipo</option>
                     <option value='Doador'>Quero Receber</option>
                     <option value='Beneficiário'>Quero Ajudar</option>
+                    <option value='0'>Ambos</option>
                 </select>
-            </div>
+
+                <select defaultValue='0'>
+                    <option disabled value='0'>Selecione um tipo</option>
+                    <option value='Vestuário'>Vestuário</option>
+                    <option value='Kit higiene'>Kit Higiene</option>
+                    <option value='Cesta Básica'>Alimentação</option>
+                </select>
+            </SearchContainer>
+
             <CardContainer className='cardContainer'>
-                {filteredPosts.map((donation) => (
-                    <CardContent className='cardContent' key={donation.key}>
-                        <Title>{donation.userStatus === "Doador" ? "Para doação" : "Preciso de ajuda"}</Title>
+                {filteredPostsByType.map((donation) => (
+                    <CardContent 
+                        className='cardContent' 
+                        key={donation.key} 
+                        onClick={() => goTo(history, `/detail/${donation.id}`)}
+                    >
+                        <TitleContainer>
+                            <h3>{donation.userStatus === "Doador" ? "Para doação" : "Preciso de ajuda"}</h3>
+                        </TitleContainer>
+
                         <CardItemContent>
                             <CardItem
                                 donationItem={donation.item}
@@ -117,10 +141,10 @@ function Cards() {
                                 state={donation.state}
                             />
 
-                            <ContainerDescription>
+                            {/* <ContainerDescription>
                                 <p className='donationQty'> Quantidade: {donation.qty}</p>
                                 <p>{donation.description}</p>
-                            </ContainerDescription>
+                            </ContainerDescription> */}
                         </CardItemContent>
 
                         {/* abre janela de contato com usuário */}
