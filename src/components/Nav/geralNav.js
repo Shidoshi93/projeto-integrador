@@ -10,7 +10,7 @@ import {
 
 
 
-function Nav() {
+function GeralNav() {
     const history = useHistory()
     const [HideMenu, setHideMenu] = useState(false)
 
@@ -23,7 +23,7 @@ function Nav() {
             <Header className='flex'>
                 <ContainerNav className='flex'>
                     <div>
-                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history, toggleMiniMenu)}>
+                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history)}>
                             LOGO
                         </button>
                     </div>
@@ -31,13 +31,18 @@ function Nav() {
                     <nav>
                         <ul className='nav-ul'>
                             <li>
-                                <button className='btn-nav' onClick={() => goTo(history, '/feed', toggleMiniMenu)} alt='botão que leva para página dos posts'>
+                                <button className='btn-nav' onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
                                     Posts
                                 </button>
                             </li>
                             <li>
-                                <button className='btn-nav' alt='botão com opções de conta do usuário' onClick={() => toggleMiniMenu(!HideMenu)}>
-                                    Login
+                                <button className='btn-nav' onClick={() => goTo(history, '/profile')} alt='botão que leva para página dos posts'>
+                                    Profile
+                                </button>
+                            </li>
+                            <li>
+                                <button className='btn-nav btn-login' alt='botão com opções de conta do usuário' onClick={() => goTo(history, '/')/* toggleMiniMenu(!HideMenu) */}>
+                                    Logout
                                 </button>
                             </li>
                         </ul>
@@ -52,4 +57,4 @@ function Nav() {
         </ContainerHeader>
     )
 }
-export default Nav;
+export default GeralNav;
