@@ -6,13 +6,17 @@ import Login from '../pages/login'
 import Signup from '../pages/singup'
 import CadastroDoacao from '../pages/singup2'
 import Profile from '../pages/profile'
-import PostDetail from "../pages/postDetail";
+import PostDetail from "../pages/postDetail/postDetail";
+import Home from '../pages/home'
 
 function Router() {
     return (
         <BrowserRouter>
             <Nav />
             <Switch>
+                <Route exact path='/'>
+                    <Home />
+                </Route>
                 <Route exact path='/feed'>
                     <Feed />
                 </Route>
