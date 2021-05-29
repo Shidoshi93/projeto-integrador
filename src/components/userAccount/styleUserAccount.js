@@ -3,7 +3,6 @@ import '../../../src/fonts.css';
 import px2vw from '../../hooks/px2vw';
 
 export const MotherBox = styled.div`
-    position: absolute;
     width: ${px2vw(1440)};
     height: ${px2vw(800)};
     left: 0;
