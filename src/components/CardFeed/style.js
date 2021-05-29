@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const MotherBox = styled.div`
     width: 80%;
     margin: 0 auto;
+    margin-top: 50px;
 `
 
 export const ImagemItem = styled.img`
@@ -22,6 +23,16 @@ export const CardContainer = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
+    margin-top: 30px;
+`
+
+export const SearchContainer = styled.div`
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 `
 
 export const CardContent = styled.div`
@@ -29,28 +40,41 @@ export const CardContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
     width: 250px;
     box-sizing: border-box;
     padding: 15px;
     margin: 30px 0;
     background-color: #fff;
-    box-shadow: 0 0 7px 1px;
+    box-shadow: 0 0 7px 1px #F38D68;
     border-radius: 10px;
     cursor: pointer;
     transition: 0.25s;
 
     &:hover{
-        box-shadow: 0 0 15px 1px;
+        box-shadow: 0 0 15px 1px #F38D68;
     }
 `
 
-export const Title = styled.h3`
-    margin: 0 0 15px 0;
+export const TitleContainer = styled.div`
+    background-color: #F38D68;
+    width: 250px;
+    height: 50px;
+    display: flex;
+    margin-top: -15px;
+    z-index: 11;
+    border-radius: 10px 10px 0 0;
+    align-items: center;
+    justify-content: center;
 `
 
 export const CardItemContent = styled.div`
     text-align: start;
     bottom: 25px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `
 
 export const ContainerSubTitle = styled.div`
@@ -70,7 +94,7 @@ export const Btn = styled.button`
     border: none;
     border-radius: 5px;
 
-    background-color: #008000ba;
+    background-color: #ffc1aa;
 
     cursor: pointer;
 
@@ -82,7 +106,7 @@ export const Btn = styled.button`
     }
 
     &:hover{
-        background-color: #008000db;
+        background-color: #F38D68;
     }
 `
 
