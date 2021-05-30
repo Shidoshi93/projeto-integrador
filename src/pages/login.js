@@ -1,44 +1,60 @@
 // Página de login
-import {useState} from 'react'
+import { useState } from 'react'
 import React from 'react';
 
 import {
     MotherBox,
     Input,
-    Button, 
+    Button,
     Title,
-    Ancora, 
-
+    Ancora,
+    Form
 } from '../components/loginStyle'
+import { goTo } from '../routes/coordinator';
+import { useHistory } from 'react-router';
 
-function Login() {
-    const [valuemail, setvaluemail] = useState()
-    const [valuesenha, setvaluesenha] = useState()
+function Login(props) {
+    const [valuemail, setvaluemail] = useState('')
+    const [valuesenha, setvaluesenha] = useState('')
+    const history = useHistory()
 
     const onchangeemail = (event) => {
 
-            setvaluemail(event.target.value)
-            console.log(valuemail)
-    } 
-    
+        setvaluemail(event.target.value)
+        console.log(valuemail)
+    }
+
     const onchangesenha = (event) => {
 
         setvaluesenha(event.target.value)
         console.log(valuesenha)
-} 
-    return(
-       <MotherBox> 
-            <Title>LOGIN</Title> 
-            <form> 
-                <Input onChange={onchangeemail} value={valuemail} placeholder="Email"></Input>
-                <Input type='password' onChange={onchangesenha} value={valuesenha} placeholder="Senha"></Input>
-                <Button type='submit'>
+    }
+    return (
+        <MotherBox>
+            <Title>LOGIN</Title>
+            <Form action='#'>
+                <Input
+                    type="email"
+                    onChange={onchangeemail}
+                    value={valuemail}
+                    placeholder="Email"
+                    required="required"
+                >
+                </Input>
+                <Input
+                    type='password'
+                    onChange={onchangesenha}
+                    value={valuesenha} placeholder="Senha"
+                    required="required"
+                >
+                </Input>
+                <Button type='submit' onClick={() => goTo(history, '/')}>
                     Entrar
                 </Button>
-                <Ancora href="">Cadastrar</Ancora>
-            </form> 
-        </MotherBox> 
-        
+                <p>Não tem uma conta?</p>
+                <Ancora onClick={() => goTo(history, '/signup', props.toggleMiniMenu)}>Cadastre-se</Ancora>
+            </Form>
+        </MotherBox>
     )
 
 } export default Login

@@ -6,22 +6,26 @@ import Login from '../pages/login'
 import Signup from '../pages/singup'
 import CadastroDoacao from '../pages/singup2'
 import Profile from '../pages/profile'
+import GeralNav from "../components/Nav/geralNav";
 import PostDetail from "../pages/postDetail/postDetail";
 import Home from '../pages/home'
+
 
 function Router() {
     return (
         <BrowserRouter>
-            <Nav />
             <Switch>
                 <Route exact path='/'>
+                    <Nav />
                     <Home />
                 </Route>
                 <Route exact path='/feed'>
+                    <GeralNav />
                     <Feed />
                 </Route>
 
                 <Route exact path='/detail/:id'>
+                    <GeralNav />
                     <PostDetail />
                 </Route>
 
@@ -34,10 +38,12 @@ function Router() {
                 </Route>
 
                 <Route exact path='/donation'>
+                    <GeralNav />
                     <CadastroDoacao />
                 </Route>
 
                 <Route exact path='/profile'>
+                    <GeralNav />
                     <Profile />
                 </Route>
             </Switch>
