@@ -23,7 +23,7 @@ function Nav() {
             <Header className='flex'>
                 <ContainerNav className='flex'>
                     <div>
-                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history, toggleMiniMenu)}>
+                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goTo(history, '/', toggleMiniMenu)}>
                             LOGO
                         </button>
                     </div>
