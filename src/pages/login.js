@@ -48,7 +48,7 @@ function Login(props) {
                     required="required"
                 >
                 </Input>
-                <Button type='submit' onClick={() => goTo(history, '/')}>
+                <Button type='submit' onClick={() => goTo(history, '/feed')}>
                     Entrar
                 </Button>
                 <p>Não tem uma conta?</p>
