@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
     margin-top: 30px;
 `
 
