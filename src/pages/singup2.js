@@ -1,7 +1,18 @@
 /* Tela de Cadastro de Doações */
 import React from 'react';
-import Titulo from '../components/Titulo';
-import '../signup2.css'
+import { 
+   Section,
+   Form,
+   DivForm,
+   DivLabel,
+   Select,
+   Textarea,
+   ButtonLimpar,
+   ButtonEnviar,
+   Span,
+   Titulo,
+  
+} from '../components/singup2/singup2Style'
 
 function CadastroDoacao() {
    const valueCategoria= ["Beneficiário", "Doador"]
@@ -18,53 +29,53 @@ function CadastroDoacao() {
  
    return (
 
-      <section>
-         <Titulo title="Peça ou Ofereça Doação"/>
+      <Section>
+         <Titulo>Peça ou Ofereça Doação</Titulo>
 
-         <form>
-            <div className="div__form">
-               <div className="div__label">
+         <Form>
+            <DivForm>
+               <DivLabel>
                   <label> Tipo de Usuário </label> 
-                  <select> 
+                  <Select> 
                      <option selected disabled>Selecione</option>
                      {
                         valueCategoria.map(estado=>{
                         return(<option>{estado} </option>)})
                      } 
-                  </select>
-               </div>
-               <div className="div__label">
+                  </Select>
+               </DivLabel>
+               <DivLabel>
 
                   <label>Tipo de Doação</label>
-                  <select>
+                  <Select>
                      <option selected disabled>Selecione</option>
                      {
                         valueTipo.map(tipo=>{
                         return(<option>{tipo} </option>)})
                      } 
-                  </select>
-               </div>
-               <div className="div__label">
+                  </Select>
+               </DivLabel>
+               <DivLabel>
 
                   <label>Quantidade (Máx. 10)</label>
-                  <select>
+                  <Select>
                      <option selected disabled>Selecione</option>
                      {
                         arrayOptions.map(option => {
                         return ( <option>{option}</option>)}) 
                      }
-                  </select>
-               </div>
+                  </Select>
+               </DivLabel>
       
                <label>Descrição</label>
-               <textarea placeholder="Campo destinado ao registro de informações complementares"></textarea>
+               <Textarea placeholder="Campo destinado ao registro de informações complementares"></Textarea>
       
-               <span>Obs.: Realize um post para cada pedido/oferta de ajuda</span>
-            </div>
-            <button className="botao botao__limpar">LIMPAR</button>
-            <button className="botao botao__enviar" type="submit"> ENVIAR </button>
-         </form>
-      </section>)
+               <Span>Obs.: Realize um post para cada pedido/oferta de ajuda</Span>
+            </DivForm>
+            <ButtonLimpar>LIMPAR </ButtonLimpar>
+            <ButtonEnviar type="submit"> ENVIAR </ButtonEnviar>
+         </Form>
+      </Section>)
 
 } export default CadastroDoacao;
 
