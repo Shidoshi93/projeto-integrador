@@ -9,7 +9,7 @@ export const ContainerHeader = styled.div`
         color: black;
         cursor: pointer;
         transition: 1s;
-        width: 70px;
+        width: 150px;
 
         &:hover {
             background-color: #F38D68;

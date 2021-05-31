@@ -7,9 +7,12 @@ import marinaImg from '../images/Marina.png';
 import moniqueImg from '../images/Monique.png';
 import rachelImg from '../images/Rachel.png';
 import patriciaImg from '../images/Patricia.png';
-
+import { goTo } from '../routes/coordinator';
+import { useHistory } from 'react-router';
 
 function TelaInicial(){
+
+    const history = useHistory()
 
 return(
     <div>
@@ -27,10 +30,10 @@ return(
 
         <div className="div_botoes">
             <div className="div_botao-doar">
-                <button>QUERO DOAR</button>
+                <button onClick={() => goTo(history, '/donation')}>Quero Doar</button>
             </div>
             <div className="div_botao-receber">
-                <button>QUERO RECEBER</button>
+                <button onClick={() => goTo(history, '/donation')}>Quero Receber</button>
             </div>
         </div>
 

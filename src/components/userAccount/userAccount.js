@@ -1,5 +1,7 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import '../../../src/fonts.css';
+import { goTo } from '../../routes/coordinator';
 import {
     MotherBox,
     HeadContainer,
@@ -19,6 +21,8 @@ import {
 } from './styleUserAccount'
 
 function UserAccount() {
+
+    const history = useHistory()
     const userData = [
         {
             "userName": "Rachel",
@@ -44,8 +48,8 @@ function UserAccount() {
                             <Title>{user.userFullName}</Title>
                         </HeadUserContainer>
                         <HeadBtnContainer>
-                            <BtnHead>FAZER DOAÇÃO</BtnHead>
-                            <BtnHead>PEDIR DOAÇÃO</BtnHead>
+                            <BtnHead onClick={() => goTo(history, '/donation')}>FAZER DOAÇÃO</BtnHead>
+                            <BtnHead onClick={() => goTo(history, '/donation')}>PEDIR DOAÇÃO</BtnHead>
                         </HeadBtnContainer>
                     </HeadContainer>
 
