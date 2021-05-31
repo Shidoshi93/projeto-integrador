@@ -9,7 +9,6 @@ import rachelImg from '../images/Rachel.png';
 import patriciaImg from '../images/Patricia.png';
 import { goTo } from '../routes/coordinator';
 import { useHistory } from 'react-router';
-// Página inicial
 
 function TelaInicial(){
 
@@ -23,8 +22,8 @@ return(
             </div>
 
             <div className="header_titulo">
-                <h1> Aqui reunimos doadores de todo o país com pessoas que precisam </h1>
-                <p>O portal conecta doações de alimentos não perecíveis, itens de higiênee Vestuário</p>
+                <h1> A Alcance une doadores de todo o país com pessoas que precisam. </h1>
+                <p>Deixando doações de alimentos não perecíveis, itens de higiêne e vestuário ao alcance das suas mãos.</p>
             </div>
         </div>
 
@@ -42,12 +41,12 @@ return(
             <div className="div_sobre">
                 <h2>Sobre o projeto</h2>
                 <div className="div_texto">
-                    <p>A PLATAFORMA é uma aplicação web que surgiu em 2021 como resultado do projeto integrador do curso de programação web oferecido pelo Programa Código Preto, uma ação entre as empresas Digital House e Quinto Andar para formação em tecnologia exclusiva para pessoas negras.</p>
+                    <p>A Alcance é uma plataforma que surgiu em 2021 como resultado do projeto integrador do curso de programação web oferecido pelo Programa Código Preto, uma ação entre as empresas Digital House e Quinto Andar para formação em tecnologia exclusiva para pessoas negras.</p>
                     <p>Seus desenvolvedores têm em comum a vontade de ajudar a reduzir os impactos socioeconômicos agravados pela pandemia do Covid-19 no Brasil.</p>
                 </div>
             </div>
             
-            <h3>Quem Faz o Projeto Acontecer</h3>
+            <h3>Quem faz a Alcance acontecer</h3>
             
             <div className="container_imgs">
                 <div className="div_img">
