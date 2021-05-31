@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import '../../src/fonts.css';
+import '../../src/fonts.css'; 
 
 export const MotherBox = styled.div`
     position: absolute;
@@ -7,7 +7,7 @@ export const MotherBox = styled.div`
     top: 70px;
     width: 237px;
     height: fit-content;
-    background: #F38D68;
+    background-color: #f38d68ab;
     border-radius: 10px;
     z-index: 700000;
     display: flex;

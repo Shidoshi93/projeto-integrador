@@ -23,7 +23,7 @@ function GeralNav() {
             <Header className='flex'>
                 <ContainerNav className='flex'>
                     <div>
-                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goToBack(history)}>
+                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goTo(history, '/')}>
                             LOGO
                         </button>
                     </div>
@@ -38,6 +38,11 @@ function GeralNav() {
                             <li>
                                 <button className='btn-nav' onClick={() => goTo(history, '/profile')} alt='botão que leva para página dos posts'>
                                     Profile
+                                </button>
+                            </li>
+                            <li>
+                                <button className='btn-nav' onClick={() => goTo(history, '/donation')} alt='botão que leva para página dos posts'>
+                                    Cadastro Doação
                                 </button>
                             </li>
                             <li>

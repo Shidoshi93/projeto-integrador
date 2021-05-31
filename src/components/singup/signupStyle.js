@@ -3,32 +3,31 @@ import '../../../src/fonts.css';
 const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const MotherBox = styled.div`
-    width: ${px2vw(1440)};
-    height: ${px2vw(800)};
+    height: 80vh;
+    diplay: flex;
 `
 export const ContainerTitle = styled.div`
-    width: ${px2vw(300)};
-    height: ${px2vw(80)};
+    width: 20%;
+    height: 10%;
     position: relative;
-    margin: 3% auto 3% auto;
+    margin: 2% auto 1% auto;
     background: #F4F3F3;
 `
 export const Title = styled.h1`
-    width: ${px2vw(300)};
-    height: ${px2vw(80)};
-    position: absolute;
+    width: 100%;
+    position: relative;
     font-family: Lato;
     font-style: normal;
     font-weight: 700;
-    font-size: ${px2vw(40)};
+    font-size: ${px2vw(30)};
     line-height: ${px2vw(40)};
     text-align: center;
-    margin: 5% auto 2% auto;
+    padding-top: 2%;
     color: #F38D68;
 `
 export const ContainerForm = styled.form`
-    width: ${px2vw(800)};
-    height: ${px2vw(500)};    
+    width: ${px2vw(580)};
+    height: ${px2vw(330)};    
     position: relative;
     display:flex; 
     flex-direction: column; 
@@ -38,33 +37,33 @@ export const ContainerForm = styled.form`
     background-color: #F4F3F3;
     box-shadow: ${px2vw(15)} ${px2vw(10)} ${px2vw(0)} rgba(0, 0, 0, 0.2);
     border-radius: ${px2vw(5)};
+    margin: 0 auto;
 `    
 export const FormDataContainer = styled.div`
-    width: ${px2vw(750)};
-    height: ${px2vw(500)};
+    width: ${px2vw(600)};
+    height: ${px2vw(350)};
     position: relative;
     display:flex; 
     flex-direction: row; 
     flex-wrap: wrap;
-    padding-top: 2%;
-    padding-left: 3%;
+    padding-left: 2.5%;
     border: none;
 `
 export const Label = styled.label`
-    width: ${px2vw(200)};
-    height: ${px2vw(22)};
+    width: ${px2vw(150)};
+    height: ${px2vw(16)};
     font-family: Lato;
     font-style: normal;
     font-weight: 300;
-    font-size: ${px2vw(22)};
-    line-height: ${px2vw(22)};
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(16)};
     text-align: left;
     float:left;
-    margin-top:${px2vw(15)};
+    margin-top:${px2vw(5)};
 `
 export const Input = styled.input`
-    width: ${px2vw(500)};
-    height: ${px2vw(18)};
+    width: ${px2vw(400)};
+    height: ${px2vw(16)};
     background-color: #FFFFFF;
     border: ${px2vw(1)} solid #F38D68;
     border-radius: ${px2vw(10)};
@@ -73,13 +72,13 @@ export const Input = styled.input`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: ${px2vw(18)};
-    line-height: ${px2vw(18)};
-    margin-top:${px2vw(10)};
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(16)};
+    margin-top:${px2vw(5)};
   `
 export const InputA = styled.input`
-    width: ${px2vw(400)};
-    height: ${px2vw(18)};
+    width: ${px2vw(300)};
+    height: ${px2vw(16)};
     background-color: #FFFFFF;
     border: ${px2vw(1)} solid #F38D68;
     border-radius: ${px2vw(10)};
@@ -88,18 +87,18 @@ export const InputA = styled.input`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: ${px2vw(18)};
-    line-height: ${px2vw(18)};
-    margin-top:${px2vw(10)};
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(16)};
+    margin-top:${px2vw(5)};
 `
 export const BtnCep = styled.button`
     width: ${px2vw(80)};
-    height: ${px2vw(30)};
+    height: ${px2vw(27)};
     margin-left: ${px2vw(20)};
     border: none;
     border-radius: ${px2vw(15)};
     background-color: #f38d68;
-    margin-top:${px2vw(10)};
+    margin-top:${px2vw(5)};
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
@@ -119,23 +118,23 @@ export const BtnCep = styled.button`
     }
 `
 export const FormBtnContainer = styled.div`
-    width: ${px2vw(800)};    
+    width: ${px2vw(650)};    
     position: relative;
-    top: ${px2vw(100)};
+    top: 10%;
     display: inline-flex;
     justify-content: space-evenly;
 `
 export const BtnSend = styled.button`
-    width: ${px2vw(180)};
-    height: ${px2vw(50)};
+    width: ${px2vw(140)};
+    height: ${px2vw(40)};
     border: none;
     border-radius: ${px2vw(30)};
     background-color: #2BB67E;
     font-family: Lato;
     font-style: normal;
     font-weight: bold;
-    font-size: ${px2vw(20)};
-    line-height: ${px2vw(20)};
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(16)};
     text-align: center;
 
     color: #FFFFFF;
@@ -152,8 +151,8 @@ export const BtnSend = styled.button`
     }
 `
 export const BtnClear = styled.button`
-    width: ${px2vw(180)};
-    height: ${px2vw(50)};
+    width: ${px2vw(140)};
+    height: ${px2vw(40)};
     border: none;
     border-radius: ${px2vw(30)};
     background-color: #F08080;
@@ -164,8 +163,8 @@ export const BtnClear = styled.button`
     font-family: Lato;
     font-style: normal;
     font-weight: bold;
-    font-size: ${px2vw(20)};
-    line-height: ${px2vw(20)};
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(16)};
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;

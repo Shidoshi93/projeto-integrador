@@ -34,6 +34,7 @@ function Router() {
                 </Route>
 
                 <Route exact path='/signup'>
+                    <GeralNav />
                     <Signup />
                 </Route>
 
