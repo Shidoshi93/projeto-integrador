@@ -31,7 +31,7 @@ function GeralNav() {
                     <nav>
                         <ul className='nav-ul'>
                             <li>
-                                <button className='btn-nav' onClick={() => goTo(history, '/')} alt='botão que leva para página dos posts'>
+                                <button className='btn-nav' onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
                                     Posts
                                 </button>
                             </li>
