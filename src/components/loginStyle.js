@@ -7,7 +7,7 @@ export const MotherBox = styled.div`
     top: 70px;
     width: 237px;
     height: fit-content;
-    background: #F38D68;
+    background-color: #f38d68ab;
     border-radius: 10px;
     z-index: 700000;
     display: flex;

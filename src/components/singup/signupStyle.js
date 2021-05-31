@@ -3,7 +3,6 @@ import '../../../src/fonts.css';
 const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const MotherBox = styled.div`
-    width: ${px2vw(1440)};
     height: ${px2vw(800)};
 `
 export const ContainerTitle = styled.div`
