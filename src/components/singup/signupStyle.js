@@ -37,6 +37,7 @@ export const ContainerForm = styled.form`
     background-color: #F4F3F3;
     box-shadow: ${px2vw(15)} ${px2vw(10)} ${px2vw(0)} rgba(0, 0, 0, 0.2);
     border-radius: ${px2vw(5)};
+    margin: 0 auto;
 `    
 export const FormDataContainer = styled.div`
     width: ${px2vw(750)};
