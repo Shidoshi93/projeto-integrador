@@ -48,17 +48,18 @@ export const FormDataContainer = styled.div`
     flex-wrap: wrap;
     padding-left: 2.5%;
     border: none;
+    text-align: center;
 `
 export const Label = styled.label`
-    width: ${px2vw(150)};
-    height: ${px2vw(16)};
+    width: 500px;
+    height: 20px;
     font-family: Lato;
     font-style: normal;
     font-weight: 300;
-    font-size: ${px2vw(16)};
-    line-height: ${px2vw(16)};
-    text-align: left;
-    float:left;
+    font-size: 10px;
+    line-height: 30px;
+    // text-align: left;
+    // float:left;
     margin-top:${px2vw(5)};
 `
 
@@ -110,4 +111,7 @@ export const BtnSend = styled.button`
     &:hover{
         background-color: #008000db;
     }
+`
+export const P = styled.p`
+    text-align: center;
 `

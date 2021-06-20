@@ -10,6 +10,7 @@ import {
     Input,
     FormBtnContainer,
     BtnSend,
+    P,
        
 } from '../components/singup/newpasswordStyle'
 
@@ -33,7 +34,7 @@ function Recadastro() {
             <ContainerForm >
                 
                 <FormDataContainer>
-                <p>Insira seu e-mail e enviaremos um link para você voltar a acessar sua conta</p>
+                <P>Insira seu e-mail e enviaremos um link <br></br> para você voltar a acessar sua conta</P>
                     <Label>E-mail: </Label>
                     <Input  onChange={onchangeemail} value={valueemail}></Input> 
                     <FormBtnContainer>
