@@ -5,6 +5,7 @@ const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 export const MotherBox = styled.div`
     height: 80vh;
     diplay: flex;
+    justify-content: center;
 `
 export const ContainerTitle = styled.div`
     width: 20%;
@@ -12,6 +13,8 @@ export const ContainerTitle = styled.div`
     position: relative;
     margin: 2% auto 1% auto;
     background: #F4F3F3;
+    diplay: flex;
+    justify-content: center;
 `
 export const Title = styled.h1`
     width: 100%;
@@ -43,23 +46,15 @@ export const FormDataContainer = styled.div`
     width: ${px2vw(600)};
     height: ${px2vw(350)};
     position: relative;
-    display:flex; 
-    flex-direction: row; 
-    flex-wrap: wrap;
-    padding-left: 2.5%;
-    border: none;
     text-align: center;
+    padding: 70px 0;
+
 `
 export const Label = styled.label`
-    width: 500px;
-    height: 20px;
     font-family: Lato;
-    font-style: normal;
     font-weight: 300;
-    font-size: 10px;
-    line-height: 30px;
-    // text-align: left;
-    // float:left;
+    font-size: ${px2vw(16)};
+    line-height: ${px2vw(25)};
     margin-top:${px2vw(5)};
 `
 
@@ -76,13 +71,13 @@ export const Input = styled.input`
     font-weight: normal;
     font-size: ${px2vw(16)};
     line-height: ${px2vw(16)};
-    margin-top:${px2vw(5)};
+    margin-top:${px2vw(30)};
   `
 
   export const FormBtnContainer = styled.div`
-    width: ${px2vw(650)};    
+    width: ${px2vw(400)};    
     position: relative;
-    top: 10%;
+    top: 20%;
     display: inline-flex;
     justify-content: space-evenly;
 `
@@ -114,4 +109,6 @@ export const BtnSend = styled.button`
 `
 export const P = styled.p`
     text-align: center;
+    width: ${px2vw(580)};
+    
 `

@@ -38,7 +38,7 @@ function Recadastro() {
                     <Label>E-mail: </Label>
                     <Input  onChange={onchangeemail} value={valueemail}></Input> 
                     <FormBtnContainer>
-                            <BtnSend type='submit'>Enviar link para login</BtnSend>
+                            <BtnSend type='submit'>Enviar link</BtnSend>
                     </FormBtnContainer>
                 </FormDataContainer>
             </ContainerForm>
