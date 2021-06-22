@@ -12,7 +12,7 @@ import {
     BtnSend,
     P,
        
-} from '../components/singup/newpasswordStyle'
+} from '../styles/newpasswordStyle'
 
 
 function Recadastro() {

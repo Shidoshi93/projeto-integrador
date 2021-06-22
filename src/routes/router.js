@@ -10,6 +10,9 @@ import GeralNav from "../components/Nav/geralNav";
 import PostDetail from "../pages/postDetail/postDetail";
 import Home from '../pages/home';
 import Recadastro from "../pages/newpassword"
+import {
+    ContentContainer
+} from '../styles/global';
 
 
 function Router() {
@@ -18,16 +21,22 @@ function Router() {
             <Switch>
                 <Route exact path='/'>
                     <Nav />
+                    <ContentContainer>
                     <Home />
+                    </ContentContainer>
                 </Route>
                 <Route exact path='/feed'>
                     <GeralNav />
+                    <ContentContainer>
                     <Feed />
+                    </ContentContainer>
                 </Route>
 
                 <Route exact path='/detail/:id'>
                     <GeralNav />
+                    <ContentContainer>
                     <PostDetail />
+                    </ContentContainer>
                 </Route>
 
                 <Route exact path='/login'>
@@ -36,22 +45,30 @@ function Router() {
 
                 <Route exact path='/signup'>
                     <Nav />
+                    <ContentContainer>
                     <Signup />
+                    </ContentContainer>
                 </Route>
 
                 <Route exact path='/donation'>
                     <GeralNav />
+                    <ContentContainer>
                     <CadastroDoacao />
+                    </ContentContainer>
                 </Route>
 
                 <Route exact path='/profile'>
                     <GeralNav />
+                    <ContentContainer>
                     <Profile />
+                    </ContentContainer>
                 </Route>
 
                 <Route exact path='/newpassword'>
                     <Nav />
+                    <ContentContainer>
                     <Recadastro />
+                    </ContentContainer>
                 </Route>
             </Switch>
         </BrowserRouter>

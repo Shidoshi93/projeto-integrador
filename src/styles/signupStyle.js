@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import '../../../src/fonts.css';
+import '../fonts.css';
+import backgroundImg from '../images/fundo.png';
 
 export const MotherBox = styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    // margin: 2%;
+    background-image: url(${backgroundImg});
+    background-size: 130% 100%;
 `
 export const ContainerTitle = styled.div`
     width: 25%;
@@ -22,33 +24,31 @@ export const Title = styled.h1`
     padding: 2%;
     color: #F38D68;
 `
-export const ContainerForm = styled.div`
+ 
+export const Form = styled.form`
+    width: 100%;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    
+`
+export const FormDataContainer = styled.div`
     width: 45vw;
     border: 1px solid #F38D68;
     border-top-width: 15px;
     background-color: #F4F3F3;
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    margin: auto;
-    
-`    
-export const Form = styled.form`
-    width: 100%;
-    height: max-content;
-    display: flex; 
-    flex-direction: column; 
-    flex-wrap: wrap;
-    margin: auto;
-    
-`
-export const FormDataContainer = styled.div`
-    width: 100%;
+    margin: auto;   
     display:flex; 
     flex-direction: row; 
     flex-wrap: wrap;
     padding: 2.5%;
     margin: 0;
     box-sizing: border-box;
+   
 `
 export const Label = styled.label`
     width: 30%;
@@ -78,6 +78,7 @@ export const Input = styled.input`
 export const InputA = styled(Input)`
     width: 50%;
 `
+
 export const BtnCep = styled.button`
     width: 15%;
     height: 2em;
@@ -105,41 +106,10 @@ export const BtnCep = styled.button`
     }
 `
 export const FormBtnContainer = styled.div`
+    width: 45vw;
     display:flex; 
     flex-direction: row; 
     flex-wrap: wrap;
     justify-content: space-evenly;
-`
-export const BtnSend = styled.button`
-    width: 30%;
-    height: 3em;
-    border: none;
-    border-radius: 2em;
-    background-color: #2BB67E;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.08rem;
-    line-height: 1.08rem;
-    text-align: center;
-
-    color: #FFFFFF;
-
-    cursor: pointer;
-
-    &:active{
-        outline: none;
-        border: 1px solid black;
-    }
-
-    &:hover{
-        background-color: #008000db;
-    }
-`
-export const BtnClear = styled(BtnSend)`
-    background-color: #F08080;
-   
-    &:hover{
-        background-color: #e08361;
-    }
+    margin-top: 2%;
 `

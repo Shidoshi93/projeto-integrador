@@ -4,7 +4,6 @@ import axios from 'axios';
 import {
     MotherBox,
     ContainerTitle,
-    ContainerForm,
     Form,
     FormDataContainer,
     Title,
@@ -12,11 +11,14 @@ import {
     Input,
     InputA,
     BtnCep,
-    FormBtnContainer,
+    FormBtnContainer
+
+} from '../styles/signupStyle';
+
+import {
     BtnSend,
     BtnClear
-
-} from '../components/singup/signupStyle'
+} from '../styles/buttonStyle'
 
 
 function Cadastro() {
@@ -64,53 +66,48 @@ function Cadastro() {
                 <Title>Cadastre-se</Title>
             </ContainerTitle>
 
-            <ContainerForm >
-                <Form>
-                    <FormDataContainer>
-                        <Label>Nome: </Label>
-                        <Input required type='Text'></Input>
+            <Form>
+                <FormDataContainer>
+                    <Label>Nome: </Label>
+                    <Input required type='Text'></Input>
 
-                        <Label>Sobrenome: </Label>
-                        <Input required type='Text'></Input>
-
-
-
-                        <Label>CPF: </Label>
-                        <Input required type='text' pattern="[0-9]{11}" placeholder='Digite seu CPF (somente números)'></Input>
-
-                        <Label>CEP: </Label>
-                        <InputA required onChange={e => handleChangeCep(e)} value={valuecep} type='text'></InputA>
-                        <BtnCep onClick={e => handleCepSubmit(e)} type='submit' >Buscar</BtnCep>
+                    <Label>Sobrenome: </Label>
+                    <Input required type='Text'></Input>
 
 
 
-                        <Label>Bairro: </Label>
-                        <Input required value={cepData.bairro} />
+                    <Label>CPF: </Label>
+                    <Input required type='text' pattern="[0-9]{11}" placeholder='Digite seu CPF (somente números)'></Input>
 
-                        <Label>Cidade: </Label>
-                        <Input required value={cepData.localidade} />
-
-                        <Label>Estado: </Label>
-                        <Input required value={cepData.uf} />
+                    <Label>CEP: </Label>
+                    <InputA required onChange={e => handleChangeCep(e)} value={valuecep} type='text'></InputA>
+                    <BtnCep onClick={e => handleCepSubmit(e)} type='submit' >Buscar</BtnCep>
 
 
 
-                        <Label>E-mail: </Label>
-                        <Input required type='email' onChange={onchangeemail} value={valueemail}></Input>
+                    <Label>Bairro: </Label>
+                    <Input required value={cepData.bairro} />
 
-                        <Label>Senha: </Label>
-                        <Input onChange={onchangesenha} type='password' value={valuesenha}></Input>
+                    <Label>Cidade: </Label>
+                    <Input required value={cepData.localidade} />
 
-                        <Label>Confirme sua senha: </Label>
-                        <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma}></Input>
-                    </FormDataContainer>
-                    <FormBtnContainer>
-                        <BtnClear type='submit'>Limpar </BtnClear>
-                        <BtnSend type='submit'>Cadastrar </BtnSend>
-                    </FormBtnContainer>
-                </Form>
-            </ContainerForm>
+                    <Label>Estado: </Label>
+                    <Input required value={cepData.uf} />
 
+                    <Label>E-mail: </Label>
+                    <Input required type='email' onChange={onchangeemail} value={valueemail}></Input>
+
+                    <Label>Senha: </Label>
+                    <Input onChange={onchangesenha} type='password' value={valuesenha}></Input>
+
+                    <Label>Confirme sua senha: </Label>
+                    <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma}></Input>
+                </FormDataContainer>
+                <FormBtnContainer>
+                    <BtnClear type='submit'>LIMPAR </BtnClear>
+                    <BtnSend type='submit'>CADASTRAR </BtnSend>
+                </FormBtnContainer>
+            </Form>
         </MotherBox>
     )
 

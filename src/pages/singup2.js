@@ -7,12 +7,16 @@ import {
    DivLabel,
    Select,
    Textarea,
-   ButtonLimpar,
-   ButtonEnviar,
    Span,
    Titulo,
   
-} from '../components/singup2/singup2Style'
+} from '../components/singup2/singup2Style';
+
+import {  
+   BtnSend,
+   BtnClear
+} from '../styles/buttonStyle';
+
 
 function CadastroDoacao() {
    const valueCategoria= ["Beneficiário", "Doador"]
@@ -72,8 +76,8 @@ function CadastroDoacao() {
       
                <Span>Obs.: Realize um post para cada pedido/oferta de ajuda</Span>
             </DivForm>
-            <ButtonLimpar>LIMPAR </ButtonLimpar>
-            <ButtonEnviar type="submit"> ENVIAR </ButtonEnviar>
+            <BtnClear>LIMPAR </BtnClear>
+            <BtnSend type="submit"> ENVIAR </BtnSend>
          </Form>
       </Section>)
 
