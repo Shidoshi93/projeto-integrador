@@ -51,6 +51,7 @@ function Login(props) {
                 <Button type='submit' onClick={() => goTo(history, '/feed')}>
                     Entrar
                 </Button>
+                <Ancora onClick={() => goTo(history, '/newpassword', props.toggleMiniMenu)}>Esqueceu?</Ancora>
                 <p>Não tem uma conta?</p>
                 <Ancora onClick={() => goTo(history, '/signup', props.toggleMiniMenu)}>Cadastre-se</Ancora>
             </Form>

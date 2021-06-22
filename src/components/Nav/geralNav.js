@@ -32,12 +32,12 @@ function GeralNav() {
                         <ul className='nav-ul'>
                             <li>
                                 <button className='btn-nav' onClick={() => goTo(history, '/feed')} alt='botão que leva para página dos posts'>
-                                    Posts
+                                    Postagens
                                 </button>
                             </li>
                             <li>
                                 <button className='btn-nav' onClick={() => goTo(history, '/profile')} alt='botão que leva para página dos posts'>
-                                    Profile
+                                    Perfil
                                 </button>
                             </li>
                             <li>
@@ -47,7 +47,7 @@ function GeralNav() {
                             </li>
                             <li>
                                 <button className='btn-nav btn-login' alt='botão com opções de conta do usuário' onClick={() => goTo(history, '/')/* toggleMiniMenu(!HideMenu) */}>
-                                    Logout
+                                    Sair
                                 </button>
                             </li>
                         </ul>

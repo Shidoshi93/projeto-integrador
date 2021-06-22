@@ -8,7 +8,8 @@ import CadastroDoacao from '../pages/singup2'
 import Profile from '../pages/profile'
 import GeralNav from "../components/Nav/geralNav";
 import PostDetail from "../pages/postDetail/postDetail";
-import Home from '../pages/home'
+import Home from '../pages/home';
+import Recadastro from "../pages/newpassword"
 
 
 function Router() {
@@ -34,7 +35,7 @@ function Router() {
                 </Route>
 
                 <Route exact path='/signup'>
-                    <GeralNav />
+                    <Nav />
                     <Signup />
                 </Route>
 
@@ -46,6 +47,11 @@ function Router() {
                 <Route exact path='/profile'>
                     <GeralNav />
                     <Profile />
+                </Route>
+
+                <Route exact path='/newpassword'>
+                    <Nav />
+                    <Recadastro />
                 </Route>
             </Switch>
         </BrowserRouter>

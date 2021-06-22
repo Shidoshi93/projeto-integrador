@@ -32,12 +32,12 @@ function Nav() {
                         <ul className='nav-ul'>
                             <li>
                                 <button className='btn-nav' onClick={() => goTo(history, '/feed', toggleMiniMenu)} alt='botão que leva para página dos posts'>
-                                    Posts
+                                    Postagens
                                 </button>
                             </li>
                             <li>
                                 <button className='btn-nav' alt='botão com opções de conta do usuário' onClick={() => toggleMiniMenu(!HideMenu)}>
-                                    Login
+                                    Entrar
                                 </button>
                             </li>
                         </ul>
