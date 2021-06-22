@@ -42,7 +42,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 8vh;
+    height: 10vh;
 
     .logo {
         padding: 5px 15px; 

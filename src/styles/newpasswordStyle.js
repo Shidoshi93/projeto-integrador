@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import '../../../src/fonts.css';
+import '../fonts.css';
 const px2vw = (size, width = 1440) => `${(size / width) * 100}vw`;
 
 export const MotherBox = styled.div`
