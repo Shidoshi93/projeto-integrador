@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import Cep from '../components/singup/cep';
+import axios from 'axios';
 import {
     MotherBox,
     ContainerTitle,
     ContainerForm,
+    Form,
     FormDataContainer,
     Title,
     Label,
@@ -14,7 +15,7 @@ import {
     FormBtnContainer,
     BtnSend,
     BtnClear
-   
+
 } from '../components/singup/signupStyle'
 
 
@@ -30,10 +31,20 @@ function Cadastro() {
         console.log(valuecep)
     }
 
+    const handleCepSubmit = (event) => {
+        event.preventDefault()
+
+        axios.get(`https://viacep.com.br/ws/${valuecep}/json/`)
+            .then(res => res.data)
+            .then(res => setCepData(res))
+            .catch(erro => alert('Não foi possível localizar esse CEP'));
+        return [cepData];
+    }
+
     const onchangeemail = (event) => {
         setvalueemail(event.target.value)
         console.log(valueemail)
-    } 
+    }
 
     const onchangesenha = (event) => {
         setvaluesenha(event.target.value)
@@ -45,58 +56,59 @@ function Cadastro() {
         console.log(valuesenhaconfirma)
     }
 
+
     return (
         <MotherBox>
-            
+
             <ContainerTitle>
                 <Title>Cadastre-se</Title>
             </ContainerTitle>
 
             <ContainerForm >
-                <FormDataContainer>
-                   
-                    <Label>Nome: </Label>
-                    <Input type='Text'></Input>
-                   
-                    <Label>Sobrenome: </Label>
-                    <Input type='Text'></Input>
-                    
-                    
-                   
-                    <Label>CPF: </Label>
-                    <Input type='text' placeholder = 'Digite seu CPF (somente números)' pattern='[0-9]{11}'></Input>
-                    
-                    <Label>CEP: </Label>
-                    <InputA onChange={e => handleChangeCep(e)} value={valuecep}type='text'placeholder='Digite seu CEP (somente números)' ></InputA>
-                    <BtnCep   type='submit' >Buscar</BtnCep>
-                    
-                  
-                   
-                    <Label>Bairro: </Label>
-                    <Input value={cepData.bairro} />
-                    
-                    <Label>Cidade: </Label>
-                    <Input value={cepData.localidade} />
-                    
-                    <Label>Estado: </Label>
-                    <Input value={cepData.uf} />
-                    
+                <Form>
+                    <FormDataContainer>
+                        <Label>Nome: </Label>
+                        <Input required type='Text'></Input>
 
-                   
-                    <Label>E-mail: </Label>
-                    <Input  onChange={onchangeemail} value={valueemail}></Input> 
-                    
-                    <Label>Senha: </Label>
-                    <Input onChange={onchangesenha} type='password'  value={valuesenha}></Input>
-                   
-                    <Label>Confirme sua senha: </Label>
-                    <Input onChange={onchangesenhaconfirma}type='password' value={valuesenhaconfirma}></Input>
-                    
-                <FormBtnContainer>
-                    <BtnClear type='submit'>Limpar </BtnClear>
-                    <BtnSend type='submit'>Cadastrar </BtnSend>
-                </FormBtnContainer>
-                </FormDataContainer>
+                        <Label>Sobrenome: </Label>
+                        <Input required type='Text'></Input>
+
+
+
+                        <Label>CPF: </Label>
+                        <Input required type='text' pattern="[0-9]{11}" placeholder='Digite seu CPF (somente números)'></Input>
+
+                        <Label>CEP: </Label>
+                        <InputA required onChange={e => handleChangeCep(e)} value={valuecep} type='text'></InputA>
+                        <BtnCep onClick={e => handleCepSubmit(e)} type='submit' >Buscar</BtnCep>
+
+
+
+                        <Label>Bairro: </Label>
+                        <Input required value={cepData.bairro} />
+
+                        <Label>Cidade: </Label>
+                        <Input required value={cepData.localidade} />
+
+                        <Label>Estado: </Label>
+                        <Input required value={cepData.uf} />
+
+
+
+                        <Label>E-mail: </Label>
+                        <Input required type='email' onChange={onchangeemail} value={valueemail}></Input>
+
+                        <Label>Senha: </Label>
+                        <Input onChange={onchangesenha} type='password' value={valuesenha}></Input>
+
+                        <Label>Confirme sua senha: </Label>
+                        <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma}></Input>
+                    </FormDataContainer>
+                    <FormBtnContainer>
+                        <BtnClear type='submit'>Limpar </BtnClear>
+                        <BtnSend type='submit'>Cadastrar </BtnSend>
+                    </FormBtnContainer>
+                </Form>
             </ContainerForm>
 
         </MotherBox>
