@@ -9,10 +9,14 @@ import {
     Label,
     Input,
     FormBtnContainer,
-    BtnSend,
     P,
        
 } from '../styles/newpasswordStyle'
+
+import {
+    BtnSend,
+    
+} from '../styles/buttonStyle'
 
 
 function Recadastro() {
@@ -30,19 +34,13 @@ function Recadastro() {
             <ContainerTitle>
                 <Title>Recuperar Senha</Title>
             </ContainerTitle>
-
-            <ContainerForm >
-                
                 <FormDataContainer>
-                <P>Insira seu e-mail e enviaremos um link <br></br> para você voltar a acessar sua conta</P>
+                <P>Insira seu e-mail e enviaremos um link <br></br> para você voltar a acessar sua conta.</P>
                     <Label>E-mail: </Label>
                     <Input  onChange={onchangeemail} value={valueemail}></Input> 
-                    <FormBtnContainer>
-                            <BtnSend type='submit'>Enviar link</BtnSend>
-                    </FormBtnContainer>
+                    <BtnSend type='submit'>Enviar link</BtnSend>
+                    
                 </FormDataContainer>
-            </ContainerForm>
-
         </MotherBox>
     )
 

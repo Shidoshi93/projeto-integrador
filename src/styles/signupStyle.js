@@ -3,15 +3,16 @@ import '../fonts.css';
 import backgroundImg from '../images/fundo.png';
 
 export const MotherBox = styled.div`
+    height: 75vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
 `
 export const ContainerTitle = styled.div`
     width: 25%;
-    margin: 2% auto 1% auto;
+    margin: .5% auto .5% auto;
     background: #F4F3F3;
 `
 export const Title = styled.h1`
@@ -45,7 +46,7 @@ export const FormDataContainer = styled.div`
     display:flex; 
     flex-direction: row; 
     flex-wrap: wrap;
-    padding: 2.5%;
+    padding: 0 .7% .5% .7%;
     margin: 0;
     box-sizing: border-box;
    
@@ -71,8 +72,8 @@ export const Input = styled.input`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: .8rem;
+    line-height: .8rem;
     margin-top: .5%;
   `
 export const InputA = styled(Input)`
@@ -90,8 +91,8 @@ export const BtnCep = styled.button`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: .8rem;
+    line-height: .8rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
