@@ -92,7 +92,7 @@ function UserAccount() {
                     </MainContainer>
                         <FormBtnContainer>
                                 <BtnForm onClick={openModal}>ALTERAR CADASTRO</BtnForm>
-                                <BtnForm>ALTERAR SENHA</BtnForm>
+                                <BtnForm onClick={() => goTo(history, '/newpassword')}>ALTERAR SENHA</BtnForm>
                                 
                         </FormBtnContainer>
                     </>

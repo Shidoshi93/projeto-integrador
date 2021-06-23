@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 import '../../../src/fonts.css';
 import px2vw from '../../hooks/px2vw';
+import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
- `
+    height: 75vh;
+    background-image: url(${backgroundImg});
+    background-size: 130% 100%;
+`
 export const HeadContainer = styled.div`
     width: 100vw;
     margin: 2% auto;
