@@ -20,7 +20,7 @@ import {
 
 function CadastroDoacao() {
    const valueCategoria= ["Beneficiário", "Doador"]
-   const valueTipo= ["Alimentos Perecíveis","Vestuário","Produtos de Higiêne"]
+   const valueTipo= ["Cesta Básica","Vestuário","Produtos de Higiêne"]
    function criaOption(){
       let arrayOption = [];
       for(let i = 0; i < 10; i++){
