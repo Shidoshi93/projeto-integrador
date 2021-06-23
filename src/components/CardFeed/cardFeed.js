@@ -117,8 +117,9 @@ function Cards() {
                         className='cardContent' 
                         key={donation.key} 
                         onClick={() => goTo(history, `/detail/${donation.id}`)}
+                        color={donation.userStatus === "Doador" ? "#F38D68" : "#F9DFAC"}
                     >
-                        <TitleContainer>
+                        <TitleContainer color={donation.userStatus === "Doador" ? "#F38D68" : "#F9DFAC"}>
                             <h3>{donation.userStatus === "Doador" ? "Para doação" : "Preciso de ajuda"}</h3>
                         </TitleContainer>
 
@@ -149,7 +150,7 @@ function Cards() {
 
                         {/* abre janela de contato com usuário */}
                         <Btn>
-                            {donation.userStatus === "Doador" ? "Aceitar" : "Doar"}
+                            {donation.userStatus === "Doador" ? "ACEITAR" : "DOAR"}
                         </Btn>
                     </CardContent>
                 ))}
