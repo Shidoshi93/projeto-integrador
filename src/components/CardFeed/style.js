@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const MotherBox = styled.div`
     width: 80%;
-    margin: 0 auto;
-    margin-top: 50px;
+    margin-inline: auto;
+    padding-top: 50px;
 `
 
 export const ImagemItem = styled.img`
@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 30px;
     margin-top: 30px;
 `
 
@@ -33,6 +33,13 @@ export const SearchContainer = styled.div`
     align-items: center;
     justify-content: center;
     gap: 20px;
+
+    select {
+        font-size: 1.1em;
+        border-radius: 5px;
+        font-weight: 400;
+        border: 1px solid #F38D68;
+    }
 `
 
 export const CardContent = styled.div`
@@ -46,8 +53,9 @@ export const CardContent = styled.div`
     padding: 15px;
     margin: 30px 0;
     background-color: #fff;
-    box-shadow: 0 0 7px 1px #F38D68;
+    box-shadow: 10px 10px 5px 5px #d1ccca;
     border-radius: 10px;
+    border: 1px solid ${(props) => props.color};
     cursor: pointer;
     transition: 0.25s;
 
@@ -57,7 +65,7 @@ export const CardContent = styled.div`
 `
 
 export const TitleContainer = styled.div`
-    background-color: #F38D68;
+    background: ${(props) => props.color};
     width: 250px;
     height: 50px;
     display: flex;
@@ -66,6 +74,10 @@ export const TitleContainer = styled.div`
     border-radius: 10px 10px 0 0;
     align-items: center;
     justify-content: center;
+
+    h3 {
+        font-weight: 600;
+    }
 `
 
 export const CardItemContent = styled.div`
@@ -85,20 +97,21 @@ export const DonationType = styled.div`
     display: flex;
     gap: 10px;
     align-items: center;
+
+    p {
+        font-weight: 500;
+    }
 `
 
 export const Btn = styled.button`
     height: 35px;
     width: 150px;
-
     border: none;
     border-radius: 5px;
-
     background-color: #ffc1aa;
-
     cursor: pointer;
-
     bottom: 15px;
+    font-weight: 800;
 
     &:active{
         outline: none;
