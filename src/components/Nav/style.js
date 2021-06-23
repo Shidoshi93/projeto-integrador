@@ -4,16 +4,19 @@ export const ContainerHeader = styled.div`
     .btn-nav {
         border: none;
         background-color: transparent;
-        padding: 5px 15px;
+        padding: 12px 15px;
         text-decoration: none;
         color: black;
         cursor: pointer;
-        transition: 1s;
-        width: 150px;
+        transition: 0.7s;
+        width: auto;
+        font-size: 1.2em;
+        font-weight: 700;
 
         &:hover {
-            background-color: #F38D68;
+            background-color: #f38d6885;
             border-radius: 5px;
+            color: white;
         }
     }
 
@@ -46,6 +49,22 @@ export const Header = styled.header`
 
     .logo {
         padding: 5px 15px; 
+        background: none;
+        border: none;
+        transition: 1s;
+
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        &:active {
+            outline: none;
+        }
+    }
+
+    .img-logo {
+        height: 50px;
     }
 
     .nav-ul {
