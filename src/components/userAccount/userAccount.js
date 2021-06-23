@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import '../../../src/fonts.css';
 import { goTo } from '../../routes/coordinator';
+import { Modal } from './modal';
 import {
     MotherBox,
     HeadContainer,
@@ -12,7 +13,7 @@ import {
     BtnHead,
     MainContainer,
     CardContainer,
-    FormContainer,
+    Form,
     FormDataContainer,
     Label,
     Input,
@@ -38,6 +39,18 @@ function UserAccount() {
             "img": "http://placekitten.com/200/200"
         }]
 
+        const [showForm, setShowForm] = useState(true);
+
+        const [showModal, setShowModal] = useState(false);
+
+        const openModal = () => {
+          setShowModal(prev => !prev);
+        };
+
+        useEffect(()=> {
+            if (showModal ? setShowForm(false) : setShowForm(true));;
+          }, [showModal]);
+       
     return (
         <div>
             {userData.map((user) => (
@@ -52,11 +65,13 @@ function UserAccount() {
                             <BtnHead onClick={() => goTo(history, '/donation')}>PEDIR DOAÇÃO</BtnHead>
                         </HeadBtnContainer>
                     </HeadContainer>
-
-                    <MainContainer>
+                    <Modal showModal={showModal} setShowModal={setShowModal} />
+                    {showForm &&
+                    <>
+                    <MainContainer >
                         <CardContainer />
 
-                        <FormContainer>
+                        <Form>
                             <FormDataContainer>
                                 <Label>Nome completo: </Label>
                                 <Input value={user.userFullName} />
@@ -73,13 +88,15 @@ function UserAccount() {
                                 <Label>Bairro: </Label>
                                 <Input value={user.bairro} />
                             </FormDataContainer>
-                            <FormBtnContainer>
-                                <BtnForm>Alterar cadastro</BtnForm>
-                                <BtnForm>Alterar senha</BtnForm>
-                            </FormBtnContainer>
-
-                        </FormContainer>
+                        </Form>
                     </MainContainer>
+                        <FormBtnContainer>
+                                <BtnForm onClick={openModal}>ALTERAR CADASTRO</BtnForm>
+                                <BtnForm>ALTERAR SENHA</BtnForm>
+                                
+                        </FormBtnContainer>
+                    </>
+                    }
                 </MotherBox>
             )
             )}

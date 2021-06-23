@@ -3,72 +3,62 @@ import '../../../src/fonts.css';
 import px2vw from '../../hooks/px2vw';
 
 export const MotherBox = styled.div`
-    height: ${px2vw(800)};
-`
+ `
 export const HeadContainer = styled.div`
-    width: 70%;
-    height: 20%;
-    position: relative;
-    margin: auto;
-    margin-top: 5%;
-    margin-bottom: 0%;    
+    width: 100vw;
+    margin: 2% auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 `
 export const HeadUserContainer = styled.div`
-    position: relative;
-    margin: 0;
-    margin-top: 1%;
-    margin-bottom: 2%; 
-    float: center;
+    display: flex;   
+    width: 30%;
 `
 export const ImgContainer = styled.img`
-    width: ${px2vw(120)};
-    height: ${px2vw(120)};
-    position: relative;
-    margin: ${px2vw(5)} ${px2vw(0)} ${px2vw(5)} ${px2vw(0)};
+    width: 8rem;
+    min-width: 100px;
     float: left;
-    border: ${px2vw(1)} solid #F38D68;
-    border-radius: ${px2vw(30)};
+    border: 1px solid #F38D68;
+    border-radius: 30px;
     background: #F4F3F3;
 `
 export const Title = styled.h3`
-    position: relative;
-    margin: ${px2vw(10)} ${px2vw(0)} ${px2vw(5)} ${px2vw(20)};
+    margin: 2% 0 1% 3%;
     float: left;
     font-family: Lato;
     font-style: normal;
     font-weight: 700;
-    font-size: ${px2vw(24)};
-    line-height: ${px2vw(24)};
+    font-size: clamp(12px, 2vw, 2.8rem);
+    line-height: 16px;
     text-align: center;
     color: #F38D68; 
 `
 export const HeadBtnContainer = styled.div`
+    width: 10%;
     display: flex;
     flex-direction: column;
-    align-content: flex-end;
-    justify-content: space-between;
-    align-items: flex-end;
-    row-gap: ${px2vw(30)};    
+    row-gap: 2rem;      
 `
 export const BtnHead = styled.button`
-    width: ${px2vw(150)};
-    height: ${px2vw(38)};
+    widht: 100%;
+    min-width: 80px;
+    height: 3.5em;
     background-color: #F38D68;
     border: none;
-    border-radius: ${px2vw(15)};
-    box-shadow: ${px2vw(5)} ${px2vw(5)} ${px2vw(0)} rgba(243, 141, 104, 0.5);
+    border-radius: .7rem;
+    box-shadow: .3rem .3rem 0 rgba(243, 141, 104, 0.5);
     font-family: Lato;
-    font-style: normal;
-    font-weight: 800;
-    font-size: ${px2vw(14)};
-    line-height: ${px2vw(14)};
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
 
     &:active{
         outline: none;
-        border: ${px2vw(1)} solid lightgrey;
+        border: 1px solid lightgrey;
     }
 
     &:hover{
@@ -76,27 +66,23 @@ export const BtnHead = styled.button`
     }
 `
 export const MainContainer = styled.div`
-    width: 100%;
-    height: ${px2vw(200)};    
+    width: 100vw;
     position: relative;
-    margin: ${px2vw(20)} auto ${px2vw(5)} auto;
+    margin: auto;
 `
 export const CardContainer = styled.div`
-    width: ${px2vw(700)};
-    height: ${px2vw(300)};    
+    width: 50vw;
+    height: 35vh;    
     position: relative;
-    margin: ${px2vw(0)} auto ${px2vw(5)} auto;
-    border: ${px2vw(1)} solid #F38D68;
-    border-right-width: ${px2vw(15)};
+    margin: auto;
+    border: 1px solid #F38D68;
+    border-right-width: 15px;
     background-color: #F4F3F3;
-    box-shadow: ${px2vw(15)} ${px2vw(10)} ${px2vw(0)} rgba(0, 0, 0, 0.2);
-    border-radius: ${px2vw(5)};
+    box-shadow: .7rem .7rem 0  rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 `
-export const FormContainer = styled.form`
-    width: ${px2vw(700)};
-    height: ${px2vw(300)};    
-    position: absolute;
-    top: ${px2vw(18)};
+export const Form = styled.form`
+    
     
 `
 export const FormDataContainer = styled.div`
@@ -130,34 +116,30 @@ export const Input = styled.input`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: ${px2vw(18)};
+    font-size: ${px2vw(16)};
     line-height: ${px2vw(18)};
-    clear: both;
     float: left;
     margin-top:${px2vw(15)};
      
 `
 export const FormBtnContainer = styled.div`
-    width: 100%;    
-    position: absolute;
-    top: ${px2vw(340)};
-    left: ${px2vw(350)};
-    right: 0;
-    display: inline-flex;
+    width: 80%;    
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
     justify-content: space-evenly;
+ 
 `
 export const BtnForm = styled.button`
-    width: ${px2vw(130)};
-    height: ${px2vw(32)};
-    margin: 0;
+    width: 11rem;
+    height: 3.5em;
     border: none;
-    border-radius: ${px2vw(5)};
+    border-radius: .7rem;
     background-color: #F38D68;
     font-family: Lato;
-    font-style: normal;
     font-weight: 700;
-    font-size: ${px2vw(14)};
-    line-height: ${px2vw(14)};
+    font-size: 1rem;
+    line-height: 1rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
@@ -168,6 +150,6 @@ export const BtnForm = styled.button`
     }
 
     &:hover{
-        background-color: #F08080;
+        background-color: #e66e42;
     }
 `
