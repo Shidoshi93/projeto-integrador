@@ -7,6 +7,7 @@ import {
     ContainerNav,
     ContainerHeader
 } from './style'
+import Logo from '../../images/logoAlcance.png'
 
 
 
@@ -23,8 +24,8 @@ function GeralNav() {
             <Header className='flex'>
                 <ContainerNav className='flex'>
                     <div>
-                        <button className='btn-nav logo' alt='logo do projeto' onClick={() => goTo(history, '/')}>
-                            LOGO
+                        <button className='logo' alt='logo do projeto' onClick={() => goTo(history, '/')}>
+                            <img className='img-logo' src={Logo} alt='imagem do logo'/>
                         </button>
                     </div>
 
