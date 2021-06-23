@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import '../../src/fonts.css'; 
+import '../../fonts.css'; 
 
 export const MotherBox = styled.div`
     position: absolute;

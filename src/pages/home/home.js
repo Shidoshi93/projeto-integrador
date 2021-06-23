@@ -1,13 +1,13 @@
 import React from 'react';
-import '../home.css'
-import womanImg from '../images/woman.png'
-import danielImg from '../images/Daniel.png';
-import marianaImg from '../images/Mariana.png';
-import marinaImg from '../images/Marina.png';
-import moniqueImg from '../images/Monique.png';
-import rachelImg from '../images/Rachel.png';
-import patriciaImg from '../images/Patricia.png';
-import { goTo } from '../routes/coordinator';
+import './home.css'
+import womanImg from '../../images/woman.png'
+import danielImg from '../../images/Daniel.png';
+import marianaImg from '../../images/Mariana.png';
+import marinaImg from '../../images/Marina.png';
+import moniqueImg from '../../images/Monique.png';
+import rachelImg from '../../images/Rachel.png';
+import patriciaImg from '../../images/Patricia.png';
+import { goTo } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
 function TelaInicial(){
@@ -18,7 +18,7 @@ return(
     <div>
         <div className="header">
             <div className="div_header-img">    
-                <img src={womanImg}/>
+                <img src={womanImg} alt="Mulher olhando para o lado"/>
             </div>
 
             <div className="header_titulo">
@@ -51,27 +51,27 @@ return(
             <div className="container_imgs">
                 <div className="div_img">
                     <p>Daniel Ribeiro</p>
-                    <img src={danielImg}/>
+                    <img src={danielImg} alt="Daniel Ribeiro"/>
                 </div>
                 <div className="div_img">
                     <p>Marina Silva</p>
-                    <img src={marinaImg}/>
+                    <img src={marinaImg} alt="Marina Silva"/>
                 </div>
                 <div className="div_img">
                     <p>Mariana Amina</p>
-                    <img src={marianaImg}/>
+                    <img src={marianaImg} alt="Mariana Amina"/>
                 </div>
                 <div className="div_img">
                     <p>Rachel Carvalho</p>
-                    <img src={rachelImg}/>
+                    <img src={rachelImg} alt="Rachel Carvalho"/>
                 </div>
                 <div className="div_img">
                     <p>Patricia de Castro</p>
-                    <img src={patriciaImg}/>
+                    <img src={patriciaImg} alt="Patricia de Castro"/>
                 </div>
                 <div className="div_img">
                     <p>Monique Almeida</p>
-                    <img src={moniqueImg}/>
+                    <img src={moniqueImg} alt="Monique Almeida"/>
                 </div>
             </div>
         </div>

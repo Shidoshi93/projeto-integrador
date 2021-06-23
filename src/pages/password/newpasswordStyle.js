@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import '../fonts.css';
-import backgroundImg from '../images/fundo.png';
+import '../../fonts.css';
+import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
     height: 75vh;

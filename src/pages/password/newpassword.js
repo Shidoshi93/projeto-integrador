@@ -3,20 +3,17 @@ import { useState } from 'react';
 import {
     MotherBox,
     ContainerTitle,
-    ContainerForm,
     FormDataContainer,
     Title,
     Label,
     Input,
-    FormBtnContainer,
-    P,
-       
-} from '../styles/newpasswordStyle'
+    P
+} from './newpasswordStyle'
 
 import {
     BtnSend,
     
-} from '../styles/buttonStyle'
+} from '../../styles/buttonStyle'
 
 
 function Recadastro() {

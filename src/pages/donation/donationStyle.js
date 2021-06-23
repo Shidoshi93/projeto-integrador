@@ -11,6 +11,20 @@ align-items: center;
 background-image: url(${backgroundImg});
 background-size: 130% 100%;
 `
+export const Titulo = styled.div`
+background-color: #F2F2F2;
+margin: .5% auto;
+padding: 1%;
+color: #F38D68;
+font-weight: 700;
+font-size: 2rem;
+width: 40%;
+outline: none;
+font-family: 'Lato';
+box-sizing: border-box;
+font-weight: 700;
+text-align: center;
+`
 export const Form = styled.form`
 width: 45%;
 margin: auto;
@@ -56,48 +70,6 @@ margin-bottom: 20px;
 padding: 5px 10px;
 font-size: 1rem;
 `
-
-export const ButtonLimpar = styled.button`
-height: 50px;
-border-radius: 25px;
-width: 200px;
-color: white;
-border: none;
-font-weight: 700;
-font-size: 1.2rem;
-background-color: #F08080;
-
-&:hover{
-    cursor: pointer;
-}
-`
-export const ButtonEnviar = styled.button`
-height: 50px;
-border-radius: 25px;
-width: 200px;
-color: white;
-border: none;
-font-weight: 700;
-font-size: 1.2rem;
-background-color: #2BB67E;
-
-&:hover{
-    cursor: pointer;
-}
-`
 export const Span = styled.span`
 display: block;
-`
-export const Titulo = styled.div`
-background-color: #F2F2F2;
-margin: .5% auto;
-padding: 1%;
-color: #F38D68;
-font-weight: 700;
-font-size: 2rem;
-width: 40%;
-outline: none;
-font-family: 'Lato';
-box-sizing: border-box;
-font-weight: 700;
 `

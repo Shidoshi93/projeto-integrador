@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import '../fonts.css';
-import backgroundImg from '../images/fundo.png';
+import '../../fonts.css';
+import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
     height: 75vh;
@@ -72,8 +72,8 @@ export const Input = styled.input`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: .8rem;
-    line-height: .8rem;
+    font-size: 1rem;
+    line-height: 1rem;
     margin-top: .5%;
   `
 export const InputA = styled(Input)`
@@ -91,8 +91,8 @@ export const BtnCep = styled.button`
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: .8rem;
-    line-height: .8rem;
+    font-size: 1rem;
+    line-height: 1rem;
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;

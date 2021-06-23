@@ -10,12 +10,12 @@ import {
    Span,
    Titulo,
   
-} from '../components/singup2/singup2Style';
+} from './donationStyle';
 
 import {  
    BtnSend,
    BtnClear
-} from '../styles/buttonStyle';
+} from '../../styles/buttonStyle';
 
 
 function CadastroDoacao() {
