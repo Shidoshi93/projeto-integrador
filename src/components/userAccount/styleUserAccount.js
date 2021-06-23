@@ -9,7 +9,7 @@ export const MotherBox = styled.div`
     background-size: 130% 100%;
 `
 export const HeadContainer = styled.div`
-    width: 100vw;
+    /* width: 100vw; */
     margin: 2% auto;
     display: flex;
     justify-content: space-evenly;
@@ -45,7 +45,7 @@ export const HeadBtnContainer = styled.div`
     row-gap: 2rem;      
 `
 export const BtnHead = styled.button`
-    widht: 100%;
+    width: 100%;
     min-width: 80px;
     height: 3.5em;
     background-color: #F38D68;
@@ -70,7 +70,7 @@ export const BtnHead = styled.button`
     }
 `
 export const MainContainer = styled.div`
-    width: 100vw;
+    /* width: 100vw; */
     position: relative;
     margin: auto;
 `

@@ -3,7 +3,7 @@ import '../../../src/fonts.css';
 import px2vw from '../../hooks/px2vw';
 
 export const MainContainer = styled.div`
-    width: 100vw;
+    /* width: 100vw; */
     position: relative;
     margin: auto;
 `
