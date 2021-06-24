@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import '../../../src/fonts.css';
-import px2vw from '../../hooks/px2vw';
 
 export const MainContainer = styled.div`
     /* width: 100vw; */
@@ -15,7 +14,9 @@ export const Form = styled.form`
     background-color: #F4F3F3;
     box-shadow: .7rem .7rem 0  rgba(0, 0, 0, 0.2);
     border-radius: 5px; 
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 export const FormDataContainer = styled.div`
     // width: 100%;

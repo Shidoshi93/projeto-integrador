@@ -9,8 +9,8 @@ import {
     Title,
     Ancora,
     Form
-} from '../components/loginStyle'
-import { goTo } from '../routes/coordinator';
+} from './loginStyle'
+import { goTo } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 
 function Login(props) {

@@ -13,12 +13,12 @@ import {
     BtnCep,
     FormBtnContainer
 
-} from '../styles/signupStyle';
+} from './signupStyle';
 
 import {
     BtnSend,
     BtnClear
-} from '../styles/buttonStyle'
+} from '../../styles/buttonStyle'
 
 
 function Cadastro() {

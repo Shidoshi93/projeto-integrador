@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import Login from '../../pages/login'
+import Login from '../../pages/login/login'
 import { goTo, goToBack } from '../../routes/coordinator'
 import {
     Header,
