@@ -13,6 +13,12 @@ export const Header = styled.div`
 export const DivHeaderImg = styled.div`
     width: 50%;
     min-height: 100vh;
+    box-sizing: border-box;
+
+    @media (max-width: 810px) {
+        width: 100%;
+        min-height: 40vh;
+    }
 `;
 
 export const HeaderImg = styled.img`
@@ -27,6 +33,8 @@ export const DivHeaderTitulo = styled.div`
     align-items: center;
     background-color: #FFEDCB;
     padding: 50px 50px;
+    width: 50%;
+    box-sizing: border-box;
 
     @media (max-width: 810px) {
         width: 100%;
@@ -135,6 +143,7 @@ export const DivSobre = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 50px;
+    box-sizing: border-box;
 
     @media (max-width: 1085px) {
         flex-direction: column;
@@ -159,6 +168,7 @@ export const SobreH2 = styled.h2`
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 
     @media (max-width: 1085px) {
         width: 40%;
@@ -170,6 +180,7 @@ export const SobreH2 = styled.h2`
         width: 70%;
         padding: 0px 50px;
         margin-bottom: 50px;
+        text-align: center;
     }
 
     @media (max-width: 400px) {
@@ -187,6 +198,7 @@ export const DivTexto = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
+    box-sizing: border-box;
 
     & p {
         font-size: 1rem;
