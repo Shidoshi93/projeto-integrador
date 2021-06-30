@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css'
+// import './home.css'
 import womanImg from '../../images/woman.png'
 import danielImg from '../../images/Daniel.png';
 import marianaImg from '../../images/Mariana.png';
@@ -9,6 +9,27 @@ import rachelImg from '../../images/Rachel.png';
 import patriciaImg from '../../images/Patricia.png';
 import { goTo } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
+import {
+    Header,
+    DivHeaderImg,
+    HeaderImg,
+    DivHeaderTitulo,
+    HeaderTitulo,
+    HeaderSubtitulo,
+    SectionDoacoes,
+    DivBotaoDoar,
+    DivBotaoReceber,
+    BotaoDoar,
+    BotaoReceber,
+    SectionSobre,
+    DivSobre,
+    SobreH2,
+    DivTexto,
+    SobreH3,
+    ContainerImgs,
+    DivImg
+} from './homeStyle.js';
+
 
 function TelaInicial(){
 
@@ -16,65 +37,65 @@ function TelaInicial(){
 
 return(
     <div>
-        <div className="header">
-            <div className="div_header-img">    
-                <img src={womanImg} alt="Mulher olhando para o lado"/>
-            </div>
+        <Header>
+            <DivHeaderImg>    
+                <HeaderImg src={womanImg} alt="Mulher olhando para o lado"/>
+            </DivHeaderImg>
 
-            <div className="header_titulo">
-                <h1> A Alcance une doadores de todo o país com pessoas que precisam. </h1>
-                <p>Deixando doações de alimentos não perecíveis, itens de higiêne e vestuário ao alcance das suas mãos.</p>
-            </div>
-        </div>
+            <DivHeaderTitulo>
+                <HeaderTitulo> A Alcance une doadores de todo o país com pessoas que precisam. </HeaderTitulo>
+                <HeaderSubtitulo>Deixando doações de alimentos não perecíveis, itens de higiêne e vestuário ao alcance das suas mãos.</HeaderSubtitulo>
+            </DivHeaderTitulo>
+        </Header>
 
 
-        <div className="div_botoes">
-            <div className="div_botao-doar">
-                <button onClick={() => goTo(history, '/donation')}>Quero Doar</button>
-            </div>
-            <div className="div_botao-receber">
-                <button onClick={() => goTo(history, '/donation')}>Quero Receber</button>
-            </div>
-        </div>
+        <SectionDoacoes>
+            <DivBotaoDoar>
+                <BotaoDoar onClick={() => goTo(history, '/donation')}>Quero Doar</BotaoDoar>
+            </DivBotaoDoar>
+            <DivBotaoReceber>
+                <BotaoReceber onClick={() => goTo(history, '/donation')}>Quero Receber</BotaoReceber>
+            </DivBotaoReceber>
+        </SectionDoacoes>
 
-        <div className="sobre">
-            <div className="div_sobre">
-                <h2>Sobre o projeto</h2>
-                <div className="div_texto">
+        <SectionSobre>
+            <DivSobre>
+                <SobreH2>Sobre o projeto</SobreH2>
+                <DivTexto>
                     <p>A Alcance é uma plataforma que surgiu em 2021 como resultado do projeto integrador do curso de programação web oferecido pelo Programa Código Preto, uma ação entre as empresas Digital House e Quinto Andar para formação em tecnologia exclusiva para pessoas negras.</p>
                     <p>Seus desenvolvedores têm em comum a vontade de ajudar a reduzir os impactos socioeconômicos agravados pela pandemia do Covid-19 no Brasil.</p>
-                </div>
-            </div>
+                </DivTexto>
+            </DivSobre>
             
-            <h3>Quem faz a Alcance acontecer</h3>
+            <SobreH3>Quem faz a Alcance acontecer</SobreH3>
             
-            <div className="container_imgs">
-                <div className="div_img">
+            <ContainerImgs>
+                <DivImg>
                     <p>Daniel Ribeiro</p>
                     <img src={danielImg} alt="Daniel Ribeiro"/>
-                </div>
-                <div className="div_img">
+                </DivImg>
+                <DivImg>
                     <p>Marina Silva</p>
                     <img src={marinaImg} alt="Marina Silva"/>
-                </div>
-                <div className="div_img">
+                </DivImg>
+                <DivImg>
                     <p>Mariana Amina</p>
                     <img src={marianaImg} alt="Mariana Amina"/>
-                </div>
-                <div className="div_img">
+                </DivImg>
+                <DivImg>
                     <p>Rachel Carvalho</p>
                     <img src={rachelImg} alt="Rachel Carvalho"/>
-                </div>
-                <div className="div_img">
+                </DivImg>
+                <DivImg>
                     <p>Patricia de Castro</p>
                     <img src={patriciaImg} alt="Patricia de Castro"/>
-                </div>
-                <div className="div_img">
+                </DivImg>
+                <DivImg>
                     <p>Monique Almeida</p>
                     <img src={moniqueImg} alt="Monique Almeida"/>
-                </div>
-            </div>
-        </div>
+                </DivImg>
+            </ContainerImgs>
+        </SectionSobre>
 
     </div>
 
