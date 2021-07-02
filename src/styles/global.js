@@ -1,11 +1,13 @@
-import  styled from "styled-components";
+import  styled from "styled-components"; 
 import px2vw from "../hooks/px2vw";
+import {createGlobalStyle} from 'styled-components';
 
-export const Global = styled.div`
+export const Global = createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
   }
   // :root {
   //     font-size: ${px2vw(24)};
