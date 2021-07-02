@@ -7,13 +7,17 @@ export const MotherBox = styled.div`
     top: 70px;
     width: 237px;
     height: fit-content;
-    background-color: #f38d68ab;
+    background-color: #f38d68ab; 
     border-radius: 10px;
     z-index: 700000;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
+
+    @media (max-width: 560px) {
+        top: 21vh;
+    }
 `
 
 export const Form = styled.form`
