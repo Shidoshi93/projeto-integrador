@@ -15,6 +15,8 @@ import {
 
 } from './signupStyle';
 
+import {Titulo} from '../../styles/titleStyle'
+
 import {
     BtnSend,
     BtnClear
@@ -62,9 +64,7 @@ function Cadastro() {
     return (
         <MotherBox>
 
-            <ContainerTitle>
-                <Title>Cadastre-se</Title>
-            </ContainerTitle>
+            <Titulo>Cadastre-se</Titulo>
 
             <Form>
                 <FormDataContainer>

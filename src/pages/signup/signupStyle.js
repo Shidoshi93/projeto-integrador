@@ -3,7 +3,7 @@ import '../../fonts.css';
 import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
-    height: 75vh;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -44,12 +44,23 @@ export const FormDataContainer = styled.div`
     border-radius: 5px;
     margin: auto;   
     display:flex; 
-    flex-direction: row; 
     flex-wrap: wrap;
     padding: 0 .7% .5% .7%;
     margin: 0;
     box-sizing: border-box;
-   
+
+    @media(max-width: 920px) {
+        width: 80%;
+    }
+
+    @media (max-width: 500px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media(max-width: 420px) {
+        width: 90%;
+    }
 `
 export const Label = styled.label`
     width: 30%;
@@ -60,6 +71,10 @@ export const Label = styled.label`
     line-height: 1rem;
     text-align: left;
     margin-top:1%;
+
+    @media(max-width: 500px) {
+        text-align: center;
+    }
 `
 export const Input = styled.input`
     width: 70%;
@@ -78,6 +93,10 @@ export const Input = styled.input`
   `
 export const InputA = styled(Input)`
     width: 50%;
+
+    @media(max-width: 500px) {
+        width: 70%;
+    }
 `
 
 export const BtnCep = styled.button`
@@ -105,6 +124,11 @@ export const BtnCep = styled.button`
     &:hover{
         background-color: #e08361;
     }
+
+    @media(max-width: 500px) {
+        width: 30%;
+        margin: 0;
+    }
 `
 export const FormBtnContainer = styled.div`
     width: 45vw;
@@ -112,5 +136,14 @@ export const FormBtnContainer = styled.div`
     flex-direction: row; 
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 2%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @media(max-width: 920px) {
+        width: 80%;
+    }
+
+    @media(max-width: 420px) {
+        width: 90%;
+    }
 `
