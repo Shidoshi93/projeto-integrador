@@ -14,8 +14,18 @@ export const MotherBox = styled.div`
 
 export const ContainerHeader = styled.div`
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 50px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+
+        & h1 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    }
     
 `
 
@@ -28,6 +38,10 @@ export const CardItem = styled.div`
     display: flex;
     align-items: center;
     gap: 30px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
 `
 
 export const ImgItem = styled.img`
@@ -38,10 +52,18 @@ export const CardCtt = styled.div`
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    @media (max-width: 600px) {
+        align-items: center;
+    }
 `
 
 export const Description = styled.p`
     text-align: justify;
+
+    @media (max-width: 600px) {
+        text-align: center;
+    }
 `
 
 export const AddressImg = styled.img`
