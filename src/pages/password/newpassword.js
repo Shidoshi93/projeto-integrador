@@ -10,6 +10,8 @@ import {
     P
 } from './newpasswordStyle'
 
+import {Titulo} from '../../styles/titleStyle';
+
 import {
     BtnSend,
     
@@ -27,10 +29,9 @@ function Recadastro() {
 
     return (
         <MotherBox>
-            
-            <ContainerTitle>
-                <Title>Recuperar Senha</Title>
-            </ContainerTitle>
+
+            <Titulo>Recuperar Senha</Titulo>
+
                 <FormDataContainer>
                 <P>Insira seu e-mail e enviaremos um link <br></br> para você voltar a acessar sua conta.</P>
                     <Label>E-mail: </Label>

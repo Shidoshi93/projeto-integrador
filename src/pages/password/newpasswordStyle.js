@@ -32,8 +32,8 @@ export const Title = styled.h1`
 `
 export const FormDataContainer = styled.div`
     text-align: center;
-    padding: 3% 0;
-    width: 40vw;
+    padding: 20px;
+    width: 45vw;
     display:flex; 
     flex-direction: column;
     align-items: center; 
@@ -43,6 +43,10 @@ export const FormDataContainer = styled.div`
     box-shadow: 15px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     margin: 2% auto;
+
+    @media(max-width: 920px) {
+        width: 80%;
+    }
 `
 export const Label = styled.label`
     font-family: Lato;
@@ -58,7 +62,7 @@ export const Input = styled.input`
     background-color: #FFFFFF;
     border: 1px solid #F38D68;
     border-radius: 10px;
-    padding: 2%;
+    padding: 15px;
     box-sizing: border-box;
     font-family: Lato;
     font-style: normal;
@@ -66,6 +70,11 @@ export const Input = styled.input`
     font-size: 1rem;
     line-height: 1rem;
     margin-bottom: 4%;
+
+    @media (max-width: 420px) {
+        width: 80%;
+        margin-bottom: 15px;
+    }
    
   `
 export const P = styled.p`
