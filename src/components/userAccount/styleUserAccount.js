@@ -4,7 +4,7 @@ import px2vw from '../../hooks/px2vw';
 import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
-    height: 75vh;
+    min-height: 75vh;
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
 `
@@ -12,34 +12,49 @@ export const HeadContainer = styled.div`
     /* width: 100vw; */
     margin: 2% auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+    padding: 30px;
 `
 export const HeadUserContainer = styled.div`
-    display: flex;   
+    display: flex;
+    flex-wrap: wrap;   
     width: 30%;
+    min-width: 200px;
+
+    @media(max-width: 420px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 export const ImgContainer = styled.img`
     width: 8rem;
-    min-width: 100px;
-    float: left;
     border: 1px solid #F38D68;
     border-radius: 30px;
     background: #F4F3F3;
+    margin-right: 20px;
+
+    @media(max-width: 420px) {
+        margin: 0;
+    }
 `
 export const Title = styled.h3`
-    margin: 2% 0 1% 3%;
-    float: left;
+    margin: 2% 0 1% 0;
     font-family: Lato;
     font-style: normal;
     font-weight: 700;
-    font-size: clamp(12px, 2vw, 2.8rem);
-    line-height: 16px;
-    text-align: center;
+    font-size: 2rem;
     color: #F38D68; 
+
+    @media(max-width: 420px) {
+        text-align: center;
+        margin-bottom: 30px;
+    }
 `
 export const HeadBtnContainer = styled.div`
-    width: 10%;
+    width: 15%;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;      
@@ -75,15 +90,24 @@ export const MainContainer = styled.div`
     margin: auto;
 `
 export const CardContainer = styled.div`
-    width: 50vw;
-    height: 35vh;    
+    width: 50vw;    
     position: relative;
     margin: auto;
+    margin-bottom: 30px;
     border: 1px solid #F38D68;
     border-right-width: 15px;
     background-color: #F4F3F3;
     box-shadow: .7rem .7rem 0  rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    padding-bottom: 15px;
+
+    @media(max-width: 920px) {
+        width: 80vw;
+    }
+
+    @media(max-width: 420px) {
+        width: 90vw;
+    }
 `
 export const Form = styled.form`
     
@@ -91,21 +115,23 @@ export const Form = styled.form`
 `
 export const FormDataContainer = styled.div`
     width: ${px2vw(600)};
-    position: absolute;
-    display:flex; 
-    flex-direction: row; 
+    display:flex;  
     flex-wrap: wrap;
-    top: 0;
-    left: ${px2vw(200)};
+    margin-left: -13vw;
+
+    @media (max-width: 920px){
+        flex-direction: column;
+        margin-left: 15px;
+    }
+
 `
 export const Label = styled.label`
     width: ${px2vw(200)};
-    height: ${px2vw(18)};
     font-family: Lato;
     font-style: normal;
     font-weight: 300;
-    font-size: ${px2vw(18)};
-    line-height: ${px2vw(18)};
+    font-size: 1rem;
+    line-height: 18px;
     text-align: left;
     float:left;
     margin-top:${px2vw(15)};
@@ -113,15 +139,15 @@ export const Label = styled.label`
 `
 export const Input = styled.input`
     width: ${px2vw(300)};
-    height: ${px2vw(18)};
-    background-color: #F4F3F3;
+    min-width: 220px;
+    background-color: transparent;
     border: none;
     box-sizing: border-box;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
-    font-size: ${px2vw(16)};
-    line-height: ${px2vw(18)};
+    font-size: 1.1rem;
+    line-height: 18px;
     float: left;
     margin-top:${px2vw(15)};
      
@@ -131,6 +157,7 @@ export const FormBtnContainer = styled.div`
     margin: auto;
     margin-top: 2%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
  
 `
@@ -147,6 +174,7 @@ export const BtnForm = styled.button`
     text-align: center;
     color: #FFFFFF;
     cursor: pointer;
+    margin-bottom: 30px;
 
     &:active{
         outline: none;

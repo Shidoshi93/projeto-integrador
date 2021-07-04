@@ -69,7 +69,7 @@ function UserAccount() {
                     {showForm &&
                     <>
                     <MainContainer >
-                        <CardContainer />
+                        <CardContainer>
 
                         <Form>
                             <FormDataContainer>
@@ -89,6 +89,7 @@ function UserAccount() {
                                 <Input value={user.bairro} />
                             </FormDataContainer>
                         </Form>
+                        </CardContainer>
                     </MainContainer>
                         <FormBtnContainer>
                                 <BtnForm onClick={openModal}>ALTERAR CADASTRO</BtnForm>
