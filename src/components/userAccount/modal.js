@@ -72,8 +72,10 @@ export const Modal = ({ showModal, setShowModal }) => {
                             <Label>E-mail: </Label>
                             <Input placeholder="rachelacarvalho@gmail.com" />
                             <Label>CEP: </Label>
-                            <InputA onChange={e => handleChangeCep(e)} value={cep} placeholder="21555-500" type="text" />
-                            <BtnCep type="submit" onClick={e => handleCepSubmit(e)}>Pesquisar</BtnCep>
+                            <div>
+                                <InputA onChange={e => handleChangeCep(e)} value={cep} placeholder="21555-500" type="text" />
+                                <BtnCep type="submit" onClick={e => handleCepSubmit(e)}>Pesquisar</BtnCep>
+                            </div>
                             {showCep &&
                             (
                                 <>

@@ -18,17 +18,23 @@ export const ContainerHeader = styled.div`
             border-radius: 5px;
             color: white;
         }
+
+        @media (max-width: 560px) {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 460px) {
+            padding: 7px 15px;   
+        }
     }
 
     ul {
         display: flex;
-        flex-direction: column;
         justify-content: space-evenly;
         list-style: none;
         height: 100%;
         margin: 0;
         padding: 0;
-        list-style: none;
     }
 `
 
@@ -36,8 +42,16 @@ export const ContainerNav = styled.div`
     width: 85vw;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 880px) {
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        padding: 20px 0;
+    }
 `
 
 export const Header = styled.header`
@@ -45,7 +59,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10vh;
+    min-height: 10vh;
 
     .logo {
         padding: 5px 15px; 
@@ -70,6 +84,7 @@ export const Header = styled.header`
     .nav-ul {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         gap: 15px;
     }
@@ -82,6 +97,10 @@ export const Header = styled.header`
 
     .hide-nav {
         height: 100%;
+    }
+
+    @media (max-width: 560px) {
+        min-height: 20vh;
     }
 `
 

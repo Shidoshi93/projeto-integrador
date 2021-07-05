@@ -17,14 +17,31 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
+
+    @media (max-width: 920px) {
+        width: 80%;
+    }
 `
 export const FormDataContainer = styled.div`
     // width: 100%;
     display:flex; 
-    flex-direction: row; 
     flex-wrap: wrap;
     justify-content: center;
-    top: 0;    
+    top: 0; 
+    padding: 15px;
+
+    & > div {
+        width: 70%;
+        @media (max-width: 420px) {
+            width: 100%;
+        }
+    }
+    
+    @media (max-width: 420px) {
+        flex-direction: column;
+        width: 100%;
+    }
 `
 export const Label = styled.label`
     width: 20%;
@@ -50,9 +67,18 @@ export const Input = styled.input`
     font-size: 1rem;
     line-height: 1rem;
     margin-top: .5%;
+
+    @media (max-width: 420px) {
+        width: 100%;
+        margin-bottom: 10px;
+    }
   `
 export const InputA = styled(Input)`
     width: 50%;
+
+    @media (max-width: 420px) {
+        width: 60%;
+    }
 `
 export const BtnForm = styled.button`
     width: 11rem;
@@ -68,6 +94,7 @@ export const BtnForm = styled.button`
     color: #FFFFFF;
     cursor: pointer;
     margin: 1%;
+    margin-bottom: 15px;
 
     &:active{
         outline: none;
@@ -80,6 +107,7 @@ export const BtnForm = styled.button`
 `
 export const BtnCep = styled.button`
     width: 15%;
+    min-width: 90px;
     height: 2em;
     margin-left: 5%;
     border: none;
@@ -103,10 +131,19 @@ export const BtnCep = styled.button`
     &:hover{
         background-color: #e08361;
     }
+
+    @media (max-width: 420px) {
+        min-width: 80px;
+    }
 `
 export const CloseModalButton = styled(BtnCep)`
     right: 25%;
     position: absolute;
     width: 32px;
+    min-width: 30px;
     z-index: 10;
+
+    @media (max-width: 920px) {
+        right: 3%;
+    }
 `
