@@ -1,5 +1,5 @@
 import React from 'react';
-import Cards from "../components/cardFeed/cardFeed";
+import Cards from "../components/CardFeed/cardFeed";
 
 function Feed() {
             
