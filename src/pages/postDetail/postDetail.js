@@ -9,18 +9,27 @@ import higiene from '../../images/higiene.png'
 import vestuario from '../../images/vestuario.png'
 import local from '../../images/local.png'
 import {
+    ContentCenter,
     MotherBox,
     ContainerHeader,
+    ContainerImg,
+    ContainerItemLocation,
+    ContainerCtt,
+    ContainerUserLocation,
     Img,
     CardItem,
     ImgItem,
     CardCtt,
+    ImgCtt,
+    ContainerQty,
+    ContainerDescription,
     Description,
     AddressImg
 } from './style'
+import imgCtt from '../../images/contato.png'
 
 const donationPosts = [
-    {   
+    {
         id: 1,
         item: "Cesta Básica",
         key: "Rachel123",
@@ -46,7 +55,7 @@ const donationPosts = [
         state: "BA",
         city: "Salvador",
         userStatus: "Doador",
-        description: "Estou doando um kit higiene completo.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
         img: danielImg,
         ctt: {
             tel: 99999999999,
@@ -89,50 +98,73 @@ const donationPosts = [
     }
 ];
 
-function PostDetail(){
-    const {id} = useParams()
+function PostDetail() {
+    const { id } = useParams()
 
     const post = donationPosts.filter(post => {
         return post.id === Number(id)
     })
 
-    return(
-        <MotherBox>
-            <ContainerHeader>
-                <Img src={post[0].img} alt='foto do usuário'/>
-                <h1>{post[0].userName} {post[0].userStatus === 'Doador' ? 'quer ajudar' : 'precisa de ajuda'}</h1>
-            </ContainerHeader>
+    return (
+        <ContentCenter>
+            <MotherBox>
+                <ContainerHeader>
+                    <Img src={post[0].img} alt='foto do usuário' />
+                    <h1>{post[0].userName} {post[0].userStatus === 'Doador' ? 'quer ajudar com' : 'precisa de ajuda com'}</h1>
+                </ContainerHeader>
 
-            <CardItem>
-                {
-                    post[0].item === 'Vestuário' ? <ImgItem src={vestuario} alt='imagem de roupas'/> : 
-                    post[0].item === 'Cesta Básica' ? <ImgItem src={cestaBasica} alt='imagem de uma cesta básica'/> : 
-                    post[0].item === 'Kit higiene' ? <ImgItem src={higiene} alt='imagem de um kit de higiene'/> : ''
-                }
-                
-                <p>{post[0].qty} {post[0].item}</p>
-            </CardItem>
+                <CardItem>
+                    <ContainerImg>
+                        {
+                            post[0].item === 'Vestuário' ? <ImgItem src={vestuario} alt='imagem de roupas' /> :
+                                post[0].item === 'Cesta Básica' ? <ImgItem src={cestaBasica} alt='imagem de uma cesta básica' /> :
+                                    post[0].item === 'Kit higiene' ? <ImgItem src={higiene} alt='imagem de um kit de higiene' /> : ''
+                        }
+                    </ContainerImg>
+                    <p className='title'><strong>{post[0].item}</strong></p>
+                </CardItem>
 
-            <CardItem>
-                <Description>Descrição: {post[0].description}</Description>
-            </CardItem>
+                <CardItem>
+                    <ContainerQty>
+                        <Description><strong>Quantidade:</strong> {post[0].qty}</Description>
+                    </ContainerQty>
+                </CardItem>
 
-            <CardItem>
-                <AddressImg src={local} alt='ícone do local'/>
-                <h3>Localidade: </h3>
-                <p>{post[0].city} / {post[0].state}</p>
-            </CardItem>
+                <CardItem>
+                    <ContainerDescription>
+                        <Description><strong>Descrição:</strong> {post[0].description}</Description>
+                    </ContainerDescription>
+                </CardItem>
 
-            <CardCtt>
-                <div>
-                    <h3>Contatos:</h3>
-                </div>
-                <div>
-                    <p>{post[0].ctt.tel}</p>
-                    <p>{post[0].ctt.email}</p>
-                </div>
-            </CardCtt>
-        </MotherBox>
+                <CardItem>
+                    <ContainerItemLocation>
+                        <ContainerImg>
+                            <AddressImg src={local} alt='ícone do local' />
+                            <h3>Localidade: </h3>
+                        </ContainerImg>
+                        
+                        <ContainerUserLocation>
+                            <p>{post[0].city} / {post[0].state}</p>
+                        </ContainerUserLocation>
+                    </ContainerItemLocation>
+
+                </CardItem>
+
+                <CardCtt>
+                    <ContainerImg>
+                        <ImgCtt src={imgCtt}/>
+                        <h3>Contatos:</h3>
+                    </ContainerImg>
+                    <div>
+                        
+                    </div>
+                    <ContainerCtt>
+                        <p><strong>Tel:</strong> {post[0].ctt.tel}</p>
+                        <p><strong>e-mail:</strong> {post[0].ctt.email}</p>
+                    </ContainerCtt>
+                </CardCtt>
+            </MotherBox>
+        </ContentCenter>
     )
 }
 export default PostDetail;

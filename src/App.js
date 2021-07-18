@@ -1,4 +1,5 @@
 import React from 'react'
+import './fonts.css'
 
 import Router from './routes/router'
 import Footer from './components/footer/footer'
