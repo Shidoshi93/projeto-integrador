@@ -10,6 +10,10 @@ export const Global = createGlobalStyle`
     outline: none;
     font-family: 'Lato', sans-serif;
   }
+
+  p {
+    margin: 0!important;
+  }
   // :root {
   //     font-size: ${px2vw(24)};
 

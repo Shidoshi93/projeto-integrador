@@ -3,7 +3,11 @@ import styled from 'styled-components'
 export const MotherBox = styled.div`
     width: 80%;
     margin-inline: auto;
-    padding-top: 50px;
+    padding-top: 150px;
+
+    @media (max-width: 990px) {
+        min-height: 90vh;
+    }
 `
 
 export const ImagemItem = styled.img`
