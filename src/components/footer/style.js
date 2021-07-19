@@ -7,7 +7,7 @@ export const FooterContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    //gap: 20px;
 `
 
 export const ContainerIcons = styled.div`
