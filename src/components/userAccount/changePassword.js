@@ -18,7 +18,6 @@ export const ChangePassword = ({ showChangePassword, setShowChangePassword }) =>
     const onChangePassword = (event) => {
 
         setValuePassword(event.target.value)
-        console.log(valuePassword)
     };
 
     const changePasswordRef = useRef();
@@ -33,7 +32,6 @@ export const ChangePassword = ({ showChangePassword, setShowChangePassword }) =>
         e => {
             if (e.key === 'Escape' && showChangePassword) {
                 setShowChangePassword(false);
-                console.log('I pressed');
             }
         },
         [setShowChangePassword, showChangePassword]
