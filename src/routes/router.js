@@ -1,73 +1,83 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Nav from "../components/Nav/Nav";
 import Feed from '../pages/feed'
 import Login from '../pages/login/login'
 import Signup from '../pages/signup/signup'
 import CadastroDoacao from '../pages/donation/donation'
 import Profile from '../pages/profile'
-import GeralNav from "../components/Nav/geralNav";
 import PostDetail from "../pages/postDetail/postDetail";
 import Home from '../pages/home/home';
 import Recadastro from "../pages/password/newpassword"
 import {
     ContentContainer
 } from '../styles/global';
-
+import NavNoCredentials from "../components/Nav/Nav";
+import NavUserHasCredentials from "../components/Nav/NavUserHasCredentials"
 
 function Router() {
     return (
         <BrowserRouter>
             <Switch>
                 <Route exact path='/'>
-                    <Nav />
+                    <NavNoCredentials />
                     <ContentContainer>
-                    <Home />
+                        <Home />
                     </ContentContainer>
                 </Route>
                 <Route exact path='/feed'>
-                    <GeralNav />
+                    <NavUserHasCredentials 
+                        feed = {true}
+                    />
                     <ContentContainer>
-                    <Feed />
+                        <Feed />
                     </ContentContainer>
                 </Route>
 
                 <Route exact path='/detail/:id'>
-                    <GeralNav />
+                    <NavUserHasCredentials 
+                        detail = {true}
+                    />
                     <ContentContainer>
-                    <PostDetail />
+                        <PostDetail />
                     </ContentContainer>
                 </Route>
 
                 <Route exact path='/login'>
+                    <NavNoCredentials
+                        hasLogin={false}
+                    />
                     <Login />
                 </Route>
 
                 <Route exact path='/signup'>
-                    <Nav />
+                    <NavNoCredentials />
                     <ContentContainer>
-                    <Signup />
+                        <Signup />
                     </ContentContainer>
                 </Route>
 
                 <Route exact path='/donation'>
-                    <GeralNav />
+                    <NavUserHasCredentials 
+                        donation = {true}
+                    />
                     <ContentContainer>
-                    <CadastroDoacao />
+                        <CadastroDoacao />
                     </ContentContainer>
                 </Route>
 
                 <Route exact path='/profile'>
-                    <GeralNav />
+                    <NavUserHasCredentials 
+                        profile = {true}
+                    />
                     <ContentContainer>
-                    <Profile />
+                        <Profile />
                     </ContentContainer>
                 </Route>
 
                 <Route exact path='/newpassword'>
-                    <Nav />
+                    <NavUserHasCredentials />
                     <ContentContainer>
-                    <Recadastro />
+                        <Recadastro />
                     </ContentContainer>
                 </Route>
             </Switch>

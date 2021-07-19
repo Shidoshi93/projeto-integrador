@@ -12,7 +12,7 @@ import {
 } from './style'
 
 
-function NavNoCredentials(props) {
+function NavUserHasCredentials(props) {
 
     const history = useHistory()
 
@@ -23,12 +23,14 @@ function NavNoCredentials(props) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <BarItems id="basic-navbar-nav">
                     <ContainerNav className="me-auto">
-                        <Item href="/feed">Postagens</Item>
-                        {props.hasLogin === false ? <></> : <Item href="/login">Login</Item>}
+                        {props.feed === true ? <></> : <Item href="/feed">Postagens</Item>}
+                        {props.profile === true ? <></> : <Item href="/profile">Perfil</Item>}
+                        {props.donation === true ? <></> : <Item href="/donation">Cadastro de Doações</Item>}
+                        <Item href="/">Sair</Item>
                     </ContainerNav>
                 </BarItems>
             </Container>
         </ContainerNavBar>
     )
 }
-export default NavNoCredentials;
+export default NavUserHasCredentials;
