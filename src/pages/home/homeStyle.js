@@ -6,20 +6,8 @@ export const Header = styled.div`
     display: flex;
     flex-wrap: wrap;
 
-    display: flex;
-    flex-wrap: wrap;
-    background-image: url(${womanImg});
-    background-size: contain;
-    background-repeat: no-repeat;
-
     @media (max-width: 810px) {
         flex-direction: column;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    @media (max-width: 600px) {
-        background-size: contain;
     }
 `;
 
@@ -32,6 +20,10 @@ export const DivHeaderImg = styled.div`
         width: 100%;
         min-height: 30vh;
     }
+
+    background-image: url(${womanImg});
+    background-size: cover;
+    background-repeat: no-repeat;
 `;
 
 export const HeaderImg = styled.img`
