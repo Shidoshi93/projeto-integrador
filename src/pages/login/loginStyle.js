@@ -3,12 +3,17 @@ import '../../fonts.css';
 import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
-    min-height: 75vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
+
+    @media (max-width: 990px) {
+        padding-top: 150px;
+        min-height: 90vh;
+    }
 `
 
 export const Form = styled.form`
@@ -34,8 +39,9 @@ export const FormDataContainer = styled.div`
     padding: .7%;
     box-sizing: border-box;
 
-    @media(max-width: 920px) {
+    @media(max-width: 990px) {
         width: 80%;
+        margin: 0 auto;
     }
 
     @media (max-width: 500px) {
@@ -84,7 +90,7 @@ export const FormBtnContainer = styled.div`
     margin-top: 30px;
     margin-bottom: 40px;
 
-    @media(max-width: 920px) {
+    @media(max-width: 990px) {
         width: 80%;
     }
 
@@ -96,9 +102,11 @@ export const HeadContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    gap: 15px;
     
-    @media(max-width: 920px) {
+    @media(max-width: 990px) {
         width: 80%;
+        margin: 0 auto;
     }
 
     @media(max-width: 420px) {
