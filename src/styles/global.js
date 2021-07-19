@@ -8,6 +8,7 @@ export const Global = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: none;
+    font-family: 'Lato', sans-serif;
   }
   // :root {
   //     font-size: ${px2vw(24)};
@@ -22,5 +23,5 @@ export const Global = createGlobalStyle`
   //   }
 `
 export const ContentContainer = styled.div`
-    min-height: 75vh;
+    min-height: 80vh;
 `

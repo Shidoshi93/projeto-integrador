@@ -1,4 +1,5 @@
 import React from 'react'
+import './fonts.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Router from './routes/router'
