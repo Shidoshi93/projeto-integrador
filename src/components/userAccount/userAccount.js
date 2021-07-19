@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import '../../../src/fonts.css';
 import { goTo } from '../../routes/coordinator';
 import { Modal } from './modal';
+import { ChangePassword } from './changePassword';
 import {
     MotherBox,
     HeadContainer,
@@ -39,18 +40,26 @@ function UserAccount() {
             "img": "http://placekitten.com/200/200"
         }]
 
-        const [showForm, setShowForm] = useState(true);
+    const [showForm, setShowForm] = useState(true);
 
-        const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
-        const openModal = () => {
-          setShowModal(prev => !prev);
-        };
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
 
-        useEffect(()=> {
-            if (showModal ? setShowForm(false) : setShowForm(true));;
-          }, [showModal]);
-       
+    const [showChangePassword, setShowChangePassword] = useState(false);
+
+    const openChangePassword = () => {
+        setShowChangePassword(prev => !prev);
+    };
+
+
+    useEffect(() => {
+        if (showModal || showChangePassword ? setShowForm(false) : setShowForm(true));;
+    }, [showModal, showChangePassword]);
+   
+
     return (
         <div>
             {userData.map((user) => (
@@ -66,37 +75,38 @@ function UserAccount() {
                         </HeadBtnContainer>
                     </HeadContainer>
                     <Modal showModal={showModal} setShowModal={setShowModal} />
+                    <ChangePassword showChangePassword={showChangePassword} setShowChangePassword={setShowChangePassword} />
                     {showForm &&
-                    <>
-                    <MainContainer >
-                        <CardContainer>
+                        <>
+                            <MainContainer >
+                                <CardContainer>
 
-                        <Form>
-                            <FormDataContainer>
-                                <Label>Nome completo: </Label>
-                                <Input value={user.userFullName} />
-                                <Label>CPF: </Label>
-                                <Input value={user.cpf} />
-                                <Label>E-mail: </Label>
-                                <Input value={user.email} />
-                                <Label>CEP: </Label>
-                                <Input value={user.cep} />
-                                <Label>Cidade: </Label>
-                                <Input value={user.localidade} />
-                                <Label>Estado: </Label>
-                                <Input value={user.uf} />
-                                <Label>Bairro: </Label>
-                                <Input value={user.bairro} />
-                            </FormDataContainer>
-                        </Form>
-                        </CardContainer>
-                    </MainContainer>
-                        <FormBtnContainer>
+                                    <Form>
+                                        <FormDataContainer>
+                                            <Label>Nome completo: </Label>
+                                            <Input value={user.userFullName} />
+                                            <Label>CPF: </Label>
+                                            <Input value={user.cpf} />
+                                            <Label>E-mail: </Label>
+                                            <Input value={user.email} />
+                                            <Label>CEP: </Label>
+                                            <Input value={user.cep} />
+                                            <Label>Cidade: </Label>
+                                            <Input value={user.localidade} />
+                                            <Label>Estado: </Label>
+                                            <Input value={user.uf} />
+                                            <Label>Bairro: </Label>
+                                            <Input value={user.bairro} />
+                                        </FormDataContainer>
+                                    </Form>
+                                </CardContainer>
+                            </MainContainer>
+                            <FormBtnContainer>
                                 <BtnForm onClick={openModal}>ALTERAR CADASTRO</BtnForm>
-                                <BtnForm onClick={() => goTo(history, '/newpassword')}>ALTERAR SENHA</BtnForm>
-                                
-                        </FormBtnContainer>
-                    </>
+                                <BtnForm onClick={openChangePassword}>ALTERAR SENHA</BtnForm>
+
+                            </FormBtnContainer>
+                        </>
                     }
                 </MotherBox>
             )
