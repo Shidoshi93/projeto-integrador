@@ -1,12 +1,25 @@
 import styled from 'styled-components';
 import '../../fonts.css';
+import womanImg from '../../images/woman.png'
 
 export const Header = styled.div`
     display: flex;
     flex-wrap: wrap;
 
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(${womanImg});
+    background-size: contain;
+    background-repeat: no-repeat;
+
     @media (max-width: 810px) {
         flex-direction: column;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    @media (max-width: 600px) {
+        background-size: contain;
     }
 `;
 
@@ -15,9 +28,9 @@ export const DivHeaderImg = styled.div`
     min-height: 100vh;
     box-sizing: border-box;
 
-    @media (max-width: 810px) {
+    @media (max-width: 860px) {
         width: 100%;
-        min-height: 40vh;
+        min-height: 30vh;
     }
 `;
 
@@ -39,6 +52,11 @@ export const DivHeaderTitulo = styled.div`
     @media (max-width: 810px) {
         width: 100%;
         min-height: 40vh;
+        background-color: #ffedcbe8;
+    }
+
+    @media (max-width: 600px) {
+        background-color: #FFEDCB;
     }
 `;
 
