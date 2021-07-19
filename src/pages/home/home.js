@@ -39,7 +39,7 @@ return(
     <div>
         <Header>
             <DivHeaderImg>    
-                <HeaderImg src={womanImg} alt="Mulher olhando para o lado"/>
+                {/* <HeaderImg src={womanImg} alt="Mulher olhando para o lado"/> */}
             </DivHeaderImg>
 
             <DivHeaderTitulo>
