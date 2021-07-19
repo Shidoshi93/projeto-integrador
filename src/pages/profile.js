@@ -1,5 +1,5 @@
 import React from "react";
-import UserAccount from "../components/userAccount/userAccount";
+import UserAccount from "../components/UserAccount/userAccount";
 
 function Perfil() {
 

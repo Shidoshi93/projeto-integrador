@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import '../fonts.css';
 
 export const BtnSend = styled.button`
-    width: 30%;
+    width: 180px;
     min-width: 120px;
     height: 3em;
     border: none;

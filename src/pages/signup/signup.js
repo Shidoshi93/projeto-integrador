@@ -3,10 +3,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import {
     MotherBox,
-    ContainerTitle,
     Form,
     FormDataContainer,
-    Title,
     Label,
     Input,
     InputA,

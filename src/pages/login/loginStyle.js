@@ -1,78 +1,132 @@
 import styled from 'styled-components';
 import '../../fonts.css'; 
+import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
-    position: absolute;
-    right: 15px;
-    top: 70px;
-    width: 237px;
-    height: fit-content;
-    background-color: #f38d68ab; 
-    border-radius: 10px;
-    z-index: 700000;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 10px;
-
-    @media (max-width: 560px) {
-        top: 21vh;
-    }
+    flex-wrap: nowrap;
+    background-image: url(${backgroundImg});
+    background-size: 130% 100%;
 `
 
 export const Form = styled.form`
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: flex; 
+    flex-direction: column; 
     align-items: center;
-    justify-content: space-evenly;
-    gap: 5px;
-    a {
-
-    }
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 0px;
 ` 
-
-export const Input = styled.input`
-    width: 184px;
-    height: 25px;
-    top: 40px;
-    right: 2px;
-    background: #FFFFFF;
+export const FormDataContainer = styled.div`
+    width: 25vw;
+    border: 1px solid #F38D68;
+    border-top-width: 15px;
+    background-color: #F4F3F3;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    border-style: none;
-    padding: 5px;
-`
+    margin: auto;   
+    display:flex; 
+    flex-wrap: wrap;
+    padding: .7%;
+    box-sizing: border-box;
 
-export const Button = styled.button`
-    width: 140px;
-    height: 30px;
-    top: 110px;
-    right: 50px;
-    border-style: none;
-    background: #FFF3DB;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: 0.5s;
+    @media(max-width: 920px) {
+        width: 80%;
+    }
 
-    &:hover {
-        background-color: #f9ad91a8;
+    @media (max-width: 500px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media(max-width: 420px) {
+        width: 90%;
     }
 `
-
-export const Title = styled.h3`
-    color: white;
-    width: 140px;
-    height: 30px;
-    top: 15px;
-    right: 50px;
-    font-family: Roboto Slab;
+export const Input = styled.input`
+    width: 70%;
+    height: 2em;
+    background-color: #FFFFFF;
+    border: 1px solid #F38D68;
+    border-radius: 10px;
+    padding: 2%;
+    box-sizing: border-box;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin-top: 2%;
 `
+export const Label = styled.label`
+    width: 30%;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: left;
+    margin-top: 2%;
 
-export const Ancora = styled.a`
-    color: black;
-    top:145px;
-    font-size:15px;
-    font-family: Roboto Slab;
+    @media(max-width: 500px) {
+        text-align: center;
+    }
+`
+export const FormBtnContainer = styled.div`
+    display:flex; 
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+    @media(max-width: 920px) {
+        width: 80%;
+    }
+
+    @media(max-width: 420px) {
+        width: 90%;
+    }
+`
+export const HeadContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+    @media(max-width: 920px) {
+        width: 80%;
+    }
+
+    @media(max-width: 420px) {
+        width: 90%;
+    }
+`
+export const BtnHead = styled.button`
+    width: 160px;
+    min-width: 80px;
+    height: 2.2em;
+    background-color: #F38D68;
+    border: none;
+    border-radius: .7rem;
+    box-shadow: .3rem .3rem 0 rgba(243, 141, 104, 0.5);
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #FFFFFF;
     cursor: pointer;
-    padding: 5px;
+
+    &:active{
+        outline: none;
+        border: 1px solid lightgrey;
+    }
+
+    &:hover{
+        background-color: #e66e42;
+    }
 `

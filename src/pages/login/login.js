@@ -1,17 +1,25 @@
 // Página de login
 import { useState } from 'react'
 import React from 'react';
-
-import {
-    MotherBox,
-    Input,
-    Button,
-    Title,
-    Ancora,
-    Form
-} from './loginStyle'
 import { goTo } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
+import {
+    MotherBox,
+    HeadContainer,
+    HeadBtnContainer,
+    BtnHead,
+    Form,
+    FormDataContainer,
+    Label,
+    Input,
+    FormBtnContainer
+} from './loginStyle';
+import {Titulo} from '../../styles/titleStyle'
+
+import {
+    BtnSend
+} from '../../styles/buttonStyle'
+
 
 function Login(props) {
     const [valuemail, setvaluemail] = useState('')
@@ -31,30 +39,41 @@ function Login(props) {
     }
     return (
         <MotherBox>
-            <Title>LOGIN</Title>
+            <Titulo>LOGIN</Titulo>
+          
             <Form action='#'>
+            <FormDataContainer>
+                <Label>Email: </Label>
                 <Input
                     type="email"
                     onChange={onchangeemail}
                     value={valuemail}
-                    placeholder="Email"
+                    placeholder="Digite o email cadastrado"
                     required="required"
-                >
-                </Input>
+                />
+               
+                <Label>Senha: </Label>
                 <Input
                     type='password'
                     onChange={onchangesenha}
-                    value={valuesenha} placeholder="Senha"
+                    value={valuesenha} placeholder="Digite sua senha"
                     required="required"
-                >
-                </Input>
-                <Button type='submit' onClick={() => goTo(history, '/feed')}>
+                />
+               </FormDataContainer>
+
+                <FormBtnContainer>
+                <BtnSend type='submit' onClick={() => goTo(history, '/feed')}>
                     Entrar
-                </Button>
-                <Ancora onClick={() => goTo(history, '/newpassword', props.toggleMiniMenu)}>Esqueceu?</Ancora>
-                <p>Não tem uma conta?</p>
-                <Ancora onClick={() => goTo(history, '/signup', props.toggleMiniMenu)}>Cadastre-se</Ancora>
+                </BtnSend>
+                
+                </FormBtnContainer>
             </Form>
+            <HeadContainer>
+                
+                <BtnHead onClick={() => goTo(history, '/newpassword')}>Esqueceu a senha?</BtnHead>
+                <BtnHead onClick={() => goTo(history, '/signup')}>Cadastre-se</BtnHead>
+            
+            </HeadContainer>
         </MotherBox>
     )
 
