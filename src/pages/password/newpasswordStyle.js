@@ -4,7 +4,7 @@ import backgroundImg from '../../images/fundo.png';
 
 export const MotherBox = styled.div`
     height: 75vh;
-    diplay: flex;
+    display: flex;
     justify-content: center;
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
@@ -15,7 +15,7 @@ export const ContainerTitle = styled.div`
     position: relative;
     margin: 5% auto 1% auto;
     background: #F4F3F3;
-    diplay: flex;
+    display: flex;
     justify-content: center;
 `
 export const Title = styled.h1`
@@ -79,7 +79,7 @@ export const Input = styled.input`
   `
 export const P = styled.p`
     text-align: center;
-    margin-bottom: 3%;
+   margin-bottom: 3%;
     font-size: 1.5rem;
     
 `
