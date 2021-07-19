@@ -1,132 +1,40 @@
 import styled from 'styled-components'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 
-export const ContainerHeader = styled.div`
-    .btn-nav {
-        border: none;
-        background-color: transparent;
-        padding: 12px 15px;
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
-        transition: 0.7s;
-        width: auto;
-        font-size: 1.2em;
-        font-weight: 700;
-
-        &:hover {
-            background-color: #f38d6885;
-            border-radius: 5px;
-            color: white;
-        }
-
-        @media (max-width: 560px) {
-            font-size: 1.1em;
-        }
-
-        @media (max-width: 460px) {
-            padding: 7px 15px;   
-        }
-    }
-
-    ul {
-        display: flex;
-        justify-content: space-evenly;
-        list-style: none;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-`
-
-export const ContainerNav = styled.div`
-    width: 85vw;
-    height: 100%;
+export const BarItems = styled(Navbar.Collapse)`
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    flex-grow: 0!important;
+`
 
-    @media (max-width: 880px) {
-        flex-direction: column;
-        justify-content: space-evenly;
-        flex-wrap: nowrap;
-        padding: 20px 0;
+export const ContainerNav = styled(Nav)`
+    gap: 5px!important;
+`
+
+export const ContainerNavBar = styled(Navbar)`
+    background-color: #f38d68!important;
+    min-height: 10vh!important;
+
+    @media (max-width: 990px) {
+        position: fixed;
+        width: 100%;
+        z-index: 999;
     }
 `
 
-export const Header = styled.header`
-    background-color: #FFF3DB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 10vh;
-
-    .logo {
-        padding: 5px 15px; 
-        background: none;
-        border: none;
-        transition: 1s;
-
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-        }
-
-        &:active {
-            outline: none;
-        }
-    }
-
-    .img-logo {
-        height: 50px;
-    }
-
-    .nav-ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 15px;
-    }
-
-    span {
-        background-color: #FFF3DB;
-        height: 150px;
-        border-radius: 5px;
-    }
-
-    .hide-nav {
-        height: 100%;
-    }
-
-    @media (max-width: 560px) {
-        min-height: 20vh;
-    }
+export const ImgLogo = styled.img`
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
 `
 
-export const HideSpan = styled.span`
-    position: absolute;
-    right: 0;
-    top: 70px;
-    width: 100vw;
+export const Item = styled(Nav.Link)`
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #2e3031!important;
+    transition: 1s;
 
-    nav {
-        width: 87.5vw;
-        margin: 0 auto;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    div {
-        background-color: #fff3db9e;
-        width: 100px;
-        height: 100%;
-        border-radius: 10px;
-        padding: 10px;
-        box-sizing: border-box;
-    }
-
-    li {
-        margin: 5px 0;
+    &:hover{
+        color: #fff3db!important;
     }
 `

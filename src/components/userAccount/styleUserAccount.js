@@ -9,13 +9,12 @@ export const MotherBox = styled.div`
     background-size: 130% 100%;
 `
 export const HeadContainer = styled.div`
-    /* width: 100vw; */
-    margin: 2% auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     padding: 30px;
+    padding-top: 110px;
 `
 export const HeadUserContainer = styled.div`
     display: flex;

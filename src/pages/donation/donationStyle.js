@@ -9,6 +9,11 @@ flex-direction: column;
 align-items: center;
 background-image: url(${backgroundImg});
 background-size: 130% 100%;
+padding-top: 110px;
+
+@media (max-width: 990px) {
+    min-height: 85vh;
+}
 `
 export const Titulo = styled.div`
 background-color: #F2F2F2;
@@ -23,6 +28,7 @@ font-family: 'Lato';
 box-sizing: border-box;
 font-weight: 700;
 text-align: center;
+border-radius: 10px;;
 
 @media (max-width: 920px) {
     width: 70%;
