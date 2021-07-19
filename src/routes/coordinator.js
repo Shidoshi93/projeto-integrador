@@ -1,9 +1,9 @@
-export const goTo = (history, path, toggleMiniMenu) => {
+export const goTo = (history, path) => {
     history.push(path)
-    if(toggleMiniMenu) toggleMiniMenu(false)
+    //if(toggleMiniMenu) toggleMiniMenu(false)
 }
 
-export const goToBack = (history, toggleMiniMenu) => {
+export const goToBack = (history) => {
     history.goBack()
-    if(toggleMiniMenu) toggleMiniMenu(false)
+    //if(toggleMiniMenu) toggleMiniMenu(false)
 }
