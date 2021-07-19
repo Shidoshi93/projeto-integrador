@@ -50,7 +50,9 @@ function Router() {
                 </Route>
 
                 <Route exact path='/signup'>
-                    <NavNoCredentials />
+                    <NavNoCredentials 
+                        hasLogin={false}
+                    />
                     <ContentContainer>
                         <Signup />
                     </ContentContainer>

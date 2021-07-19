@@ -2,6 +2,14 @@ import styled from 'styled-components'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 
+export const Logo = styled(Navbar.Brand)`
+    transition: 0.7s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+`
+
 export const BarItems = styled(Navbar.Collapse)`
     display: flex;
     flex-grow: 0!important;

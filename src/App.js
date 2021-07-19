@@ -6,7 +6,6 @@ import Router from './routes/router'
 import Footer from './components/Footer/footer'
 import {Global} from './styles/global'
 
-
 function App() {
   return (
     <div className="App">

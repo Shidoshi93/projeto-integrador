@@ -2,13 +2,14 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import { goTo } from '../../routes/coordinator'
 import { useHistory } from 'react-router'
-import Logo from '../../images/logoAlcance.png'
+import imgLogo from '../../images/logoAlcance.png'
 import {
     BarItems,
     ContainerNav,
     ContainerNavBar,
     ImgLogo,
-    Item
+    Item,
+    Logo
 } from './style'
 
 
@@ -19,7 +20,7 @@ function NavUserHasCredentials(props) {
     return (
         <ContainerNavBar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand onClick={() => goTo(history, "/")}><ImgLogo src={Logo}/></Navbar.Brand>
+                <Logo onClick={() => goTo(history, "/")}><ImgLogo src={imgLogo}/></Logo>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <BarItems id="basic-navbar-nav">
                     <ContainerNav className="me-auto">
