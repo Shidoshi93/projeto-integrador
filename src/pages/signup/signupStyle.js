@@ -10,22 +10,6 @@ export const MotherBox = styled.div`
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
 `
-export const ContainerTitle = styled.div`
-    width: 25%;
-    margin: .5% auto .5% auto;
-    background: #F4F3F3;
-`
-export const Title = styled.h1`
-    font-family: Lato;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.2rem;
-    line-height: 3rem;
-    text-align: center;
-    padding: 2%;
-    color: #F38D68;
-`
- 
 export const Form = styled.form`
     width: 100%;
     display: flex; 

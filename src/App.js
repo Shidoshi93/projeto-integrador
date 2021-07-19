@@ -3,7 +3,7 @@ import './fonts.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Router from './routes/router'
-import Footer from './components/footer/Footer'
+import Footer from './components/Footer/footer'
 import {Global} from './styles/global'
 
 function App() {
