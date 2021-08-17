@@ -16,7 +16,7 @@ export const MotherBox = styled.div`
     }
 `
 
-export const Form = styled.form`
+export const Form = styled.div`
     width: 100%;
     display: flex; 
     flex-direction: column; 
