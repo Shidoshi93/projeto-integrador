@@ -1,8 +1,8 @@
 // Página de login
-import { useState } from 'react'
-import React from 'react';
-import { goTo } from '../../routes/coordinator';
-import { useHistory } from 'react-router';
+import React from 'react'
+import { useState, useEffect } from 'react'
+import { goTo } from '../../routes/coordinator'
+import { useHistory } from 'react-router'
 import {
     MotherBox,
     HeadContainer,
@@ -14,11 +14,12 @@ import {
     Input,
     FormBtnContainer
 } from './loginStyle';
-import {Titulo} from '../../styles/titleStyle'
+import { Titulo } from '../../styles/titleStyle'
 
 import {
     BtnSend
 } from '../../styles/buttonStyle'
+import axios from 'axios'
 
 
 function Login(props) {
@@ -26,53 +27,81 @@ function Login(props) {
     const [valuesenha, setvaluesenha] = useState('')
     const history = useHistory()
 
-    const onchangeemail = (event) => {
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+    
+        if (token) {
+          goTo(history, '/feed');
+        }
+      }, [history]);
 
+    const onchangeemail = (event) => {
         setvaluemail(event.target.value)
-        console.log(valuemail)
     }
 
     const onchangesenha = (event) => {
-
         setvaluesenha(event.target.value)
-        console.log(valuesenha)
     }
+
+    const login = async (event) => {
+        event.preventDefault()
+
+        const body = {
+            email: valuemail,
+            password: valuesenha
+        };
+
+        await axios
+            .post(
+                "http://34.95.175.201:8080/login",
+                body
+            )
+            .then((res) => {
+                localStorage.setItem("token", res.headers.token);
+                goTo(history, '/feed')
+            })
+            .catch((err) => {
+                console.log(err);
+                alert('Senha ou e-mail incorretos, tente novamente.')
+            });
+    };
+
     return (
         <MotherBox>
             <Titulo>LOGIN</Titulo>
-          
-            <Form action='#'>
-            <FormDataContainer>
-                <Label>Email: </Label>
-                <Input
-                    type="email"
-                    onChange={onchangeemail}
-                    value={valuemail}
-                    placeholder="Digite o email cadastrado"
-                    required="required"
-                />
-               
-                <Label>Senha: </Label>
-                <Input
-                    type='password'
-                    onChange={onchangesenha}
-                    value={valuesenha} placeholder="Digite sua senha"
-                    required="required"
-                />
-               </FormDataContainer>
+
+            <Form>
+                <FormDataContainer>
+                    <Label>Email: </Label>
+                    <Input
+                        type="email"
+                        onChange={onchangeemail}
+                        value={valuemail}
+                        placeholder="Digite o email cadastrado"
+                        required="required"
+                    />
+
+                    <Label>Senha: </Label>
+                    <Input
+                        type='password'
+                        onChange={onchangesenha}
+                        value={valuesenha} placeholder="Digite sua senha"
+                        required="required"
+                    />
+                </FormDataContainer>
 
                 <FormBtnContainer>
-                <BtnSend type='submit' onClick={() => goTo(history, '/feed')}>
-                    Entrar
-                </BtnSend>
-                
+                    <BtnSend type="submit" onClick={login}>
+                        Entrar
+                    </BtnSend>
+
                 </FormBtnContainer>
             </Form>
             <HeadContainer>
-                
+
                 <BtnHead onClick={() => goTo(history, '/newpassword')}>Esqueceu a senha?</BtnHead>
                 <BtnHead onClick={() => goTo(history, '/signup')}>Cadastre-se</BtnHead>
-            
+
             </HeadContainer>
         </MotherBox>
     )
