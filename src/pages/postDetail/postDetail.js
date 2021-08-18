@@ -27,6 +27,7 @@ import {
     AddressImg
 } from './style'
 import imgCtt from '../../images/contato.png'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const donationPosts = [
     {
@@ -100,6 +101,7 @@ const donationPosts = [
 
 function PostDetail() {
     const { id } = useParams()
+    useProtectedPage()
 
     const post = donationPosts.filter(post => {
         return post.id === Number(id)
