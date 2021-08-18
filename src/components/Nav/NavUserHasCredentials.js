@@ -17,6 +17,11 @@ function NavUserHasCredentials(props) {
 
     const history = useHistory()
 
+    const logout = () => {
+        localStorage.removeItem('token')
+        goTo(history, "/")
+    }
+
     return (
         <ContainerNavBar bg="light" expand="lg">
             <Container>
@@ -27,7 +32,7 @@ function NavUserHasCredentials(props) {
                         {props.feed === true ? <></> : <Item href="/feed">Postagens</Item>}
                         {props.profile === true ? <></> : <Item href="/profile">Perfil</Item>}
                         {props.donation === true ? <></> : <Item href="/donation">Cadastro de Doações</Item>}
-                        <Item href="/">Sair</Item>
+                        <Item onClick={logout}>Sair</Item>
                     </ContainerNav>
                 </BarItems>
             </Container>

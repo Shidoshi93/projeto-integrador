@@ -44,6 +44,7 @@ export const SearchContainer = styled.div`
         border-radius: 5px;
         font-weight: 400;
         border: 1px solid #F38D68;
+        cursor: pointer;
     }
 `
 
@@ -107,6 +108,7 @@ export const DonationType = styled.div`
         font-weight: 500;
     }
 `
+
 
 export const Btn = styled.button`
     height: 35px;
