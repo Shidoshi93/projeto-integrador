@@ -13,20 +13,26 @@ import {
 
 } from './signupStyle';
 
-import {Titulo} from '../../styles/titleStyle'
+import { Titulo } from '../../styles/titleStyle'
 
 import {
     BtnSend,
     BtnClear
 } from '../../styles/buttonStyle'
+import { goTo } from '../../routes/coordinator';
+import { useHistory } from 'react-router';
+import AddressModal from './adressModal';
+import { render } from '@testing-library/react';
 
 
 function Cadastro() {
     const [valueemail, setvalueemail] = useState('')
     const [valuesenha, setvaluesenha] = useState('')
     const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
-    const [valuecep, setvaluecep] = useState('');
-    const [cepData, setCepData] = useState({});
+    const [valuecep, setvaluecep] = useState('')
+    const [cepData, setCepData] = useState({})
+    const [modal, setModal] = useState(true)
+    const history = useHistory()
 
     const handleChangeCep = (event) => {
         setvaluecep(event.target.value)
@@ -58,54 +64,80 @@ function Cadastro() {
         console.log(valuesenhaconfirma)
     }
 
+    const signupContinue = () => {
+        setModal(false)
+    }
 
     return (
         <MotherBox>
 
             <Titulo>Cadastre-se</Titulo>
 
-            <Form>
+            {modal ? <Form>
                 <FormDataContainer>
-                    <Label>Nome: </Label>
-                    <Input required type='Text'></Input>
+                    <Label
+                        htmlFor='nome'
+                    >Nome: </Label>
+                    <Input
+                        required
+                        type='Text'
+                        name='nome'
+                        id='nome'
+                    ></Input>
 
-                    <Label>Sobrenome: </Label>
-                    <Input required type='Text'></Input>
+                    <Label
+                        htmlFor='sobrenome'
+                    >Sobrenome: </Label>
+                    <Input
+                        required
+                        type='Text'
+                        name='sobrenome'
+                        id='sobrenome'
+                    ></Input>
 
+                    <Label
+                        htmlFor='foto'
+                    >Foto: </Label>
+                    <Input
+                        required
+                        type='file'
+                        accept="image/png, image/jpeg"
+                        placeholder='Insira sua foto'
+                        name='foto'
+                        id='foto'
+                        type="file"
+                    ></Input>
 
+                    <Label
+                        htmlFor='cpf'
+                    >CPF: </Label>
+                    <Input
+                        required
+                        type='text'
+                        pattern="[0-9]{11}"
+                        placeholder='Digite seu CPF (somente números)'
+                        name='cpf'
+                        id='cpf'
+                    ></Input>
 
-                    <Label>CPF: </Label>
-                    <Input required type='text' pattern="[0-9]{11}" placeholder='Digite seu CPF (somente números)'></Input>
+                    <Label htmlFor='email'>E-mail: </Label>
+                    <Input required type='email' onChange={onchangeemail} value={valueemail} name='email' id='email'></Input>
 
-                    <Label>CEP: </Label>
-                    <InputA required onChange={e => handleChangeCep(e)} value={valuecep} type='text'></InputA>
-                    <BtnCep onClick={e => handleCepSubmit(e)} type='submit' >Buscar</BtnCep>
+                    <Label htmlFor='senha'>Senha: </Label>
+                    <Input onChange={onchangesenha} type='password' value={valuesenha} name='senha' id='senha'></Input>
 
-
-
-                    <Label>Bairro: </Label>
-                    <Input required value={cepData.bairro} />
-
-                    <Label>Cidade: </Label>
-                    <Input required value={cepData.localidade} />
-
-                    <Label>Estado: </Label>
-                    <Input required value={cepData.uf} />
-
-                    <Label>E-mail: </Label>
-                    <Input required type='email' onChange={onchangeemail} value={valueemail}></Input>
-
-                    <Label>Senha: </Label>
-                    <Input onChange={onchangesenha} type='password' value={valuesenha}></Input>
-
-                    <Label>Confirme sua senha: </Label>
-                    <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma}></Input>
+                    <Label htmlFor='confSenha'>Confirme sua senha: </Label>
+                    <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma} name='confSenha' id='confSenha'></Input>
                 </FormDataContainer>
                 <FormBtnContainer>
-                    <BtnClear type='submit'>LIMPAR </BtnClear>
-                    <BtnSend type='submit'>CADASTRAR </BtnSend>
+                    <BtnClear type='submit'>LIMPAR</BtnClear>
+                    <BtnSend type='submit' onClick={signupContinue}>CONTINUAR</BtnSend>
                 </FormBtnContainer>
-            </Form>
+            </Form> :
+                <AddressModal />
+            }
+
+            <img id='userPhoto' style={{ width: '50px' }} />
         </MotherBox>
     )
 
