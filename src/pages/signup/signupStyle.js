@@ -66,7 +66,7 @@ export const Input = styled.input`
     background-color: #FFFFFF;
     border: 1px solid #F38D68;
     border-radius: 10px;
-    padding: 2%;
+    padding: 0.5%;
     box-sizing: border-box;
     font-family: Lato;
     font-style: normal;
@@ -129,5 +129,32 @@ export const FormBtnContainer = styled.div`
 
     @media(max-width: 420px) {
         width: 90%;
+    }
+`
+
+export const AddressContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 40%;
+    margin-inline: auto;
+
+    .addressInput {
+        padding: 0.5%;
+    }
+`
+export const ContainerCep = styled.div`
+    margin-inline: auto;
+    width: 40%;
+    display: flex;
+    gap: 2%;
+    justify-content: center;
+
+    .labelCep {
+        margin-right: 2%;
+    }
+
+    .boxCep {
+        width: inherit;
     }
 `
