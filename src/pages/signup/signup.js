@@ -64,6 +64,23 @@ function Cadastro() {
         console.log(valuesenhaconfirma)
     }
 
+    //captura e converte a imagem para base64
+    const onchangeFoto = (event) => {
+        const file = event.target.files
+
+        let reader = new FileReader()
+        reader.readAsDataURL(file[0])
+
+        reader.onload = (event) => {
+            let item = event.target.result
+            console.log('foto', event.target.result)
+
+            //criando o link da imagem com base no base64 da imagem
+            let userPhoto = document.getElementById('userPhoto')
+            userPhoto.setAttribute('src', item)
+        }
+    }
+
     const signupContinue = () => {
         setModal(false)
     }
@@ -106,6 +123,7 @@ function Cadastro() {
                         name='foto'
                         id='foto'
                         type="file"
+                        onChange={(event) => onchangeFoto(event)}
                     ></Input>
 
                     <Label
@@ -137,6 +155,7 @@ function Cadastro() {
                 <AddressModal />
             }
 
+            {/*Teste da imagem*/}
             <img id='userPhoto' style={{ width: '50px' }} />
         </MotherBox>
     )
