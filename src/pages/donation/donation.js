@@ -32,11 +32,11 @@ function CadastroDoacao() {
    const storageEmail = localStorage.getItem('email')
    useEffect(() => {
       setEmail(storageEmail)
-      if(email) {
+      if (email) {
          getUserByEmail()
       }
 
-      if(userId) {
+      if (userId) {
          getAddressByUserId()
       }
    })
@@ -81,7 +81,11 @@ function CadastroDoacao() {
    }
 
    const getUserByEmail = () => {
-      axios.get(`http://localhost:8080/user/?email=${email}`)
+      axios.get(`http://localhost:8080/user/?email=${email}`, {
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      })
          .then((res) => {
             setUserId(res.data.id)
          })
@@ -91,7 +95,11 @@ function CadastroDoacao() {
    }
 
    const getAddressByUserId = () => {
-      axios.get(`http://localhost:8080/address/userId/${userId}`)
+      axios.get(`http://localhost:8080/address/userId/${userId}`, {
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      })
          .then((res) => {
             setAddressId(res.data.id)
          })
