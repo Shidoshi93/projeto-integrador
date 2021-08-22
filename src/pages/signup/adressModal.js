@@ -9,6 +9,9 @@ import {
 const AddressModal = () => {
     const [valuecep, setvaluecep] = useState('')
     const [cepData, setCepData] = useState({})
+    const [user, setUser] = useState({})
+
+    const token = localStorage.getItem('token')
 
     const handleChangeCep = (event) => {
         setvaluecep(event.target.value)
@@ -28,6 +31,26 @@ const AddressModal = () => {
 
     const signup = () => {
         alert("Cadastro concluído com sucesso")
+
+        // pegar user
+        axios.get("", {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((res) => {
+            setUser(res.data)
+        })
+        .catch(() => {
+
+        })
+
+        const address = {
+            user_id: user.id
+        }
+
+        // address
+        axios.post("", address)
     }
 
     return (

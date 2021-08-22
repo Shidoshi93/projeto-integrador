@@ -20,7 +20,11 @@ import {
 
 function CadastroDoacao() {
    const valueCategoria= ["Beneficiário", "Doador"]
-   const valueTipo= ["Cesta Básica","Vestuário","Produtos de Higiêne"]
+   const donationType = [
+      {item: "Cesta Básica", value: "cesta básica"}, 
+      {item: "Vestuário", value: "vestuário"},
+      {item: "Produtos de Higiêne", value: "kit higiene"}
+   ]
    function criaOption(){
       let arrayOption = [];
       for(let i = 0; i < 10; i++){
@@ -54,8 +58,8 @@ function CadastroDoacao() {
                   <Select>
                      <option selected disabled>Selecione</option>
                      {
-                        valueTipo.map(tipo=>{
-                        return(<option>{tipo} </option>)})
+                        donationType.map(tipo=>{
+                        return(<option key={tipo} value={tipo.value}>{tipo.item} </option>)})
                      } 
                   </Select>
                </DivLabel>
