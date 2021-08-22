@@ -58,6 +58,7 @@ function Login(props) {
             )
             .then((res) => {
                 localStorage.setItem("token", res.headers.token);
+                localStorage.setItem('email', valuemail)
                 goTo(history, '/feed')
             })
             .catch((err) => {

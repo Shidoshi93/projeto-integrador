@@ -19,6 +19,7 @@ function NavUserHasCredentials(props) {
 
     const logout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('email')
         goTo(history, "/")
     }
 

@@ -133,3 +133,10 @@ export const Btn = styled.button`
 export const ContainerDescription = styled.div`
     text-align: justify;
 `
+
+export const ContainerBtnPage = styled.div`
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+`
