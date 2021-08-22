@@ -5,6 +5,7 @@ export const ContentCenter = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 `
 
 export const MotherBox = styled.div`
@@ -159,4 +160,24 @@ export const ContainerUserLocation = styled.div`
 export const AddressImg = styled.img`
     height: 40px;
     filter: drop-shadow(3px 5px 2px black);
+`
+
+export const Btn = styled.button`
+    height: 35px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffc1aa;
+    cursor: pointer;
+    bottom: 15px;
+    font-weight: 800;
+
+    &:active{
+        outline: none;
+        border: 1px solid black;
+    }
+
+    &:hover{
+        background-color: #F38D68;
+    }
 `

@@ -24,13 +24,15 @@ import {
     ContainerQty,
     ContainerDescription,
     Description,
-    AddressImg
+    AddressImg,
+    Btn
 } from './style'
 import imgCtt from '../../images/contato.png'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import axios from 'axios'
 import userFotoDefault from '../../images/userphoto.png'
 import { BASE_URL } from '../../constants/constants'
+import { useHistory } from 'react-router-dom'
 
 function PostDetail() {
 
@@ -42,6 +44,7 @@ function PostDetail() {
     useProtectedPage()
     const token = localStorage.getItem('token')
     const [post, setPost] = useState()
+    const history = useHistory()
 
     const getPostById = async () => {
         await axios.get(`${BASE_URL}/post/${id}`, {
@@ -50,7 +53,6 @@ function PostDetail() {
             }
         })
             .then((res) => {
-                console.log('detalhes', res.data)
                 setPost(res.data)
             })
             .catch((err) => {
@@ -119,6 +121,7 @@ function PostDetail() {
                     </ContainerCtt>
                 </CardCtt>
             </MotherBox>
+            <Btn onClick={() => history.goBack()}>Voltar</Btn>
         </ContentCenter>
     )
 }

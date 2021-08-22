@@ -8,7 +8,8 @@ import {
     Btn,
     MotherBox,
     TitleContainer,
-    SearchContainer
+    SearchContainer,
+    ContainerBtnPage
 } from './style'
 import CardItem from './CardItem';
 
@@ -33,7 +34,6 @@ function Cards() {
     const [toggle, setToggle] = useState(false)
     const history = useHistory()
 
-
     const token = localStorage.getItem("token");
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function Cards() {
     }, [])
 
     let numPage = 0
-    const pageSize = 10
+    const pageSize = 12
 
     const handleNumPage = () => {
         numPage += 1
@@ -57,7 +57,6 @@ function Cards() {
         axios.get(`${BASE_URL}/post/listAll/page?page=${numPage}&size${pageSize}`)
             .then((res) => {
                 setPosts(res.data)
-                console.log(res.data)
             })
             .catch((err) => {
                 console.log('erro: ', err)
@@ -76,15 +75,10 @@ function Cards() {
     let filteredPostsByType = posts.filter((post) => {
         if (valueInputFilter.length === 0 || valueInputFilter === '0') {
 
-            const newPosts = {
-                donationType: post.donation_type,
-                description: post.description,
-                id: post.post_id,
-                userType: post.user_type,
-                qtd: post.qtd,
-                status: post.status
-            }
-            return newPosts
+            return posts.sort(function(a, b){
+                return new Date(b.created_at) - new Date(a.created_at)
+            })
+
         } else if (toggle === true) {
             return post.user_type === valueInputFilter
         } else {
@@ -98,16 +92,16 @@ function Cards() {
             <SearchContainer>
                 <select onChange={onChangeFilter} defaultValue='0' className='select'>
                     <option disabled value='0'>Tipo de doação</option>
-                    <option value='Doador'>Quero Receber</option>
-                    <option value='Beneficiário'>Quero Ajudar</option>
+                    <option value='doador'>Quero Receber</option>
+                    <option value='beneficiário'>Quero Ajudar</option>
                     <option value='0'>Ambos</option>
                 </select>
 
                 <select onChange={onChangeFil} defaultValue='0' className='select'>
                     <option disabled value='0'>Tipo de item</option>
-                    <option value='Vestuário'>Vestuário</option>
-                    <option value='Kit higiene'>Kit Higiene</option>
-                    <option value='Cesta Básica'>Alimentação</option>
+                    <option value='vestuário'>Vestuário</option>
+                    <option value='kit higiene'>Kit Higiene</option>
+                    <option value='cesta básica'>Alimentação</option>
                 </select>
             </SearchContainer>
 
@@ -115,7 +109,7 @@ function Cards() {
                 {filteredPostsByType.map((donation) => (
                     <CardContent
                         className='cardContent'
-                        key={`${donation.post_id + donation.user.user_name}`}
+                        key={String(Date.now()) + String(Math.random())}
                         onClick={() => goTo(history, `/detail/${donation.id}`)}
                         color={donation.user_type === "doador" ? "#F38D68" : "#F9DFAC"}
                     >
@@ -145,13 +139,15 @@ function Cards() {
 
                         {/* abre janela de contato com usuário */}
                         <Btn>
-                            {donation.userStatus === "Doador" ? "ACEITAR" : "DOAR"}
+                            {donation.user_type === "doador" ? "ACEITAR" : "DOAR"}
                         </Btn>
                     </CardContent>
                 ))}
             </CardContainer>
-            <button onClick={handleNumPage}>Próxima página</button>
-            <button onClick={handleNumPageBack}>Página anterior</button>
+            <ContainerBtnPage>
+                <Btn onClick={handleNumPage}>Próxima página</Btn>
+                <Btn onClick={handleNumPageBack}>Página anterior</Btn>
+            </ContainerBtnPage>
         </MotherBox>
     )
 }
