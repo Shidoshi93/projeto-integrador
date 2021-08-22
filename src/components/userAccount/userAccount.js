@@ -21,6 +21,7 @@ import {
     FormBtnContainer,
     BtnForm
 } from './styleUserAccount'
+import userFotoDefault from '../../images/userphoto.png'
 
 function UserAccount() {
 
@@ -44,6 +45,8 @@ function UserAccount() {
 
     const [showModal, setShowModal] = useState(false);
 
+    const fotoUser = localStorage.getItem('userFoto')
+
     const openModal = () => {
         setShowModal(prev => !prev);
     };
@@ -58,7 +61,6 @@ function UserAccount() {
     useEffect(() => {
         if (showModal || showChangePassword ? setShowForm(false) : setShowForm(true));;
     }, [showModal, showChangePassword]);
-   
 
     return (
         <div>
@@ -66,7 +68,7 @@ function UserAccount() {
                 <MotherBox>
                     <HeadContainer>
                         <HeadUserContainer>
-                            <ImgContainer src={user.img} alt={user.userFullName} />
+                            <ImgContainer id='userFoto' src={fotoUser ? fotoUser : userFotoDefault} alt={user.userFullName} />
                             <Title>{user.userFullName}</Title>
                         </HeadUserContainer>
                         <HeadBtnContainer>

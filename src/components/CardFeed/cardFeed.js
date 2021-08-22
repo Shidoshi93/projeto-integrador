@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { goTo } from '../../routes/coordinator';
 import { useHistory } from 'react-router';
 import axios from 'axios';
+import { BASE_URL } from '../../constants/constants';
 
 const imgDonation = [
     { src: cestabasica },
@@ -32,68 +33,28 @@ function Cards() {
     const [toggle, setToggle] = useState(false)
     const history = useHistory()
 
+
     const token = localStorage.getItem("token");
-    
+
     useEffect(() => {
         getPosts()
     }, [])
 
-    const donationPosts = [
-        {
-            id: 1,
-            item: "Cesta Básica",
-            key: "Rachel123",
-            qty: "2",
-            userName: "Rachel",
-            state: "RJ",
-            city: "Rio de Janeiro",
-            userStatus: "Beneficiário",
-            description: "Preciso de duas cestas básicas. asdfasdfas asdfasdfasdf asdfa sdfasdf a asdfasdfasdfa asdfa sdf asdfasfdasdfasdf  asdfasdfasdfasdf asdfasfdasdf."
-        },
+    let numPage = 0
+    const pageSize = 10
 
-        {
-            id: 2,
-            item: "Kit higiene",
-            key: "Daniel123",
-            qty: "1",
-            userName: "Daniel",
-            state: "BA",
-            city: "Salvador",
-            userStatus: "Doador",
-            description: "Estou doando um kit higiene completo."
-        },
+    const handleNumPage = () => {
+        numPage += 1
+        getPosts()
+    }
 
-        {
-            id: 3,
-            item: "Vestuário",
-            key: "Monique123",
-            qty: "3",
-            userName: "Monique",
-            state: "RJ",
-            city: "Rio de Janeiro",
-            userStatus: "Doador",
-            description: "Tenho aqui 3 casacos para doar."
-        },
-
-        {
-            id: 4,
-            item: "Cesta Básica",
-            key: "Marina123",
-            qty: "1",
-            userName: "Marina",
-            state: "SP",
-            city: "São Paulo",
-            userStatus: "Doador",
-            description: "Estou doando uma cesta básica."
-        }
-    ];
+    const handleNumPageBack = () => {
+        numPage -= 1
+        getPosts()
+    }
 
     const getPosts = () => {
-        axios.get("http://34.95.175.201:8080/post/getPosts", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
+        axios.get(`${BASE_URL}/post/listAll/page?page=${numPage}&size${pageSize}`)
             .then((res) => {
                 setPosts(res.data)
                 console.log(res.data)
@@ -112,13 +73,22 @@ function Cards() {
         setToggle(false)
     }
 
-    let filteredPostsByType = donationPosts.filter((post) => {
+    let filteredPostsByType = posts.filter((post) => {
         if (valueInputFilter.length === 0 || valueInputFilter === '0') {
-            return donationPosts
-        } else if(toggle === true) {
-            return post.userStatus === valueInputFilter
+
+            const newPosts = {
+                donationType: post.donation_type,
+                description: post.description,
+                id: post.post_id,
+                userType: post.user_type,
+                qtd: post.qtd,
+                status: post.status
+            }
+            return newPosts
+        } else if (toggle === true) {
+            return post.user_type === valueInputFilter
         } else {
-            return post.item === valueInputFilter
+            return post.donation_type === valueInputFilter
         }
     })
 
@@ -126,14 +96,14 @@ function Cards() {
         <MotherBox>
             {/* recebe informações do formulário de doação */}
             <SearchContainer>
-                <select onChange={ onChangeFilter } defaultValue='0' className='select'>
+                <select onChange={onChangeFilter} defaultValue='0' className='select'>
                     <option disabled value='0'>Tipo de doação</option>
                     <option value='Doador'>Quero Receber</option>
                     <option value='Beneficiário'>Quero Ajudar</option>
                     <option value='0'>Ambos</option>
                 </select>
 
-                <select onChange={ onChangeFil } defaultValue='0' className='select'>
+                <select onChange={onChangeFil} defaultValue='0' className='select'>
                     <option disabled value='0'>Tipo de item</option>
                     <option value='Vestuário'>Vestuário</option>
                     <option value='Kit higiene'>Kit Higiene</option>
@@ -145,31 +115,31 @@ function Cards() {
                 {filteredPostsByType.map((donation) => (
                     <CardContent
                         className='cardContent'
-                        key={donation.key}
+                        key={`${donation.post_id + donation.user.user_name}`}
                         onClick={() => goTo(history, `/detail/${donation.id}`)}
-                        color={donation.userStatus === "Doador" ? "#F38D68" : "#F9DFAC"}
+                        color={donation.user_type === "doador" ? "#F38D68" : "#F9DFAC"}
                     >
-                        <TitleContainer color={donation.userStatus === "Doador" ? "#F38D68" : "#F9DFAC"}>
-                            <h3>{donation.userStatus === "Doador" ? "Para doação" : "Preciso de ajuda"}</h3>
+                        <TitleContainer color={donation.user_type === "doador" ? "#F38D68" : "#F9DFAC"}>
+                            <h3>{donation.user_type === "doador" ? "Para doação" : "Preciso de ajuda"}</h3>
                         </TitleContainer>
 
                         <CardItemContent>
                             <CardItem
-                                donationItem={donation.item}
+                                donationItem={donation.donation_type}
                                 imagem={imgDonation}
                             />
 
                             <CardItem
                                 imgUser={userImg}
-                                userStatus={donation.userStatus}
-                                userName={donation.userName}
+                                userStatus={donation.user_type}
+                                userName={donation.user.user_name}
                             />
 
                             <CardItem
                                 imgLocal={local}
                                 alt={'Icone de localizador'}
-                                city={donation.city}
-                                state={donation.state}
+                                city={donation.address.city}
+                                state={donation.address.state}
                             />
                         </CardItemContent>
 
@@ -180,6 +150,8 @@ function Cards() {
                     </CardContent>
                 ))}
             </CardContainer>
+            <button onClick={handleNumPage}>Próxima página</button>
+            <button onClick={handleNumPageBack}>Página anterior</button>
         </MotherBox>
     )
 }

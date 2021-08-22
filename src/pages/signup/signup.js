@@ -34,19 +34,17 @@ function Cadastro() {
     const [modal, setModal] = useState(true)
     const history = useHistory()
 
+    const user = {
+        nome: '',
+        foto: '',
+        cpf: '',
+        email: '',
+        senha: ''
+    }
+
     const handleChangeCep = (event) => {
         setvaluecep(event.target.value)
         console.log(valuecep)
-    }
-
-    const handleCepSubmit = (event) => {
-        event.preventDefault()
-
-        axios.get(`https://viacep.com.br/ws/${valuecep}/json/`)
-            .then(res => res.data)
-            .then(res => setCepData(res))
-            .catch(erro => alert('Não foi possível localizar esse CEP'));
-        return [cepData];
     }
 
     const onchangeemail = (event) => {
@@ -64,7 +62,7 @@ function Cadastro() {
         console.log(valuesenhaconfirma)
     }
 
-    //captura e converte a imagem para base64
+    //captura, converte a imagem para base64 e salva no localStorage
     const onchangeFoto = (event) => {
         const file = event.target.files
 
@@ -74,15 +72,15 @@ function Cadastro() {
         reader.onload = (event) => {
             let item = event.target.result
             console.log('foto', event.target.result)
-
-            //criando o link da imagem com base no base64 da imagem
-            let userPhoto = document.getElementById('userPhoto')
-            userPhoto.setAttribute('src', item)
+            localStorage.setItem('userFoto', item)
         }
     }
 
     const signupContinue = () => {
         setModal(false)
+
+        // user
+        axios.post("", user)
     }
 
     return (
@@ -154,9 +152,6 @@ function Cadastro() {
             </Form> :
                 <AddressModal />
             }
-
-            {/*Teste da imagem*/}
-            <img id='userPhoto' style={{ width: '50px' }} />
         </MotherBox>
     )
 
