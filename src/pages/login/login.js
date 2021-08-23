@@ -59,6 +59,10 @@ function Login(props) {
             )
             .then((res) => {
                 localStorage.setItem("token", res.headers.token);
+                const storageEmail = localStorage.getItem('email')
+                if(storageEmail) {
+                    localStorage.removeItem('email')
+                }
                 localStorage.setItem('email', valuemail)
                 goTo(history, '/feed')
             })

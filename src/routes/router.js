@@ -15,6 +15,7 @@ import NavNoCredentials from "../components/Nav/Nav";
 import NavUserHasCredentials from "../components/Nav/NavUserHasCredentials"
 
 function Router() {
+    const token = localStorage.getItem("token")
     return (
         <BrowserRouter>
             <Switch>
@@ -25,9 +26,9 @@ function Router() {
                     </ContentContainer>
                 </Route>
                 <Route exact path='/feed'>
-                    <NavUserHasCredentials 
+                    {token ? <NavUserHasCredentials 
                         feed = {true}
-                    />
+                    /> : <NavNoCredentials />}
                     <ContentContainer>
                         <Feed />
                     </ContentContainer>

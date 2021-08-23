@@ -34,6 +34,7 @@ import {
 function TelaInicial(){
 
     const history = useHistory()
+    const token = localStorage.getItem("token")
 
 return(
     <div>
@@ -51,10 +52,10 @@ return(
 
         <SectionDoacoes>
             <DivBotaoDoar>
-                <BotaoDoar onClick={() => goTo(history, '/donation')}>Quero Doar</BotaoDoar>
+                <BotaoDoar onClick={token ? () => goTo(history, '/donation') : () => alert("Você deve fazer o login para acessar esta área.")}>Quero Doar</BotaoDoar>
             </DivBotaoDoar>
             <DivBotaoReceber>
-                <BotaoReceber onClick={() => goTo(history, '/donation')}>Quero Receber</BotaoReceber>
+                <BotaoReceber onClick={token ?  () => goTo(history, '/donation') : () => alert("Você deve fazer o login para acessar esta área.")}>Quero Receber</BotaoReceber>
             </DivBotaoReceber>
         </SectionDoacoes>
 

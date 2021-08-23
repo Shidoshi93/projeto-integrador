@@ -77,7 +77,7 @@ function Cadastro() {
         email: valueemail,
         cpf: cpf,
         cellphone: phone,
-        user_img: localStorage.getItem('userFoto'),
+        user_img: localStorage.getItem('userFoto') ? localStorage.getItem('userFoto') : null,
         password: valuesenhaconfirma
     }
     const signupContinue = (event) => {

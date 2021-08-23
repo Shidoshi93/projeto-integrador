@@ -13,10 +13,27 @@ import {
 } from './styleModal'
 import { BASE_URL } from '../../constants/constants';
 import jwt_decode from 'jwt-decode';
+import { goTo } from '../../routes/coordinator';
+import { useHistory } from 'react-router-dom';
 
 export const Modal = ({ showModal, setShowModal }) => {
-    //MODAL HANDLER
+
     const modalRef = useRef();
+    const [valuecep, setvaluecep] = useState('')
+    const [cepData, setCepData] = useState({})
+    const [cep, setCep] = useState('');
+    const [valueemail, setvalueemail] = useState('')
+    const [nome, setNome] = useState('')
+    const [phone, setPhone] = useState('')
+    const [valuesenha, setvaluesenha] = useState('')
+    const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
+    const [address, setAddress] = useState();
+    const [addressId, setAddressId] = useState();
+    const [bairro, setBairro] = useState();
+    const [city, setCity] = useState();
+    const [state, setState] = useState();
+    const [user, setUser] = useState();
+    const [userId, setUserId] = useState();
 
     const closeModal = e => {
         if (modalRef.current === e.target) {
@@ -28,7 +45,6 @@ export const Modal = ({ showModal, setShowModal }) => {
         e => {
             if (e.key === 'Escape' && showModal) {
                 setShowModal(false);
-                console.log('I pressed');
             }
         },
         [setShowModal, showModal]
@@ -41,12 +57,6 @@ export const Modal = ({ showModal, setShowModal }) => {
         },
         [keyPress]
     );
-
-    //VIACEP HANDLER
-    const [valuecep, setvaluecep] = useState('')
-    const [cepData, setCepData] = useState({})
-    const [cep, setCep] = useState('');
-
 
     function handleChangeCep(event) {
         setCep(event.target.value)
@@ -64,10 +74,6 @@ export const Modal = ({ showModal, setShowModal }) => {
             })
             .catch(erro => alert('Não foi possível localizar esse CEP'));
     }
-
-    //GET USER DATA
-    const [user, setUser] = useState();
-    const [userId, setUserId] = useState();
 
     useEffect(() => {
         getUser()
@@ -91,35 +97,18 @@ export const Modal = ({ showModal, setShowModal }) => {
                 setPhone(res.data.cellphone)
                 setvalueemail(res.data.email)
                 localStorage.setItem("userFoto", (res.data.user_img));
-
-                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err.message)
             });
     }
 
-    //USER HANDLER
-    const [valueemail, setvalueemail] = useState('')
-    const [nome, setNome] = useState('')
-    const [phone, setPhone] = useState('')
-    const [valuesenha, setvaluesenha] = useState('')
-    const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
-    const [address, setAddress] = useState();
-    const [addressId, setAddressId] = useState();
-    const [bairro, setBairro] = useState();
-    const [city, setCity] = useState();
-    const [state, setState] = useState();
-
-
     const onchangesenha = (event) => {
         setvaluesenha(event.target.value)
-        console.log(valuesenha)
     }
 
     const onchangesenhaconfirma = (event) => {
         setvaluesenhaconfirma(event.target.value)
-        console.log(valuesenhaconfirma)
     }
 
     const onchangeemail = (event) => {
@@ -154,7 +143,6 @@ export const Modal = ({ showModal, setShowModal }) => {
 
         reader.onload = (event) => {
             let item = event.target.result
-            console.log('foto', event.target.result)
             localStorage.setItem('userFoto', item)
         }
     }
@@ -162,7 +150,7 @@ export const Modal = ({ showModal, setShowModal }) => {
     //GET USER ADDRESS
     useEffect(() => {
         getAddress()
-    }, [user]);
+    }, [userId]);
 
     const getAddress = async () => {
         await axios.get(`${BASE_URL}/address/userId/${userId}`, {
@@ -177,8 +165,6 @@ export const Modal = ({ showModal, setShowModal }) => {
                 setBairro(res.data.neighborhood)
                 setCity(res.data.city)
                 setState(res.data.city)
-
-                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err.message)
@@ -205,7 +191,8 @@ export const Modal = ({ showModal, setShowModal }) => {
         },
     }
 
-    const updateUser = () => {
+    const updateUser = (e) => {
+        e.preventDefault()
 
         axios.patch(`${BASE_URL}/user/${userId}`, bodyUser, {
             headers: {
@@ -214,6 +201,7 @@ export const Modal = ({ showModal, setShowModal }) => {
         })
             .then((res) => {
                 alert("Cadastro atualizado")
+                setShowModal(false)
             })
             .catch((err) => {
                 console.log(err)
@@ -224,7 +212,9 @@ export const Modal = ({ showModal, setShowModal }) => {
                 Authorization: `Bearer ${token}`
             }
         })
-            .then((res) => { })
+            .then((res) => {
+                
+            })
             .catch((err) => {
                 console.log(err)
             })
@@ -313,7 +303,7 @@ export const Modal = ({ showModal, setShowModal }) => {
                                 type='password' value={valuesenhaconfirma}
                                 name='confSenha' id='confSenha'></Input>
                         </FormDataContainer>
-                        <BtnForm onClick={() => { if (window.confirm('Confirma a alteração do cadastro?')) { (updateUser()) } }}>ALTERAR</BtnForm>
+                        <BtnForm onClick={updateUser}>ALTERAR</BtnForm>
                     </Form>
 
                 </MainContainer>
