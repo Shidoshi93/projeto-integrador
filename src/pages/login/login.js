@@ -20,6 +20,7 @@ import {
     BtnSend
 } from '../../styles/buttonStyle'
 import axios from 'axios'
+import { BASE_URL } from '../../constants/constants';
 
 
 function Login(props) {
@@ -53,7 +54,7 @@ function Login(props) {
 
         await axios
             .post(
-                "http://34.95.175.201:8080/login",
+                `${BASE_URL}/login`,
                 body
             )
             .then((res) => {
