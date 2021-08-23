@@ -44,17 +44,17 @@ function Cards() {
     const pageSize = 12
 
     const handleNumPage = () => {
-        numPage += 1
+        numPage = numPage + 1
         getPosts()
     }
 
     const handleNumPageBack = () => {
-        numPage -= 1
+        numPage = numPage - 1
         getPosts()
     }
 
     const getPosts = () => {
-        axios.get(`${BASE_URL}/post/listAll/page?page=${numPage}&size${pageSize}`)
+        axios.get(`${BASE_URL}/post/listAll/page?page=${numPage}&size=${pageSize}`)
             .then((res) => {
                 setPosts(res.data)
             })
