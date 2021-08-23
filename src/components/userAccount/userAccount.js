@@ -86,7 +86,7 @@ function UserAccount() {
     }, [userId]);
 
 
-    const getAddress =  () => {
+    const getAddress = () => {
         axios.get(`${BASE_URL}/address/userId/${userId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -147,9 +147,6 @@ function UserAccount() {
                     </>
                 }
             </MotherBox>
-
-            )
-
         </div>
     )
 }
