@@ -153,13 +153,28 @@ function Cadastro() {
                     ></Input>
 
                     <Label htmlFor='email'>E-mail: </Label>
-                    <Input required type='email' onChange={onchangeemail} value={valueemail} name='email' id='email'></Input>
+                    <Input 
+                    required 
+                    type='email' 
+                    onChange={onchangeemail} 
+                    value={valueemail} 
+                    name='email' 
+                    id='email'></Input>
 
                     <Label htmlFor='senha'>Senha: </Label>
-                    <Input onChange={onchangesenha} type='password' value={valuesenha} name='senha' id='senha'></Input>
+                    <Input 
+                    required
+                    onChange={onchangesenha} 
+                    type='password' 
+                    value={valuesenha} 
+                    name='senha' id='senha'></Input>
 
                     <Label htmlFor='confSenha'>Confirme sua senha: </Label>
-                    <Input onChange={onchangesenhaconfirma} type='password' value={valuesenhaconfirma} name='confSenha' id='confSenha'></Input>
+                    <Input 
+                    onChange={onchangesenhaconfirma} 
+                    type='password' 
+                    value={valuesenhaconfirma} 
+                    name='confSenha' id='confSenha'></Input>
                 </FormDataContainer>
                 <FormBtnContainer>
                     <BtnClear type='submit'>LIMPAR</BtnClear>

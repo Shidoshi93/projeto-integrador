@@ -206,14 +206,15 @@ export const DivTexto = styled.div`
     padding: 10px 50px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: baseline;
     justify-content: space-evenly;
     box-sizing: border-box;
+    align-content: space-around;
 
     & p {
         font-size: 1rem;
         text-align: justify;
-        text-align-last: center;
+        text-align-last: left;
         text-indent: 20px;
         width: 40%;
     }
