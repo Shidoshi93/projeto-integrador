@@ -16,6 +16,8 @@ import {
    BtnClear
 } from '../../styles/buttonStyle';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { goTo } from '../../routes/coordinator';
 
 
 function CadastroDoacao() {
@@ -28,6 +30,8 @@ function CadastroDoacao() {
    const [userId, setUserId] = useState()
    const [addressId, setAddressId] = useState()
 
+   const history = useHistory()
+
    const token = localStorage.getItem('token')
    const storageEmail = localStorage.getItem('email')
    useEffect(() => {
@@ -36,10 +40,10 @@ function CadastroDoacao() {
          getUserByEmail()
       }
 
-      if (userId) {
+      if (userId && storageEmail) {
          getAddressByUserId()
       }
-   })
+   }, [])
 
    const valueCategoria = ["beneficiário", "doador"]
    const donationType = [
@@ -81,7 +85,7 @@ function CadastroDoacao() {
    }
 
    const getUserByEmail = () => {
-      axios.get(`http://localhost:8080/user/?email=${email}`, {
+      axios.get(`http://localhost:8080/user/?email=${storageEmail}`, {
          headers: {
             Authorization: `Bearer ${token}`
          }
@@ -136,6 +140,7 @@ function CadastroDoacao() {
             setDonationType('')
             setQtd('')
             setUserType('')
+            goTo(history, '/feed')
          })
          .catch((err) => {
             console.log(err)
