@@ -26,7 +26,7 @@ function NavNoCredentials(props) {
                 <BarItems id="basic-navbar-nav">
                     <ContainerNav className="me-auto">
                         <Item href="/feed">Postagens</Item>
-                        {props.hasLogin === false ? <></> : <Item href="/login">Login</Item>}
+                        {props.hasLogin === false ? <></> : <><Item href="/login">Login</Item><Item href="/signup">Cadastre-se</Item></>}
                     </ContainerNav>
                 </BarItems>
             </Container>

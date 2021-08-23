@@ -7,8 +7,6 @@ import {
     FormDataContainer,
     Label,
     Input,
-    InputA,
-    BtnCep,
     FormBtnContainer
 
 } from './signupStyle';
@@ -19,33 +17,19 @@ import {
     BtnSend,
     BtnClear
 } from '../../styles/buttonStyle'
-import { goTo } from '../../routes/coordinator';
-import { useHistory } from 'react-router';
 import AddressModal from './adressModal';
-import { render } from '@testing-library/react';
+import { BASE_URL } from '../../constants/constants';
 
 
 function Cadastro() {
     const [valueemail, setvalueemail] = useState('')
     const [valuesenha, setvaluesenha] = useState('')
     const [valuesenhaconfirma, setvaluesenhaconfirma] = useState('')
-    const [valuecep, setvaluecep] = useState('')
-    const [cepData, setCepData] = useState({})
     const [modal, setModal] = useState(true)
-    const history = useHistory()
-
-    const user = {
-        nome: '',
-        foto: '',
-        cpf: '',
-        email: '',
-        senha: ''
-    }
-
-    const handleChangeCep = (event) => {
-        setvaluecep(event.target.value)
-        console.log(valuecep)
-    }
+    const [nome, setNome] = useState('')
+    const [phone, setPhone] = useState('')
+    const [cpf, setCpf] = useState('')
+    const [userId, setUserId] = useState()
 
     const onchangeemail = (event) => {
         setvalueemail(event.target.value)
@@ -62,6 +46,19 @@ function Cadastro() {
         console.log(valuesenhaconfirma)
     }
 
+    const handleNome = (event) => {
+        setNome(event.target.value)
+        console.log(nome)
+    }
+
+    const handlePhone = (event) => {
+        setPhone(event.target.value)
+    }
+
+    const handleCpf = (event) => {
+        setCpf(event.target.value)
+    }
+
     //captura, converte a imagem para base64 e salva no localStorage
     const onchangeFoto = (event) => {
         const file = event.target.files
@@ -75,13 +72,27 @@ function Cadastro() {
             localStorage.setItem('userFoto', item)
         }
     }
-
-    const signupContinue = () => {
+    const bodyUser = {
+        user_name: nome,
+        email: valueemail,
+        cpf: cpf,
+        cellphone: phone,
+        user_img: localStorage.getItem('userFoto'),
+        password: valuesenhaconfirma
+    }
+    const signupContinue = (event) => {
+        event.preventDefault()
         setModal(false)
 
-        // user
-        axios.post("", user)
-    }
+        axios.post(`${BASE_URL}/user/save`, bodyUser)
+            .then((res) => {
+                console.log(res.data)
+                setUserId(res.data.id)
+             })
+            .catch((err) => {
+                console.log(err)
+            })
+    }   
 
     return (
         <MotherBox>
@@ -92,22 +103,26 @@ function Cadastro() {
                 <FormDataContainer>
                     <Label
                         htmlFor='nome'
-                    >Nome: </Label>
+                    >Nome completo: </Label>
                     <Input
                         required
                         type='Text'
                         name='nome'
                         id='nome'
+                        value={nome}
+                        onChange={handleNome}
                     ></Input>
 
                     <Label
-                        htmlFor='sobrenome'
-                    >Sobrenome: </Label>
+                        htmlFor='telefone'
+                    >Telefone: </Label>
                     <Input
                         required
                         type='Text'
-                        name='sobrenome'
-                        id='sobrenome'
+                        name='telefone'
+                        id='telefone'
+                        value={phone}
+                        onChange={handlePhone}
                     ></Input>
 
                     <Label
@@ -120,7 +135,6 @@ function Cadastro() {
                         placeholder='Insira sua foto'
                         name='foto'
                         id='foto'
-                        type="file"
                         onChange={(event) => onchangeFoto(event)}
                     ></Input>
 
@@ -134,6 +148,8 @@ function Cadastro() {
                         placeholder='Digite seu CPF (somente números)'
                         name='cpf'
                         id='cpf'
+                        value={cpf}
+                        onChange={handleCpf}
                     ></Input>
 
                     <Label htmlFor='email'>E-mail: </Label>
@@ -150,7 +166,11 @@ function Cadastro() {
                     <BtnSend type='submit' onClick={signupContinue}>CONTINUAR</BtnSend>
                 </FormBtnContainer>
             </Form> :
-                <AddressModal />
+                <AddressModal 
+                email={valueemail}
+                userId={userId}
+                password={valuesenhaconfirma}
+                />
             }
         </MotherBox>
     )

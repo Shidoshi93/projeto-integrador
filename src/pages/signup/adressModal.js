@@ -1,82 +1,134 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {
     AddressContainer,
     ContainerCep
 } from './signupStyle'
+import {
+    MainContainer,
+    Form,
+    FormDataContainer,
+    Label,
+    Input,
+    InputA,
+    BtnForm,
+    BtnCep,
+    CloseModalButton
+} from '../../components/UserAccount/styleModal'
+import { BASE_URL } from '../../constants/constants';
+import { useHistory } from 'react-router';
+import { goTo } from '../../routes/coordinator';
 
 
-const AddressModal = () => {
-    const [valuecep, setvaluecep] = useState('')
+const AddressModal = (props) => {
+
     const [cepData, setCepData] = useState({})
-    const [user, setUser] = useState({})
+    const [cep, setCep] = useState('');
+    const [bairro, setBairro] = useState();
+    const [city, setCity] = useState();
+    const [state, setState] = useState();
 
-    const token = localStorage.getItem('token')
 
-    const handleChangeCep = (event) => {
-        setvaluecep(event.target.value)
+    function handleChangeCep(event) {
+        setCep(event.target.value)
     }
 
-    const handleCepSubmit = (event) => {
-        event.preventDefault()
+    function handleCepSubmit(event) {
+        event.preventDefault();
 
-        axios.get(`https://viacep.com.br/ws/${valuecep}/json/`)
+        axios.get(`https://viacep.com.br/ws/${cep}/json/`)
             .then((res) => {
                 setCepData(res.data)
-                console.log(cepData)
+                setBairro(res.data.bairro)
+                setCity(res.data.localidade)
+                setState(res.data.uf)
             })
             .catch(erro => alert('Não foi possível localizar esse CEP'));
-        return [cepData];
     }
 
-    const signup = () => {
-        alert("Cadastro concluído com sucesso")
+    const onchangebairro = (event) => {
+        setBairro(event.target.value)
+    }
 
-        // pegar user
-        axios.get("", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then((res) => {
-            setUser(res.data)
-        })
-        .catch(() => {
+    const onchangecity = (event) => {
+        setCity(event.target.value)
+    }
 
-        })
+    const onchangestate = (event) => {
+        setState(event.target.value)
+    }
 
-        const address = {
-            user_id: user.id
+    const history = useHistory()
+
+
+    //LOGIN
+    const login = (event) => {
+        event.preventDefault()
+
+        const bodyAddress = {
+            neighborhood: bairro,
+            city: city,
+            state: state,
+            postalCode: cep,
+            user: {
+                id: props.userId
+            },
         }
 
-        // address
-        axios.post("", address)
-    }
+        axios.post(`${BASE_URL}/address/save`, bodyAddress)
+            .then((res) => {
+                console.log("Endreço salvo com sucesso!")
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        const body = {
+            email: props.email,
+            password: props.password
+        };
+
+        axios
+            .post(
+                `${BASE_URL}/login`,
+                body
+            )
+            .then((res) => {
+                localStorage.setItem("token", res.headers.token);
+                alert("Cadastro concluído com sucesso!")
+                goTo(history, "/feed")
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
 
     return (
-        <div>
-            <ContainerCep>
-                <div className='boxCep'>
-                    <label className='labelCep'>CEP:</label>
-                    <input
-                        type='text'
-                        placeholder='Apenas os números.'
-                        value={valuecep}
-                        onChange={handleChangeCep}
-                    />
-                </div>
-                <button onClick={handleCepSubmit}>Buscar endereço</button>
-            </ContainerCep>
 
-            <AddressContainer>
-                <input className='addressInput' value={cepData && cepData.logradouro} />
-                <input className='addressInput' value={cepData && cepData.bairro} />
-                <input className='addressInput' value={cepData && cepData.ddd} />
-                <input className='addressInput' value={cepData && cepData.localidade} />
-                <input className='addressInput' value={cepData && cepData.uf} />
-                <button onClick={() => { if (window.confirm('Confirma o endereço?')) { signup() } }}>Concluir</button>
-            </AddressContainer>
-        </div>
+        <Form>
+            <FormDataContainer>
+                <Label>CEP: </Label>
+                <div>
+                    <InputA
+                        type="text"
+                        onChange={e => handleChangeCep(e)}
+                        value={cep}
+                        placeholder="Digite seu CEP" />
+                    <BtnCep type="submit" onClick={e => handleCepSubmit(e)}>Pesquisar</BtnCep>
+                </div>
+                <Label>Bairro: </Label>
+                <Input value={cepData.bairro}
+                    onChange={onchangebairro} />
+                <Label>Cidade: </Label>
+                <Input value={cepData.localidade}
+                    onChange={onchangecity} />
+                <Label>Estado: </Label>
+                <Input value={cepData.uf}
+                    onChange={onchangestate} />
+            </FormDataContainer>
+            <BtnForm onClick={login}>CADASTRAR</BtnForm>
+        </Form>
     )
 }
 export default AddressModal
