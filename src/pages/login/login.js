@@ -30,11 +30,11 @@ function Login(props) {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-    
+
         if (token) {
-          goTo(history, '/feed');
+            goTo(history, '/feed');
         }
-      }, [history]);
+    }, [history]);
 
     const onchangeemail = (event) => {
         setvaluemail(event.target.value)
@@ -60,7 +60,7 @@ function Login(props) {
             .then((res) => {
                 localStorage.setItem("token", res.headers.token);
                 const storageEmail = localStorage.getItem('email')
-                if(storageEmail) {
+                if (storageEmail) {
                     localStorage.removeItem('email')
                 }
                 localStorage.setItem('email', valuemail)
@@ -103,12 +103,6 @@ function Login(props) {
 
                 </FormBtnContainer>
             </Form>
-            <HeadContainer>
-
-                <BtnHead onClick={() => goTo(history, '/newpassword')}>Esqueceu a senha?</BtnHead>
-                <BtnHead onClick={() => goTo(history, '/signup')}>Cadastre-se</BtnHead>
-
-            </HeadContainer>
         </MotherBox>
     )
 

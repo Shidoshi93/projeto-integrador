@@ -35,7 +35,7 @@ function NavNoCredentials(props) {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <BarItems id="basic-navbar-nav">
                     <ContainerNav className="me-auto">
-                        <Item href="/feed">Postagens</Item>
+                        <Item href="/feed">Doações</Item>
                         {token ? 
                             <>
                                 <Item href="/profile">Perfil</Item>

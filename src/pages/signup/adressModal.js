@@ -75,7 +75,7 @@ const AddressModal = (props) => {
 
         axios.post(`${BASE_URL}/address/save`, bodyAddress)
             .then((res) => {
-                
+
             })
             .catch((err) => {
                 console.log(err)
@@ -94,7 +94,7 @@ const AddressModal = (props) => {
             .then((res) => {
                 localStorage.setItem("token", res.headers.token);
                 const storageEmail = localStorage.getItem('email')
-                if(storageEmail) {
+                if (storageEmail) {
                     localStorage.removeItem('email')
                 }
                 localStorage.setItem('email', body.email)
@@ -113,6 +113,7 @@ const AddressModal = (props) => {
                 <Label>CEP: </Label>
                 <div>
                     <InputA
+                        required
                         type="text"
                         onChange={e => handleChangeCep(e)}
                         value={cep}
@@ -120,13 +121,19 @@ const AddressModal = (props) => {
                     <BtnCep type="submit" onClick={e => handleCepSubmit(e)}>Pesquisar</BtnCep>
                 </div>
                 <Label>Bairro: </Label>
-                <Input value={cepData.bairro}
+                <Input
+                    required
+                    value={cepData.bairro}
                     onChange={onchangebairro} />
                 <Label>Cidade: </Label>
-                <Input value={cepData.localidade}
+                <Input
+                    required
+                    value={cepData.localidade}
                     onChange={onchangecity} />
                 <Label>Estado: </Label>
-                <Input value={cepData.uf}
+                <Input
+                    required
+                    value={cepData.uf}
                     onChange={onchangestate} />
             </FormDataContainer>
             <BtnForm onClick={login}>CADASTRAR</BtnForm>

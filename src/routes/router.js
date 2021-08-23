@@ -78,7 +78,7 @@ function Router() {
                 </Route>
 
                 <Route exact path='/newpassword'>
-                    <NavUserHasCredentials />
+                    <NavNoCredentials />
                     <ContentContainer>
                         <Recadastro />
                     </ContentContainer>

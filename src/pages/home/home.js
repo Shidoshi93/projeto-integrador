@@ -61,7 +61,7 @@ return(
 
         <SectionSobre>
             <DivSobre>
-                <SobreH2>Sobre o projeto</SobreH2>
+                <SobreH2>Sobre a Alcance</SobreH2>
                 <DivTexto>
                     <p>A Alcance é uma plataforma que surgiu em 2021 como resultado do projeto integrador do curso de programação web oferecido pelo Programa Código Preto, uma ação entre as empresas Digital House e Quinto Andar para formação em tecnologia exclusiva para pessoas negras.</p>
                     <p>Seus desenvolvedores têm em comum a vontade de ajudar a reduzir os impactos socioeconômicos agravados pela pandemia do Covid-19 no Brasil.</p>

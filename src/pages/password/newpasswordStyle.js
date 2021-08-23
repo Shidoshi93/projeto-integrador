@@ -9,14 +9,11 @@ export const MotherBox = styled.div`
     background-image: url(${backgroundImg});
     background-size: 130% 100%;
 `
-export const ContainerTitle = styled.div`
-    width: 25%;
-    height: 10%;
-    position: relative;
-    margin: 5% auto 1% auto;
-    background: #F4F3F3;
+export const Container = styled.div`
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
 `
 export const Title = styled.h1`
     width: 100%;
@@ -43,6 +40,7 @@ export const FormDataContainer = styled.div`
     box-shadow: 15px 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     margin: 2% auto;
+    height: min-content;
 
     @media(max-width: 920px) {
         width: 80%;
