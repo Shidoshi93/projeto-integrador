@@ -55,17 +55,16 @@ export const Label = styled.label`
 `
 export const Input = styled.input`
     width: 70%;
-    height: 2em;
+    height: 2.5em;
     background-color: #FFFFFF;
     border: 1px solid #F38D68;
     border-radius: 10px;
-    padding: 2%;
+    padding: 0.5%;
     box-sizing: border-box;
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
     font-size: 1rem;
-    line-height: 1rem;
     margin-top: .5%;
 
     @media (max-width: 420px) {

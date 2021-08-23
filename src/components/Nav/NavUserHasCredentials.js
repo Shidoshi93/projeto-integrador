@@ -16,6 +16,7 @@ import {
 function NavUserHasCredentials(props) {
 
     const history = useHistory()
+    const token = localStorage.getItem('token')
 
     const logout = () => {
         localStorage.removeItem('token')
@@ -33,7 +34,7 @@ function NavUserHasCredentials(props) {
                         {props.feed === true ? <></> : <Item href="/feed">Postagens</Item>}
                         {props.profile === true ? <></> : <Item href="/profile">Perfil</Item>}
                         {props.donation === true ? <></> : <Item href="/donation">Cadastro de Doações</Item>}
-                        <Item onClick={logout}>Sair</Item>
+                        {token ? <Item onClick={logout}>Sair</Item> : null}
                     </ContainerNav>
                 </BarItems>
             </Container>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import { goTo } from '../../routes/coordinator'
@@ -16,7 +16,17 @@ import {
 
 function NavNoCredentials(props) {
 
+    const token = localStorage.getItem('token')
+    useEffect(() => {
+
+    }, [token])
+
     const history = useHistory()
+
+    const logout = () => {
+        localStorage.removeItem("token")
+        goTo(history, "/")
+    }
 
     return (
         <ContainerNavBar bg="light" expand="lg">
@@ -26,7 +36,16 @@ function NavNoCredentials(props) {
                 <BarItems id="basic-navbar-nav">
                     <ContainerNav className="me-auto">
                         <Item href="/feed">Postagens</Item>
-                        {props.hasLogin === false ? <></> : <><Item href="/login">Login</Item><Item href="/signup">Cadastre-se</Item></>}
+                        {token ? 
+                            <>
+                                <Item href="/profile">Perfil</Item>
+                                <Item onClick={logout}>Sair</Item>
+                            </> : 
+                            <>
+                                <Item href="/login">Login</Item>
+                                <Item href="/signup">Cadastre-se</Item>
+                            </>}
+                        
                     </ContainerNav>
                 </BarItems>
             </Container>

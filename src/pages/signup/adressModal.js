@@ -60,8 +60,6 @@ const AddressModal = (props) => {
 
     const history = useHistory()
 
-
-    //LOGIN
     const login = (event) => {
         event.preventDefault()
 
@@ -77,7 +75,7 @@ const AddressModal = (props) => {
 
         axios.post(`${BASE_URL}/address/save`, bodyAddress)
             .then((res) => {
-                console.log("Endreço salvo com sucesso!")
+                
             })
             .catch((err) => {
                 console.log(err)
@@ -95,6 +93,11 @@ const AddressModal = (props) => {
             )
             .then((res) => {
                 localStorage.setItem("token", res.headers.token);
+                const storageEmail = localStorage.getItem('email')
+                if(storageEmail) {
+                    localStorage.removeItem('email')
+                }
+                localStorage.setItem('email', body.email)
                 alert("Cadastro concluído com sucesso!")
                 goTo(history, "/feed")
             })
@@ -102,7 +105,6 @@ const AddressModal = (props) => {
                 console.log(err);
             });
     };
-
 
     return (
 

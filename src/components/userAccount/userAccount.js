@@ -32,18 +32,25 @@ function UserAccount() {
     const [user, setUser] = useState();
     const [userId, setUserId] = useState();
     const [address, setAddress] = useState();
+    const [showForm, setShowForm] = useState(true);
+    const [showModal, setShowModal] = useState(false);
+    const [showChangePassword, setShowChangePassword] = useState(false);
 
     useEffect(() => {
         getUser()
     }, [])
+
+    useEffect(() => {
+        getUser()
+    }, [showModal])
 
     const token = localStorage.getItem("token");
     let decoded = jwt_decode(token);
 
     const email = decoded.sub;
 
-    const getUser = async () => {
-        await axios.get(`${BASE_URL}/user/?email=${email}`, {
+    const getUser = () => {
+        axios.get(`${BASE_URL}/user/?email=${email}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -51,22 +58,13 @@ function UserAccount() {
             .then((res) => {
                 setUser(res.data)
                 setUserId(res.data.id)
-                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err.message)
             });
     }
 
-
-
     const history = useHistory()
-
-    const [showForm, setShowForm] = useState(true);
-
-    const [showModal, setShowModal] = useState(false);
-
-    const [showChangePassword, setShowChangePassword] = useState(false);
 
     const fotoUser = localStorage.getItem('userFoto')
 
@@ -77,6 +75,7 @@ function UserAccount() {
     const openChangePassword = () => {
         setShowChangePassword(prev => !prev);
     };
+
     useEffect(() => {
         if (showModal || showChangePassword ? setShowForm(false) : setShowForm(true));
     }, [showModal, showChangePassword]);
@@ -84,17 +83,17 @@ function UserAccount() {
 
     useEffect(() => {
         getAddress()
-    }, [user]);
+    }, [userId]);
 
-    const getAddress = async () => {
-        await axios.get(`${BASE_URL}/address/userId/${userId}`, {
+
+    const getAddress =  () => {
+        axios.get(`${BASE_URL}/address/userId/${userId}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         })
             .then((res) => {
                 setAddress(res.data)
-                console.log(res.data)
             })
             .catch((err) => {
                 console.log(err.message)
@@ -106,7 +105,7 @@ function UserAccount() {
             <MotherBox>
                 <HeadContainer>
                     <HeadUserContainer>
-                        <ImgContainer id='userFoto' src={fotoUser ? fotoUser : userFotoDefault} alt={user ? user.user_name : "Carregando dados do usuário..."} />
+                        <ImgContainer id='userFoto' src={user && user.user_img ? user.user_img : userFotoDefault} alt={user && user.user_name} />
                         <Title>{user ? user.user_name : "Carregando dados do usuário..."}</Title>
                     </HeadUserContainer>
                     <HeadBtnContainer>
@@ -123,21 +122,21 @@ function UserAccount() {
                                 <Form>
                                     <FormDataContainer>
                                         <Label>Nome completo: </Label>
-                                        <Input value={user ? user.user_name : "Carregando dados do usuário..."} />
+                                        <Input value={user && user.user_name} />
                                         <Label>Telefone: </Label>
-                                        <Input value={user ? user.cellphone : "Carregando dados do usuário..."} />
+                                        <Input value={user && user.cellphone} />
                                         <Label>CPF: </Label>
-                                        <Input value={user ? user.cpf : "Carregando dados do usuário..."} />
+                                        <Input value={user && user.cpf} />
                                         <Label>E-mail: </Label>
-                                        <Input value={user ? user.email : "Carregando dados do usuário..."} />
+                                        <Input value={user && user.email} />
                                         <Label>CEP: </Label>
-                                        <Input value={address ? address.postalCode : "Carregando dados do usuário..."} />
+                                        <Input value={address ? address.postalCode : 'Caregando dados do usuário'} />
                                         <Label>Cidade: </Label>
-                                        <Input value={address ? address.city : "Carregando dados do usuário..."} />
+                                        <Input value={address ? address.city : 'Caregando dados do usuário'} />
                                         <Label>Estado: </Label>
-                                        <Input value={address ? address.state : "Carregando dados do usuário..."} />
+                                        <Input value={address ? address.state : 'Caregando dados do usuário'} />
                                         <Label>Bairro: </Label>
-                                        <Input value={address ? address.neighborhood : "Carregando dados do usuário..."} />
+                                        <Input value={address ? address.neighborhood : 'Caregando dados do usuário'} />
                                     </FormDataContainer>
                                 </Form>
                             </CardContainer>

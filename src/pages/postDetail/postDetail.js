@@ -35,13 +35,13 @@ import { BASE_URL } from '../../constants/constants'
 import { useHistory } from 'react-router-dom'
 
 function PostDetail() {
-
+    
     useEffect(() => {
         getPostById()
     }, [])
 
     const { id } = useParams()
-    useProtectedPage()
+    
     const token = localStorage.getItem('token')
     const [post, setPost] = useState()
     const history = useHistory()
@@ -59,8 +59,6 @@ function PostDetail() {
                 console.log(err.message)
             })
     }
-
-
 
     return (
         <ContentCenter>

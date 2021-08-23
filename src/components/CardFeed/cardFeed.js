@@ -110,7 +110,7 @@ function Cards() {
                     <CardContent
                         className='cardContent'
                         key={String(Date.now()) + String(Math.random())}
-                        onClick={() => goTo(history, `/detail/${donation.id}`)}
+                        onClick={ token ? () => goTo(history, `/detail/${donation.id}`) :  () => alert('Você não tem autorização para ver os detalhes do post. Deve se logar primeiro.')}
                         color={donation.user_type === "doador" ? "#F38D68" : "#F9DFAC"}
                     >
                         <TitleContainer color={donation.user_type === "doador" ? "#F38D68" : "#F9DFAC"}>
